@@ -1,6 +1,6 @@
 # English for Kids
 
-Aplikasi belajar bahasa Inggris untuk anak TK dan SD bersama **Rexi si dinosaurus**.
+Aplikasi belajar bahasa Inggris untuk anak TK dan SD bersama teman dino pilihanmu.
 Versi anak dari [English Path](https://github.com/iiddon/english-study): struktur dan menunya sama (Belajar · Latihan · Profil).
 
 ## Isi
@@ -8,7 +8,8 @@ Versi anak dari [English Path](https://github.com/iiddon/english-study): struktu
 - 34 pelajaran, 200+ kata bergambar, kalimat contoh untuk SD
 - Kuis bergambar dengan tombol **Kunci Jawaban** (ketukan pertama belum dianggap final)
 - Latihan: tantangan harian, tebak gambar, kartu bergambar, cocokkan pasangan, dengar & pilih, ucapkan kata, nyanyi & tepuk, cerita bergambar, ulang yang salah, ujian bintang
-- Misi harian dan telur dino yang menetas menjadi stiker, fosil, lencana
+- Pilih teman dino (8 karakter tampak depan) dan dandani di **Lemari** memakai koin
+- Misi harian, telur dino yang menetas menjadi 32 stiker jenis dinosaurus, fosil untuk peringkat, lencana
 - Sudut Orang Tua & Guru: progres, level awal, buka semua level, pindah progres antar perangkat
 - Responsif: HP, iPad (tegak & mendatar), laptop. Progres tersimpan otomatis di perangkat.
 
