@@ -1045,6 +1045,29 @@ h3{font-size:19px}
 .btn .coinic{width:26px;height:26px}
 .btn.sun{background:linear-gradient(135deg,#ffc93c,#ffd96e);color:#3d2f00;box-shadow:0 6px 0 rgba(224,168,58,.45)}
 .closet>*,.cpick,.cstage{min-width:0}
+
+/* v9 · merek di kiri atas tetap terlihat */
+.brand .wm{display:inline}
+.brand .ws{display:none}
+@media (max-width:480px){.brand .wl{display:none}.brand .ws{display:inline}.brand{font-size:18px;gap:7px}.mark{width:38px;height:38px}.chips{gap:5px}.chip{padding:6px 8px;font-size:14.5px;gap:4px}.chip .ic,.chip .coinic{width:17px;height:17px}}
+@media (max-width:360px){.brand .ws{display:none}}
+/* v9 · pengaturan di bawah streak/fosil/koin */
+.iconrow.top{margin:-4px 0 -6px}
+/* v9 · Lemari: pratinjau dino tetap terlihat saat menggulir */
+.cbig{width:min(60vw,220px)}
+@media (max-width:899px){
+  .cstage{position:sticky;top:8px;z-index:4;flex-direction:row;align-items:center;gap:12px;text-align:left;padding:12px 14px}
+  .cbig{width:112px;flex:none;background:radial-gradient(circle at 50% 62%,var(--primary-l) 0 60%,transparent 61%)}
+  .ctxt{gap:6px}
+  .ctxt h1{font-size:22px;line-height:1.1}
+  .ctxt .eyebrow{font-size:14px}
+  .coinpill{justify-self:start;padding:5px 12px;font-size:16px}
+  .coinpill .coinic{width:20px;height:20px}
+  .ctxt .chint{display:none}
+  .ctxt .btn{min-height:50px;font-size:19px;padding:8px 12px}
+  .ctxt .btn .coinic{width:22px;height:22px}
+}
+@media (min-width:600px) and (max-width:899px){.cbig{width:150px}.ctxt h1{font-size:26px}.ctxt .chint{display:block}}
 </style>
 </head>
 <body>
@@ -1182,7 +1205,7 @@ const SPECIES = {
  styraco: { n: "Styracosaurus", nick: "Stira", c: "#c7a6ff", a: "#fff3d6", f: ["spikefrill", "nosehorn", "tail"], fact: "Perisai di kepalanya dihiasi duri-duri panjang." },
  micro:   { n: "Microraptor", nick: "Mikro", c: "#8fb7e8", a: "#5a7fd6", f: ["wings", "feathers", "tail"], fact: "Dinosaurus kecil berbulu yang punya empat sayap dan bisa melayang dari pohon ke pohon." }
 };
-const PLAYABLE = ["trex", "trike", "stego", "brachio", "ankylo", "para", "spino", "raptor"];
+const PLAYABLE = ["trex", "trike", "stego", "brachio", "ankylo", "para", "spino", "raptor", "pachy", "dilo", "carno", "styraco"];
 
 function hx(h) { h = h.replace("#", ""); return [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16)); }
 function mix(a, b, t) { const A = hx(a), B = hx(b); return "#" + A.map((v, i) => Math.round(v + (B[i] - v) * t).toString(16).padStart(2, "0")).join(""); }
@@ -1205,7 +1228,6 @@ const CLOSET = {
   { id: "chef", n: "Topi koki", p: 80, s: '<rect x="68" y="24" width="64" height="22" rx="5" fill="#fff" stroke="#e1dcef" stroke-width="2"/><circle cx="76" cy="16" r="16" fill="#fff" stroke="#e1dcef" stroke-width="2"/><circle cx="100" cy="6" r="20" fill="#fff" stroke="#e1dcef" stroke-width="2"/><circle cx="124" cy="16" r="16" fill="#fff" stroke="#e1dcef" stroke-width="2"/><rect x="70" y="18" width="60" height="16" fill="#fff"/>' },
   { id: "cowboy", n: "Topi koboi", p: 90, s: '<path d="M30 44 Q50 58 100 54 Q150 58 170 44 Q150 40 136 46 Z" fill="#b07a4f"/><path d="M66 46 Q62 0 100 4 Q138 0 134 46 Z" fill="#c98f5e"/><rect x="66" y="34" width="68" height="9" fill="#7a4f2e"/>' },
   { id: "wizard", n: "Topi penyihir", p: 110, s: '<path d="M100 -34 L134 44 H66 Z" fill="#7d61e8"/><ellipse cx="100" cy="44" rx="48" ry="10" fill="#5a3fc8"/><path d="M96 4 l4 8 9 1-7 6 2 9-8-4-8 4 2-9-7-6 9-1z" fill="#ffd36e"/>' },
-  { id: "pirate", n: "Topi bajak laut", p: 110, s: '<path d="M44 48 Q100 -26 156 48 Q100 36 44 48 Z" fill="#3d3566"/><circle cx="100" cy="18" r="8" fill="#fff"/><path d="M95 24 L105 30 M105 24 L95 30" stroke="#fff" stroke-width="3"/>' },
   { id: "propeller", n: "Topi baling-baling", p: 130, s: '<path d="M58 48 Q100 4 142 48 Z" fill="#ffd36e"/><path d="M58 48 Q76 16 100 12 L100 48 Z" fill="#ff8a8a"/><rect x="97" y="-8" width="6" height="22" fill="#3d3566"/><ellipse cx="82" cy="-8" rx="18" ry="5" fill="#5aa9f5"/><ellipse cx="118" cy="-8" rx="18" ry="5" fill="#7fd6a8"/>' },
   { id: "crown", n: "Mahkota raja", p: 200, s: '<path d="M66 46 L64 6 L84 24 L100 0 L116 24 L136 6 L134 46 Z" fill="#ffd36e" stroke="#e0a83a" stroke-width="3" stroke-linejoin="round"/><circle cx="100" cy="30" r="6" fill="#ff7a7a"/><circle cx="80" cy="35" r="4" fill="#7cc4ff"/><circle cx="120" cy="35" r="4" fill="#7fd88a"/>' },
   { id: "astro", n: "Helm astronot", p: 220, s: '<circle cx="100" cy="86" r="66" fill="rgba(190,225,255,.28)" stroke="#e6ecf5" stroke-width="9"/><path d="M58 52 Q70 34 92 28" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".8"/>' }],
@@ -1217,10 +1239,15 @@ const CLOSET = {
   { id: "star", n: "Kacamata bintang", p: 70, s: '<path d="M80 60l5 11 12 2-9 8 2 12-10-6-10 6 2-12-9-8 12-2z" fill="#ffd36e" stroke="#e0a83a" stroke-width="2"/><path d="M120 60l5 11 12 2-9 8 2 12-10-6-10 6 2-12-9-8 12-2z" fill="#ffd36e" stroke="#e0a83a" stroke-width="2"/>' },
   { id: "goggles", n: "Kacamata renang", p: 80, s: '<path d="M46 78 H154" stroke="#3a8ee6" stroke-width="6"/><ellipse cx="80" cy="78" rx="17" ry="14" fill="rgba(90,169,245,.35)" stroke="#2a6fc0" stroke-width="4"/><ellipse cx="120" cy="78" rx="17" ry="14" fill="rgba(90,169,245,.35)" stroke="#2a6fc0" stroke-width="4"/>' },
   { id: "three", n: "Kacamata 3D", p: 90, s: '<rect x="58" y="65" width="84" height="26" rx="6" fill="#fff" stroke="#e1dcef" stroke-width="2"/><rect x="63" y="69" width="30" height="18" rx="4" fill="rgba(240,80,80,.75)"/><rect x="107" y="69" width="30" height="18" rx="4" fill="rgba(70,140,240,.75)"/>' },
+  { id: "whisker", n: "Kumis kucing", p: 50, s: '<g stroke="#3d3566" stroke-width="3" stroke-linecap="round"><path d="M62 104 L36 98 M62 110 L34 112 M62 116 L38 124 M138 104 L164 98 M138 110 L166 112 M138 116 L162 124"/></g>' },
+  { id: "cheekstar", n: "Pipi bintang", p: 60, s: '<g fill="#ffd36e" stroke="#e0a83a" stroke-width="1.5"><path d="M62 92l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/><path d="M138 92l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></g>' },
+  { id: "monocle", n: "Kacamata satu", p: 90, s: '<circle cx="120" cy="78" r="17" fill="rgba(255,255,255,.25)" stroke="#e0a83a" stroke-width="4"/><path d="M136 86 Q146 110 138 132" fill="none" stroke="#e0a83a" stroke-width="2.5"/>' },
   { id: "mustache", n: "Kumis lucu", p: 100, s: '<path d="M100 100 Q90 92 80 97 Q74 102 82 104 Q90 104 100 100 Q110 104 118 104 Q126 102 120 97 Q110 92 100 100 Z" fill="#5a3b2a"/>' },
   { id: "hero", n: "Topeng pahlawan", p: 140, s: '<path d="M54 72 Q100 58 146 72 Q146 94 124 92 Q110 90 100 84 Q90 90 76 92 Q54 94 54 72 Z" fill="#ff6b6b"/><ellipse cx="80" cy="78" rx="9" ry="8" fill="#fff"/><ellipse cx="120" cy="78" rx="9" ry="8" fill="#fff"/><circle cx="81" cy="79" r="4.5" fill="#2f3a3a"/><circle cx="119" cy="79" r="4.5" fill="#2f3a3a"/>' }],
  acc: [
   { id: "none", n: "Tanpa", p: 0, s: "", l: "front" },
+  { id: "tie", n: "Dasi sekolah", p: 50, l: "front", s: '<path d="M94 128 H106 L103 136 L109 164 L100 174 L91 164 L97 136 Z" fill="#5aa9f5"/><path d="M95 146 L105 142 M94 156 L106 152" stroke="#3a8ee6" stroke-width="2"/>' },
+  { id: "flowerpin", n: "Jepit bunga", p: 50, l: "front", s: '<g transform="translate(140 50)"><circle cx="0" cy="-9" r="8" fill="#ff9fc4"/><circle cx="9" cy="0" r="8" fill="#ff9fc4"/><circle cx="0" cy="9" r="8" fill="#ff9fc4"/><circle cx="-9" cy="0" r="8" fill="#ff9fc4"/><circle r="6" fill="#ffd36e"/></g>' },
   { id: "bow", n: "Dasi kupu-kupu", p: 40, l: "front", s: '<path d="M80 128 L100 138 L80 148 Z M120 128 L100 138 L120 148 Z" fill="#ff7a59"/><circle cx="100" cy="138" r="6" fill="#d9603f"/>' },
   { id: "scarf", n: "Syal hangat", p: 60, l: "front", s: '<path d="M60 124 Q100 142 140 124 L142 138 Q100 156 58 138 Z" fill="#ffd36e"/><path d="M118 140 L126 176 L112 176 L106 142 Z" fill="#f0b93a"/>' },
   { id: "bell", n: "Kalung lonceng", p: 60, l: "front", s: '<path d="M64 128 Q100 146 136 128" fill="none" stroke="#ff6b6b" stroke-width="6"/><circle cx="100" cy="146" r="9" fill="#ffd36e" stroke="#e0a83a" stroke-width="3"/>' },
@@ -1502,7 +1529,7 @@ function render() {
  (VIEWS[R.name] || VIEWS.home)(R.arg);
 }
 function renderTop() {
- $("#top").innerHTML = `<button class="brand" data-act="home" aria-label="English for Kids, ke beranda">${LOGO(40)}<span class="wm">English for Kids</span></button>
+ $("#top").innerHTML = `<button class="brand" data-act="home" aria-label="English for Kids, ke beranda">${LOGO(40)}<span class="wm"><span class="wl">English for Kids</span><span class="ws">English Kids</span></span></button>
  <div class="chips"><span class="chip" aria-label="Belajar ${streakNow()} hari berturut-turut">${I("flame")}${streakNow()}</span><span class="chip fos" aria-label="${S.fosil} fosil">${I("bone", "ic bone")}${S.fosil}</span><button class="chip coin" data-act="nav" data-v="closet" aria-label="${S.coins} koin, buka Lemari">${COIN}${S.coins}</button></div>`;
 }
 function renderNav() {
@@ -1605,7 +1632,7 @@ VIEWS.practice = () => {
   ["review", "retry", "Ulang yang salah", due ? "Soal yang pernah salah" : "Belum ada soal untuk diulang", due + " soal", "#3f6fe0"],
   ["tests", "trophy", "Ujian bintang", "Uji satu level, buka level berikutnya", Object.values(S.tests).filter(v => v >= 75).length + "/" + LEVELS.length + " lulus", "#3f8a2a"]];
  app.innerHTML = `<div class="stack">
- <div class="greet">${REXI(70)}<div><h1>Latihan seru</h1><p class="muted">Semua permainan memakai kata dari pelajaran yang sudah terbuka.</p></div></div>
+ <div class="greet">${REXI(92, "happy", "wave")}<div><h1>Latihan seru</h1><p class="muted">Semua permainan memakai kata dari pelajaran yang sudah terbuka.</p></div></div>
  <button class="egg${dailyDone ? "" : " ready"}" data-act="daily" style="min-height:84px"><span class="ee" aria-hidden="true">📅</span><span class="grow"><b style="font:700 22px/1.15 var(--display)">Tantangan harian</b><small>${dailyDone ? "Sudah selesai hari ini. Boleh main lagi, tanpa bonus." : "10 soal campuran · bonus 30 fosil & 15 koin"}</small></span></button>
  <div class="tools" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))">${tools.map(([a, ic, t, s, m, c]) => `<button class="tool" data-act="${a}" style="--ldk:${c}" ${a === "review" && !due ? "disabled" : ""}><span class="tic">${I(ic)}</span><span><b>${t}</b><small>${s}</small></span><span class="meta">${m}</span></button>`).join("")}</div>
  <button class="setrow" data-act="parent">${I("heart")}<span class="grow"><b>Sudut Orang Tua & Guru</b><small>Lihat progres, atur level, pindahkan atau hapus progres</small></span>${I("lock")}</button>
@@ -1617,9 +1644,9 @@ VIEWS.profile = () => {
  const got = BADGES.filter(b => S.badges[b.id]), near = BADGES.filter(b => !S.badges[b.id]).sort((a, b) => bp(b) - bp(a)).slice(0, 3);
  const mine = STICKERS.filter(x => S.stickers[x.id]);
  app.innerHTML = `<div class="stack">
+ <div class="iconrow top"><button class="icbtn" data-act="settings" aria-label="Pengaturan">${I("gear")}<span>Pengaturan</span></button></div>
  <div class="prof">${REXI(104, "happy", "wave")}<div class="grow"><p class="eyebrow">${rk.name}</p><h1>${esc(S.name || "Penjelajah Cilik")}</h1><button class="btn ghost auto sm" data-act="nav" data-v="closet">${I("hanger")}Dandani ${DN()}</button></div></div>
  <div class="card rank"><div class="sp"><b class="big">${I("bone", "ic bone")} ${S.fosilAll} fosil terkumpul</b><span class="muted">${rk.next ? "Menuju " + rk.next.name + " (" + rk.next.at + ")" : "Peringkat tertinggi!"}</span></div><div class="bar"><i style="width:${pct}%"></i></div></div>
- <div class="iconrow"><button class="icbtn" data-act="settings" aria-label="Pengaturan">${I("gear")}<span>Pengaturan</span></button></div>
  <dl class="statgrid"><div><dt>Fosil</dt><dd>${S.fosil}</dd></div><div><dt>Koin</dt><dd>${S.coins}</dd></div><div><dt>Hari beruntun</dt><dd>${streakNow()}</dd></div><div><dt>Kata hafal</dt><dd>${knownCount()}</dd></div></dl>
  <div class="ptab">
  <div class="card stack"><div class="sp"><h2>Stiker dino</h2><span class="muted">${mine.length} dari ${STICKERS.length}</span></div>
@@ -1636,7 +1663,7 @@ const stickerBtn = x => { const own = !!S.stickers[x.id]; return `<button class=
 VIEWS.stickers = () => {
  const n = Object.keys(S.stickers).length;
  app.innerHTML = `<div class="stack">${backBtn("profile")}
- <div class="greet">${REXI(70)}<div><h1>Koleksi stiker dino</h1><p class="muted">${n} dari ${STICKERS.length} stiker. Ketuk stiker untuk melihat gambar besar.</p></div></div>
+ <div class="greet">${REXI(92, "happy", "wave")}<div><h1>Koleksi stiker dino</h1><p class="muted">${n} dari ${STICKERS.length} stiker. Ketuk stiker untuk melihat gambar besar.</p></div></div>
  <div class="card stack"><h2>Dinosaurus</h2><div class="stk">${STICKERS.filter(x => !x.rare).map(stickerBtn).join("")}</div></div>
  <div class="card stack"><h2>Warna istimewa</h2><div class="stk">${STICKERS.filter(x => x.rare).map(stickerBtn).join("")}</div></div></div>`;
 };
@@ -1658,7 +1685,7 @@ VIEWS.closet = () => {
  <div class="cstage card"><div class="cbig">${dinoSVG(sp, { look, mood: "happy" })}</div>
   <div class="ctxt"><p class="eyebrow">Lemari ${esc(isChar ? it.n : DN())}</p><h1>${esc(isChar ? it.n + " · " + it.sub : it.n)}</h1>
   <span class="coinpill">${COIN}<b>${S.coins}</b> koin</span>
-  <p class="muted">${isChar ? "Pilih teman dinomu. Gratis, dan bisa diganti kapan saja." : "Ketuk barang untuk mencoba. Beli dengan koin dari menjawab soal dan bermain."}</p>${foot}</div></div>
+  <p class="muted chint">${isChar ? "Gratis, bisa diganti kapan saja." : "Ketuk barang untuk mencoba dulu."}</p>${foot}</div></div>
  <div class="cpick">
   <div class="seg scroll ctabs" role="tablist">${Object.keys(CATN).map(k => `<button role="tab" data-act="ctab" data-v="${k}" aria-selected="${tab === k}">${CATN[k]}</button>`).join("")}</div>
   <div class="cgrid">${items.map(x => { const own = isChar || x.p === 0 || S.owned[tab + ":" + x.id], on = x.id === curId;
@@ -1889,7 +1916,7 @@ let CH = null;
 VIEWS.chants = () => listView("Nyanyi & tepuk", "Lagu pendek yang seru. Dengarkan, ikuti, dan tepuk tangan!", CHANTS, "chant", c => S.sang[c.id] ? "Sudah" : "Baru");
 VIEWS.stories = () => listView("Cerita bergambar", "Baca bersama " + DN() + ", lalu jawab pertanyaannya.", STORIES, "story", s => S.read[s.id] ? "Selesai" : LEVELS[s.lv].grade);
 function listView(t, sub, list, act, meta) {
- app.innerHTML = `<div class="stack">${backBtn(ORIGIN)}<div class="greet">${REXI(64)}<div><h1>${t}</h1><p class="muted">${sub}</p></div></div>
+ app.innerHTML = `<div class="stack">${backBtn(ORIGIN)}<div class="greet">${REXI(92, "happy", "wave")}<div><h1>${t}</h1><p class="muted">${sub}</p></div></div>
  <div class="lst">${list.map(c => `<button class="tool" data-act="${act}" data-v="${c.id}" style="--lv:${LEVELS[c.lv].lv}"><span class="tic">${pic(c.pic)}</span><span><b>${esc(c.t)}</b><small>${esc(c.e)} · ${LEVELS[c.lv].grade}</small></span><span class="meta">${meta(c)}</span></button>`).join("")}</div></div>`;
 }
 VIEWS.chant = id => {
@@ -1922,7 +1949,7 @@ VIEWS.story = id => {
 };
 /* ---------- ujian ---------- */
 VIEWS.tests = () => {
- app.innerHTML = `<div class="stack">${backBtn(ORIGIN)}<div class="greet">${REXI(64)}<div><h1>Ujian bintang</h1><p class="muted">12 soal dari satu level. Lulus 75% membuka level berikutnya dan memberi 50 fosil.</p></div></div>
+ app.innerHTML = `<div class="stack">${backBtn(ORIGIN)}<div class="greet">${REXI(92, "happy", "wave")}<div><h1>Ujian bintang</h1><p class="muted">12 soal dari satu level. Lulus 75% membuka level berikutnya dan memberi 50 fosil.</p></div></div>
  <div class="lst">${LEVELS.map((L, li) => { const op = levelOpen(li), sc = S.tests[L.id]; return `<button class="tool" data-act="test" data-v="${li}" style="--lv:${L.lv};--ldk:${L.ldk}" ${op ? "" : "disabled"}><span class="tic" style="background:var(--ldk);color:#fff">${I(op ? "trophy" : "lock")}</span><span><b>${L.name}</b><small>${L.grade} · ${L.desc}</small></span><span class="meta">${sc != null ? sc + "%" : op ? "Belum" : "Terkunci"}</span></button>`; }).join("")}</div></div>`;
 };
 /* ---------- sudut orang tua ---------- */
