@@ -1068,6 +1068,15 @@ h3{font-size:19px}
   .ctxt .btn .coinic{width:22px;height:22px}
 }
 @media (min-width:600px) and (max-width:899px){.cbig{width:150px}.ctxt h1{font-size:26px}.ctxt .chint{display:block}}
+
+/* v10 · umpan balik: pujian + pil fosil/koin tidak terpotong */
+.fb-top{align-items:center}
+.fb-h{display:flex;flex-direction:column;align-items:flex-start;gap:8px}
+.fb-h .fbt{display:block;line-height:1.05}
+.gains{display:flex;flex-wrap:wrap;gap:6px}
+.fb-h .plus{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;padding:6px 12px;font:900 15.5px/1 var(--body);background:#fff;color:var(--ink);border-radius:99px}
+.fb-h .plus .ic,.fb-h .plus .coinic{width:18px;height:18px}
+.fb-h .plus .bone{color:#b98a4a}
 </style>
 </head>
 <body>
@@ -1409,7 +1418,7 @@ const RANKS = [[0, "Penjelajah Pemula"], [200, "Pencari Fosil"], [600, "Penggali
 
 /* ================= STATE ================= */
 const KEY = "englishkids_v1";
-const fresh = () => ({ onb: 0, name: "", start: 0, allOpen: false, done: {}, tests: {}, fosil: 0, fosilAll: 0, streak: 0, best: 0, lastDay: "", days: {}, wrong: {}, known: {}, stickers: {}, badges: {}, egg: "", daily: "", matchBest: 0, spoke: {}, read: {}, sang: {}, sound: true, sfx: true, rate: "normal", ans: 0, cor: 0, bestCombo: 0, perf: 0, games: 0, dino: "", look: { color: "asli", hat: "none", face: "none", acc: "none" }, owned: {}, coins: 50, coinsAll: 0 });
+const fresh = () => ({ onb: 0, name: "", start: 0, allOpen: false, done: {}, tests: {}, fosil: 0, fosilAll: 0, streak: 0, best: 0, lastDay: "", days: {}, wrong: {}, known: {}, stickers: {}, badges: {}, egg: "", daily: "", matchBest: 0, spoke: {}, read: {}, sang: {}, sound: true, praise: true, sfx: true, rate: "normal", ans: 0, cor: 0, bestCombo: 0, perf: 0, games: 0, dino: "", look: { color: "asli", hat: "none", face: "none", acc: "none" }, owned: {}, coins: 50, coinsAll: 0 });
 let S = fresh();
 function load() {
  try { const r = localStorage.getItem(KEY); if (r) S = Object.assign(fresh(), JSON.parse(r)); } catch (e) {}
@@ -1470,6 +1479,22 @@ function speak(text, onend) {
  } catch (e) { if (onend) onend(); }
 }
 function hear(text) { speak(text); const t = today(); t.h++; touchDay(); save(); }
+/* pujian suara bahasa Indonesia setiap menjawab, lalu kata Inggrisnya diucapkan */
+const PRAISE = ["Benar sekali!", "Kamu hebat!", "Pintar!", "Luar biasa!", "Keren sekali!", "Mantap!", "Bagus sekali!", "Tepat sekali!", "Wah, kamu jago!", "Hebat, jawabanmu benar!", "Hore, benar!", "Kamu memang pintar!"];
+const COMFORT = ["Tidak apa-apa, ayo coba lagi!", "Hampir! Kamu pasti bisa!", "Ayo semangat, kamu pasti bisa!", "Belum tepat, tidak apa-apa ya!"];
+let lastPraise = "";
+function nextFrom(list) { let p; do { p = pick(list); } while (p === lastPraise && list.length > 1); lastPraise = p; return p; }
+function speakID(text, onend) {
+ if (!S.sound || !S.praise || !window.speechSynthesis) { if (onend) onend(); return; }
+ try {
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text); u.lang = "id-ID"; u.rate = 1.1; u.pitch = 1.12;
+  const v = speechSynthesis.getVoices().find(x => /^id/i.test(x.lang)); if (v) u.voice = v;
+  let done = false; const fin = () => { if (!done) { done = true; if (onend) onend(); } };
+  u.onend = fin; u.onerror = fin; setTimeout(fin, 3500);
+  speechSynthesis.speak(u);
+ } catch (e) { if (onend) onend(); }
+}
 let AC = null;
 function tone(seq) {
  if (!S.sfx) return;
@@ -1793,7 +1818,7 @@ function fbHTML(q) {
  const ok = Q.ok, sh = q.show;
  const ansPic = q.type === "story" ? q.opts.find(o => o.v === q.a).pic : sh.pic;
  return `<div class="fb ${ok ? "ok" : "no"}" role="status">
- <div class="fb-top">${REXI(64, ok ? "wow" : "oops", ok ? "hop" : "tilt")}<div class="fb-h"><span>${ok ? pick(["Hebat!", "Pintar!", "Rawr, benar!", "Keren sekali!"]) : pick(["Hampir!", "Tidak apa-apa!", "Ayo coba lagi nanti!"])}</span><span class="plus">${ok ? "+" + Q.lastGain + " fosil · +2 koin" : "+0"}</span></div></div>
+ <div class="fb-top">${REXI(64, ok ? "wow" : "oops", ok ? "hop" : "tilt")}<div class="fb-h"><span class="fbt">${esc(Q.praise || (ok ? "Benar sekali!" : "Hampir!"))}</span><span class="gains">${ok ? `<span class="plus">${I("bone", "ic bone")}+${Q.lastGain} fosil</span><span class="plus">${COIN}+2 koin</span>` : ""}</span></div></div>
  ${q.type === "story" ? (ok ? "" : `<div class="ans">${pic(ansPic)}<span class="grow"><b>Jawaban yang benar</b></span></div>`) :
   `<div class="ans">${pic(ansPic)}<span class="grow"><b>${esc(sh.w)}</b><span>${esc(sh.m)}</span></span><button class="spk" data-act="sayans" aria-label="Dengar jawaban">${I("speaker")}</button></div>`}
  ${!ok && q.type !== "story" ? '<small style="font-weight:700">Soal ini akan muncul lagi di "Ulang yang salah".</small>' : ""}
@@ -1804,7 +1829,7 @@ function lockAnswer() {
  let ok;
  if (q.type === "order") { ok = Q.placed.map(k => q.bank[k]).join(" ") === q.a; Q.sel = "x"; }
  else { if (Q.sel === null) return; ok = Q.sel === q.a; }
- Q.locked = true; Q.ok = ok; Q.res = Q.res || []; Q.res[Q.i] = ok;
+ Q.locked = true; Q.ok = ok; Q.praise = nextFrom(ok ? PRAISE : COMFORT); Q.res = Q.res || []; Q.res[Q.i] = ok;
  const t = today(); t.q++; S.ans++; touchDay();
  if (ok) {
   Q.right++; Q.combo++; S.cor++; t.c++; S.bestCombo = Math.max(S.bestCombo, Q.combo);
@@ -1817,7 +1842,7 @@ function lockAnswer() {
  }
  save(); render();
  const sayAfter = q.after || (q.type === "story" ? null : q.show && q.show.w);
- if (sayAfter) setTimeout(() => speak(sayAfter), 450);
+ setTimeout(() => speakID(Q.praise, () => { if (sayAfter) setTimeout(() => speak(sayAfter), 150); }), 300);
  const b = $(".fb .btn"); if (b) b.focus({ preventScroll: true });
 }
 function nextQ() {
@@ -1856,6 +1881,7 @@ VIEWS.result = () => {
  <dl class="stats3"><div><dt>Fosil</dt><dd>+${Q.earned + r.bonus}</dd></div><div><dt>Koin</dt><dd>+${(Q.coins || 0) + r.coinB}</dd></div><div><dt>Benar</dt><dd>${Q.right}/${n}</dd></div></dl>
  ${Q.missed.length ? `<div class="stack"><h2>Yuk ingat lagi</h2><ul class="missed">${Q.missed.filter(m => m.type !== "story").map(m => `<li>${pic(m.show.pic)}<b>${esc(m.show.w)}</b><small>${esc(m.show.m)}</small></li>`).join("")}</ul></div>` : ""}
  <div class="pair"><button class="btn ghost" data-act="again">${I("retry")}Ulangi</button><button class="btn" data-act="afterres">${Q.kind === "lesson" && nextLesson() ? "Pelajaran berikutnya" : "Selesai"}</button></div>
+ ${Q.kind === "lesson" || (Q.back && Q.back !== "home") ? `<button class="btn ghost" data-act="tohome">${I("home")}Kembali ke Beranda</button>` : ""}
  </div>`;
 };
 
@@ -2006,6 +2032,7 @@ const ACT = {
  quitok: () => { closeSheet(); const b = Q.back || "home"; Q = null; go(b); },
  close: () => closeSheet(),
  again: () => { const o = Q; if (o.kind === "lesson") return ACT.startlesson(o.lid); if (o.kind === "test") return ACT.test(o.li); if (o.kind === "story") return ACT.storyq(); startQuiz({ kind: o.kind, qs: o.remake(), remake: o.remake, back: o.back }); },
+ tohome: () => { Q = null; go("home"); },
  afterres: () => { if (Q.kind === "lesson") { const n = nextLesson(); Q = null; return n ? go("lesson", n.id) : go("home"); } const b = Q.back || "home"; Q = null; go(b); },
  daily: () => { const mk = () => mixedQs(pool(), 10); startQuiz({ kind: "daily", qs: mk(), remake: mk, back: ORIGIN }); },
  picq: () => { const mk = () => mixedQs(pool().filter(w => !w.pic.startsWith("t:")), 8, "word"); startQuiz({ kind: "picq", qs: mk(), remake: mk, back: ORIGIN }); },
@@ -2077,6 +2104,7 @@ const ACT = {
  settings: () => sheet(`<div class="sheet-h"><h2>Pengaturan</h2><button class="iconbtn" data-act="close" aria-label="Tutup">${I("x")}</button></div>
   <div class="setting"><label for="pn"><b>Nama</b></label><input id="pn" type="text" maxlength="20" value="${esc(S.name)}" placeholder="Namamu" data-input="name"></div>
   <div class="setting"><b>Suara bahasa Inggris</b><label class="switch"><input type="checkbox" data-input="sound" ${S.sound ? "checked" : ""}><span>${S.sound ? "Nyala" : "Mati"}</span></label></div>
+  <div class="setting"><span><b>Suara pujian</b><br><small class="muted">“Kamu hebat!”, “Pintar!” setiap menjawab</small></span><label class="switch"><input type="checkbox" data-input="praise" ${S.praise ? "checked" : ""}><span>${S.praise ? "Nyala" : "Mati"}</span></label></div>
   <div class="setting"><b>Kecepatan suara</b><div class="seg" role="group" aria-label="Kecepatan suara">${[["slow", "Pelan"], ["normal", "Normal"]].map(([v, t]) => `<button data-act="rate" data-v="${v}" aria-pressed="${S.rate === v}">${t}</button>`).join("")}</div></div>
   <div class="setting"><b>Efek bunyi</b><label class="switch"><input type="checkbox" data-input="sfx" ${S.sfx ? "checked" : ""}><span>${S.sfx ? "Nyala" : "Mati"}</span></label></div>
   <button class="setrow" data-act="parent">${I("heart")}<span class="grow"><b>Sudut Orang Tua & Guru</b><small>Progres, level, pindah atau hapus progres</small></span>${I("lock")}</button>`, "Pengaturan"),
