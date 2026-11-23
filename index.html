@@ -1077,6 +1077,11 @@ h3{font-size:19px}
 .fb-h .plus{display:inline-flex;align-items:center;gap:5px;white-space:nowrap;padding:6px 12px;font:900 15.5px/1 var(--body);background:#fff;color:var(--ink);border-radius:99px}
 .fb-h .plus .ic,.fb-h .plus .coinic{width:18px;height:18px}
 .fb-h .plus .bone{color:#b98a4a}
+
+/* v11 · telur dino bergambar */
+.egg .ee{display:block;width:58px;height:58px;flex:none;font-size:0}
+.egg .ee svg{width:100%;height:100%;display:block}
+.egg.ready .ee{animation:wiggle 1.2s ease-in-out infinite}
 </style>
 </head>
 <body>
@@ -1388,6 +1393,20 @@ function REXI(size, mood = "happy", cls = "") {
  return `<span class="rexi ${cls}" style="width:${size}px;height:${Math.round(size * 1.17)}px" role="img" aria-label="${DN()} si ${SPECIES[sp].n}">${dinoSVG(sp, { look: S.look, mood })}</span>`;
 }
 const LOGO = s => `<span class="mark" style="width:${s}px;height:${s}px">${dinoSVG(SPECIES[S.dino] ? S.dino : "trex", { look: { color: S.look.color } }).replace('viewBox="-12 -40 230 270"', 'viewBox="38 26 124 124"')}</span>`;
+/* telur dino: utuh berbintik, dan pecah dengan bayi dino (warna dino pilihan) mengintip */
+function eggSVG(hatched) {
+ const shell = "#f6ead0", sd = "#e2cfa6";
+ const spots = '<g opacity=".9"><ellipse cx="34" cy="72" rx="7" ry="5" fill="#a9dc8f"/><ellipse cx="64" cy="80" rx="6" ry="4.5" fill="#ffb38a"/><ellipse cx="70" cy="66" rx="4" ry="3" fill="#a9dc8f"/><ellipse cx="46" cy="86" rx="4" ry="3" fill="#c7a6ff"/></g>';
+ if (!hatched) return `<svg viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="94" rx="30" ry="5" fill="rgba(0,0,0,.08)"/><path d="M50 6C74 6 88 40 88 62C88 84 71 96 50 96C29 96 12 84 12 62C12 40 26 6 50 6Z" fill="${shell}" stroke="${sd}" stroke-width="3"/><g opacity=".9"><ellipse cx="38" cy="34" rx="8" ry="6" fill="#a9dc8f"/><ellipse cx="62" cy="28" rx="5" ry="4" fill="#ffb38a"/><ellipse cx="66" cy="48" rx="7" ry="5" fill="#c7a6ff"/><ellipse cx="30" cy="56" rx="5" ry="4" fill="#ffb38a"/></g>${spots}<ellipse cx="36" cy="22" rx="6" ry="10" fill="#fff" opacity=".55" transform="rotate(25 36 22)"/></svg>`;
+ const sp = SPECIES[S.dino] || SPECIES.trex, c = sp.c, d = mix(c, "#1d2a2a", .28), lt = mix(c, "#ffffff", .45);
+ return `<svg viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="94" rx="30" ry="5" fill="rgba(0,0,0,.08)"/>
+ <g transform="translate(0 -6)"><circle cx="50" cy="46" r="25" fill="${c}"/><ellipse cx="50" cy="56" rx="15" ry="9" fill="${lt}"/>
+ <ellipse cx="41" cy="42" rx="5.5" ry="6" fill="#fff"/><ellipse cx="59" cy="42" rx="5.5" ry="6" fill="#fff"/><circle cx="42" cy="43" r="3.4" fill="#2f3a3a"/><circle cx="58" cy="43" r="3.4" fill="#2f3a3a"/><circle cx="43.3" cy="41.3" r="1.2" fill="#fff"/><circle cx="59.3" cy="41.3" r="1.2" fill="#fff"/>
+ <circle cx="33" cy="52" r="3.5" fill="#ff9fb4" opacity=".8"/><circle cx="67" cy="52" r="3.5" fill="#ff9fb4" opacity=".8"/><path d="M45 57Q50 62 55 57" fill="none" stroke="#2f3a3a" stroke-width="2.2" stroke-linecap="round"/></g>
+ <path d="M12 62C12 84 29 96 50 96C71 96 88 84 88 62L80 54L72 64L62 52L52 64L42 52L32 64L22 52Z" fill="${shell}" stroke="${sd}" stroke-width="3" stroke-linejoin="round"/>${spots}
+ <g transform="rotate(-14 50 20)"><path d="M28 28L34 14C42 4 58 4 66 14L72 28L63 21L55 29L47 21L39 29Z" fill="${shell}" stroke="${sd}" stroke-width="3" stroke-linejoin="round"/><ellipse cx="44" cy="13" rx="4" ry="3" fill="#a9dc8f"/></g>
+ <path d="M14 30l-6-4M86 30l6-4M50 2v0" stroke="#ffd36e" stroke-width="3" stroke-linecap="round"/></svg>`;
+}
 const COIN = '<svg class="coinic" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10" fill="#ffd36e" stroke="#e0a83a" stroke-width="2"/><path d="M12 6.8l1.6 3.3 3.6.5-2.6 2.5.6 3.6-3.2-1.7-3.2 1.7.6-3.6-2.6-2.5 3.6-.5z" fill="#fff"/></svg>';
 
 const SHAPES = {
@@ -1620,7 +1639,7 @@ VIEWS.home = () => {
    : `<button class="cont" data-act="nav" data-v="practice"><span class="tag">Semua pelajaran yang terbuka sudah selesai</span><span class="go"><span class="t">Main di Latihan</span><span class="play">${I("play")}</span></span></button>`}
   <div class="card mission"><div class="mission-h"><h2>Misi hari ini</h2><span class="muted">${mDone} dari 3</span></div>
    ${ms.map(m => { const d = m.n >= m.of; return `<div class="mrow${d ? " done" : ""}"><span class="mbox">${d ? I("check") : ""}</span><span><span class="mt">${m.t}</span><span class="pbar" style="display:block"><i style="width:${Math.min(100, m.n / m.of * 100)}%"></i></span></span><span class="mn">${Math.min(m.n, m.of)}/${m.of}</span></div>`; }).join("")}
-   <button class="egg${eggReady ? " ready" : ""}" data-act="egg" ${eggReady ? "" : 'aria-disabled="true"'}><span class="ee" aria-hidden="true">${eggDone ? "🐣" : "🥚"}</span><span><b>${eggDone ? "Telur sudah menetas hari ini" : eggReady ? "Telur dino siap menetas!" : "Telur dino misterius"}</b><small>${eggDone ? "Datang lagi besok untuk telur baru" : eggReady ? "Ketuk untuk melihat stiker dino barumu" : "Selesaikan 3 misi untuk menetaskan stiker dino"}</small></span></button>
+   <button class="egg${eggReady ? " ready" : ""}" data-act="egg" ${eggReady ? "" : 'aria-disabled="true"'}><span class="ee">${eggSVG(eggDone)}</span><span><b>${eggDone ? "Telur sudah menetas hari ini" : eggReady ? "Telur dino siap menetas!" : "Telur dino misterius"}</b><small>${eggDone ? "Datang lagi besok untuk telur baru" : eggReady ? "Ketuk untuk melihat stiker dino barumu" : "Selesaikan 3 misi untuk menetaskan stiker dino"}</small></span></button>
   </div>
   <div class="tiles">
    ${[["flash", "image", "Kata bergambar", "Balik kartu & dengar", "#ffe0cc", "#ff8a4c", "🍎"], ["hearq", "headphones", "Dengar & pilih", "Telinga jagoan", "#d9ecff", "#3a8ee6", "🎧"], ["say", "mic", "Ucapkan", "Tirukan suaranya", "#ffdcec", "#e9558f", "🎤"], ["stories", "book", "Cerita", "Baca bersama " + DN(), "#e9e1ff", "#7d61e8", "📖"]]
