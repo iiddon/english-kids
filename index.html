@@ -1303,6 +1303,8 @@ h3{font-size:19px}
 .babak .wchip{flex:none}
 .babchip{display:inline-flex;align-items:center;padding:6px 12px;border-radius:99px;background:var(--lilac-l);color:#5a3fc8;font:900 14px/1 var(--body)}
 .mlab small{font-weight:800;font-size:12px;color:var(--muted)}
+.fb-h .fbt{display:flex;flex-direction:column;gap:2px}
+.fbi{font:800 15px/1.2 var(--body);opacity:.75}
 </style>
 </head>
 <body>
@@ -1787,10 +1789,10 @@ function speak(text, onend) {
 }
 function hear(text) { speak(text); const t = today(); t.h++; touchDay(); save(); }
 /* pujian suara bahasa Indonesia setiap menjawab, lalu kata Inggrisnya diucapkan */
-const PRAISE = ["Benar sekali!", "Kamu hebat!", "Pintar!", "Luar biasa!", "Keren sekali!", "Mantap!", "Bagus sekali!", "Tepat sekali!", "Wah, kamu jago!", "Hebat, jawabanmu benar!", "Hore, benar!", "Kamu memang pintar!"];
-const COMFORT = ["Tidak apa-apa, ayo coba lagi!", "Hampir! Kamu pasti bisa!", "Ayo semangat, kamu pasti bisa!", "Belum tepat, tidak apa-apa ya!"];
+const PRAISE = [["Great job!", "Kerja bagus!"], ["Well done!", "Bagus sekali!"], ["Excellent!", "Luar biasa!"], ["Awesome!", "Keren!"], ["You're so smart!", "Kamu pintar sekali!"], ["Fantastic!", "Hebat!"], ["Super!", "Super!"], ["Amazing!", "Menakjubkan!"], ["Perfect!", "Sempurna!"], ["You got it!", "Kamu berhasil!"], ["Brilliant!", "Cemerlang!"], ["Way to go!", "Teruskan!"]];
+const COMFORT = [["Nice try!", "Usaha yang bagus!"], ["Don't give up!", "Jangan menyerah!"], ["Almost there!", "Sedikit lagi!"], ["Keep trying, you can do it!", "Terus coba, kamu pasti bisa!"], ["That's okay, try again!", "Tidak apa-apa, coba lagi!"]];
 let lastPraise = "";
-function nextFrom(list) { let p; do { p = pick(list); } while (p === lastPraise && list.length > 1); lastPraise = p; return p; }
+function nextFrom(list) { let p; do { p = pick(list); } while (p[0] === lastPraise && list.length > 1); lastPraise = p[0]; return p; }
 function speakID(text, onend) {
  if (!S.sound || !S.praise || !window.speechSynthesis) { if (onend) onend(); return; }
  try {
@@ -2063,7 +2065,7 @@ function fbHTML(q) {
  const out = Q.kind !== "story" && Q.hearts <= 0, bossWin = Q.kind === "boss" && Q.bossHP <= 0;
  const nextLbl = bossWin ? "Bos kalah! Lihat hadiah" : out ? "Hati habis. Lihat hasil" : (Q.i + 1 < Q.qs.length ? "Lanjut" : "Lihat hasil");
  return `<div class="fb ${ok ? "ok" : "no"}" role="status">
- <div class="fb-top">${REXI(64, ok ? "wow" : "oops", ok ? "hop" : "tilt")}<div class="fb-h"><span class="fbt">${esc(Q.praise || (ok ? "Benar sekali!" : "Hampir!"))}</span><span class="gains">${ok ? `<span class="plus">${I("bone", "ic bone")}+${Q.lastGain} fosil</span>${Q.lastCoin ? `<span class="plus">${COIN}+${Q.lastCoin} koin</span>` : ""}` : `<span class="plus lose">${I("heart")}−1 hati</span>`}</span></div></div>
+ <div class="fb-top">${REXI(64, ok ? "wow" : "oops", ok ? "hop" : "tilt")}<div class="fb-h"><span class="fbt">${esc(Q.praise ? Q.praise[0] : (ok ? "Great job!" : "Nice try!"))}<small class="fbi">${esc(Q.praise ? Q.praise[1] : "")}</small></span><span class="gains">${ok ? `<span class="plus">${I("bone", "ic bone")}+${Q.lastGain} fosil</span>${Q.lastCoin ? `<span class="plus">${COIN}+${Q.lastCoin} koin</span>` : ""}` : `<span class="plus lose">${I("heart")}−1 hati</span>`}</span></div></div>
  ${q.type === "story" ? (ok ? "" : `<div class="ans">${pic(ansPic)}<span class="grow"><b>Jawaban yang benar</b></span></div>`) :
   `<div class="ans">${pic(ansPic)}<span class="grow"><b>${esc(sh.w)}</b><span>${esc(sh.m)}</span></span><button class="spk" data-act="sayans" aria-label="Dengar jawaban">${I("speaker")}</button></div>`}
  <button class="btn" data-act="nextq">${nextLbl}</button></div>`;
@@ -2099,8 +2101,7 @@ function lockAnswer() {
   else if (Q.wrongRun >= 2 && Q.diff > minDiff(li)) { Q.diff--; Q.wrongRun = 0; Q.diffMsg = "turun"; }
  }
  save(); render();
- const sayAfter = q.after || (q.type === "story" ? null : q.show && q.show.w);
- setTimeout(() => speakID(Q.praise, () => { if (sayAfter) setTimeout(() => speak(sayAfter), 150); }), 300);
+ if (S.praise) setTimeout(() => speak(Q.praise[0]), 250);
  const b = $(".fb .btn"); if (b) b.focus({ preventScroll: true });
 }
 function nextQ() {
@@ -2323,7 +2324,7 @@ const ACT = {
  gsay: () => { if (G && G.kind === "balloon" && G.target) speak(G.target.w); else if (G && G.q) speak(G.q.it.w); },
  mflip: v => memoryFlip(+v), rgate: v => runnerAnswer(+v), tans: v => timedAnswer(+v),
  petfood: v => { PF = +v; SFX.tap(); speak(FOODS[+v][1]); render(); },
- petfeed: () => { const f = FOODS[PF]; if (!f || S.coins < f[3]) return; S.coins -= f[3]; S.pet.full = Math.min(100, S.pet.full + f[4]); if (f[1] === "cake") S.pet.joy = Math.min(100, S.pet.joy + 10); S.st.fed++; PF = null; save(); SFX.ok(); speakID("Nyam, enak!", () => speak("Yummy " + f[1] + "!")); checkBadges(); render(); },
+ petfeed: () => { const f = FOODS[PF]; if (!f || S.coins < f[3]) return; S.coins -= f[3]; S.pet.full = Math.min(100, S.pet.full + f[4]); if (f[1] === "cake") S.pet.joy = Math.min(100, S.pet.joy + 10); S.st.fed++; PF = null; save(); SFX.ok(); speak("Yummy, " + f[1] + "!"); checkBadges(); render(); },
  petplay: () => { S.pet.play = Date.now(); S.pet.joy = Math.min(100, S.pet.joy + 20); save(); SFX.win(); speak("Let's play!"); render(); },
  petbath: () => { S.pet.bath = Date.now(); S.pet.joy = Math.min(100, S.pet.joy + 15); save(); SFX.ok(); speak("So clean!"); render(); },
  test: v => { const li = +v; if (!levelOpen(li)) return; const L = LEVELS[li]; const items = L.lessons.flatMap(x => x.words.concat(x.sents)); startQuiz({ kind: "test", li, qs: shuffle(items).slice(0, 12).map(it => itemQ(it, li)), back: R.name === "tests" ? "tests" : "home" }); },
@@ -2391,7 +2392,7 @@ const ACT = {
  settings: () => sheet(`<div class="sheet-h"><h2>Pengaturan</h2><button class="iconbtn" data-act="close" aria-label="Tutup">${I("x")}</button></div>
   <div class="setting"><label for="pn"><b>Nama</b></label><input id="pn" type="text" maxlength="20" value="${esc(S.name)}" placeholder="Namamu" data-input="name"></div>
   <div class="setting"><b>Suara bahasa Inggris</b><label class="switch"><input type="checkbox" data-input="sound" ${S.sound ? "checked" : ""}><span>${S.sound ? "Nyala" : "Mati"}</span></label></div>
-  <div class="setting"><span><b>Suara pujian</b><br><small class="muted">“Kamu hebat!”, “Pintar!” setiap menjawab</small></span><label class="switch"><input type="checkbox" data-input="praise" ${S.praise ? "checked" : ""}><span>${S.praise ? "Nyala" : "Mati"}</span></label></div>
+  <div class="setting"><span><b>Suara pujian</b><br><small class="muted">“Great job!”, “Nice try!” setiap menjawab</small></span><label class="switch"><input type="checkbox" data-input="praise" ${S.praise ? "checked" : ""}><span>${S.praise ? "Nyala" : "Mati"}</span></label></div>
   <div class="setting"><b>Kecepatan suara</b><div class="seg" role="group" aria-label="Kecepatan suara">${[["slow", "Pelan"], ["normal", "Normal"]].map(([v, t]) => `<button data-act="rate" data-v="${v}" aria-pressed="${S.rate === v}">${t}</button>`).join("")}</div></div>
   <div class="setting"><b>Efek bunyi</b><label class="switch"><input type="checkbox" data-input="sfx" ${S.sfx ? "checked" : ""}><span>${S.sfx ? "Nyala" : "Mati"}</span></label></div>
   <button class="setrow" data-act="parent">${I("heart")}<span class="grow"><b>Sudut Orang Tua & Guru</b><small>Progres, level, pindah atau hapus progres</small></span>${I("lock")}</button>`, "Pengaturan"),
