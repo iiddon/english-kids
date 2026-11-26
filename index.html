@@ -1082,6 +1082,227 @@ h3{font-size:19px}
 .egg .ee{display:block;width:58px;height:58px;flex:none;font-size:0}
 .egg .ee svg{width:100%;height:100%;display:block}
 .egg.ready .ee{animation:wiggle 1.2s ease-in-out infinite}
+
+
+/* ================= REVAMP: hati, combo, tingkat ================= */
+.qstat{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:-6px 0 14px}
+.hearts{display:inline-flex;gap:3px}
+.hrt{width:28px;height:28px;fill:#fff;stroke:#e3dcf6;stroke-width:2}
+.hrt.on{fill:#ff6b8a;stroke:#e24d6e}
+.qstat .combo{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:99px;background:#fff;box-shadow:var(--sh);font:900 15px/1 var(--body);color:var(--muted);margin-left:auto}
+.qstat .combo.hot{background:linear-gradient(90deg,#ffb347,#ffd36e);color:#3d2f00}
+.qstat .combo .ic{width:16px;height:16px}
+.diffchip{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:99px;font:900 14px/1 var(--body);background:var(--mint-l);color:var(--good-ink)}
+.diffchip .ic{width:15px;height:15px}
+.diffchip.d1{background:#fff1c4;color:#7a5500}
+.diffchip.d2{background:#ffe0e6;color:#a8285f}
+.qhint{text-align:center;font-weight:800;margin-top:-6px}
+.plus.lose{color:#a8285f!important}
+
+/* soal eja huruf */
+.spellpic{flex:none}
+.spellpic .pic{--ps:84px}
+.spell{display:grid;gap:18px}
+.lslots{display:flex;justify-content:center;gap:8px;flex-wrap:wrap}
+.lslot{display:grid;place-items:center;width:58px;height:68px;border-radius:18px;background:rgba(255,255,255,.65);box-shadow:inset 0 0 0 3px #d5cbf2;font:700 36px/1 var(--display);color:var(--ink)}
+.lslot.fixed{background:var(--sun-l);box-shadow:none}
+.lslot.filled{background:#fff;box-shadow:var(--sh)}
+.spell.right .lslot{background:var(--mint-l);box-shadow:none}
+.spell.wrong .lslots{animation:shake .35s}
+.spell.wrong .lslot.filled{background:var(--coral-l)}
+.ltiles{display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.ltile{display:grid;place-items:center;width:62px;height:62px;border-radius:18px;background:#fff;box-shadow:var(--sh);font:700 34px/1 var(--display);color:var(--ink)}
+.ltile:nth-child(5n+1){background:#ffe0cc}.ltile:nth-child(5n+2){background:#d9ecff}.ltile:nth-child(5n+3){background:#ffdcec}.ltile:nth-child(5n+4){background:#e9e1ff}.ltile:nth-child(5n){background:#d6f5e4}
+.ltile:disabled{opacity:.28;box-shadow:none}
+@media (max-width:420px){.lslot{width:48px;height:58px;font-size:30px}.ltile{width:54px;height:54px;font-size:29px}}
+
+/* gambar jumlah & orang-aksi */
+.pic-m{display:flex;flex-wrap:wrap;justify-content:center;gap:2px;max-width:calc(var(--ps) * 1.5);font-size:calc(var(--ps) * .46);line-height:1.05;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+.pic-m.n1{font-size:calc(var(--ps) * .8)}
+.pic-p{display:flex;align-items:flex-end;gap:2px;font-size:calc(var(--ps) * .62);line-height:1;font-family:"Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",sans-serif}
+.pic-p span:last-child{font-size:.7em}
+.prompt.lsent{justify-content:center}
+
+/* ================= BOS ================= */
+.bosst{flex:1;font:700 22px/1.1 var(--display)}
+.arena{position:relative;overflow:hidden;margin-bottom:16px;padding:14px 18px 16px;border-radius:30px;background:linear-gradient(180deg,#2f2a55 0%,#4b3f86 70%,#6d5aa8 100%);color:#fff;box-shadow:var(--sh-lg)}
+.arena::after{content:"";position:absolute;left:-10%;right:-10%;bottom:-30px;height:70px;border-radius:50%;background:#3a3070}
+.arow{position:relative;z-index:1;display:flex;align-items:flex-end;justify-content:space-between;gap:8px}
+.ame .rexi{width:96px!important;height:112px!important}
+.aboss{display:block;width:170px;aspect-ratio:230/270}
+.aboss svg{width:100%;height:100%}
+.vs{font:700 38px/1 var(--display);color:#ffd36e;margin-bottom:40px}
+.arena.hit .aboss{animation:shake .4s}
+.arena.miss .ame{animation:shake .4s}
+.ahp{position:relative;z-index:1;display:grid;gap:6px;margin-top:6px}
+.ahp b{font:700 20px/1 var(--display)}
+.ahp small{font-weight:800;opacity:.9}
+.hpbar{display:block;height:20px;border-radius:99px;background:rgba(255,255,255,.2);overflow:hidden}
+.hpbar i{display:block;height:100%;border-radius:99px;background:linear-gradient(90deg,#ff6b6b,#ffb36b);transition:width .4s}
+@media (min-width:700px){.aboss{width:220px}}
+.cont.bossc{background:linear-gradient(135deg,#3d3566,#6d5aa8)}
+.bossprize{display:flex;align-items:center;gap:12px;margin-top:8px;padding:10px 14px;border-radius:22px;background:var(--sun-l);text-align:left;font-weight:800}
+.bossprize .stb{width:70px;flex:none}
+.bosscard .bimg{display:block;width:64px;aspect-ratio:230/270;flex:none}
+.bosscard .bimg svg{width:100%;height:100%}
+.bosscard{grid-template-columns:64px 1fr auto}
+.bosscard.beaten .meta{background:var(--mint-l);color:var(--good-ink)}
+
+/* ================= PETA PETUALANGAN ================= */
+.mapcard{display:grid;gap:10px;padding:14px}
+.islands{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding:4px 2px 6px}
+.islands::-webkit-scrollbar{display:none}
+.isl{flex:none;display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 12px;border-radius:18px;background:var(--lv);min-width:96px;min-height:52px}
+.isl b{font:700 15px/1.1 var(--display);white-space:nowrap}
+.isl small{font:800 12.5px/1.1 var(--body);color:var(--sub-ink)}
+.isl.on{box-shadow:0 0 0 4px var(--primary)}
+.isl.lock{opacity:.6}
+.mapzone{position:relative;border-radius:24px;background:linear-gradient(180deg,#f6f1ff 0%,#eafaf0 100%);overflow:hidden}
+.mappath{position:absolute;inset:0;width:100%;height:100%}
+.mappath .pw1{fill:none;stroke:#fff;stroke-width:18;stroke-linecap:round;stroke-linejoin:round}
+.mappath .pw2{fill:none;stroke:#c9b8f5;stroke-width:5;stroke-dasharray:2 14;stroke-linecap:round}
+.mnode{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:2px;z-index:1}
+.mbtnode{display:grid;place-items:center;width:62px;height:62px;border-radius:50%;background:#fff;border:4px solid #fff;color:var(--muted);box-shadow:inset 0 0 0 4px #e3dcf6,0 5px 0 rgba(125,97,232,.14);font:900 22px/1 var(--body)}
+.mbtnode .ic{width:24px;height:24px}
+.mnode.done .mbtnode{background:var(--mint);color:#fff;box-shadow:0 6px 0 rgba(31,122,78,.25)}
+.mnode.cur .mbtnode{width:74px;height:74px;background:var(--sun);color:var(--ink);box-shadow:0 0 0 7px rgba(255,211,110,.45),0 6px 0 rgba(224,168,58,.35);animation:pulse 1.6s infinite;font-size:26px}
+.mnode.lock .mbtnode{opacity:.75}
+.mlab{display:flex;flex-direction:column;align-items:center;max-width:140px;padding:2px 8px;border-radius:12px;background:rgba(255,255,255,.85);text-align:center}
+.mlab b{font:800 13.5px/1.15 var(--body)}
+.mlab .stars{font-size:13px}
+.mdino{position:absolute;bottom:calc(100% - 8px);left:50%;transform:translateX(-50%)}
+.mdino .rexi{width:62px!important;height:72px!important}
+.mboss{position:absolute;transform:translate(-50%,-50%);display:flex;flex-direction:column;align-items:center;gap:4px;z-index:1}
+.mbossbtn{display:grid;place-items:end center;width:118px;height:118px;border-radius:50%;background:radial-gradient(circle at 50% 70%,#ffcdb8 0 55%,#ffe6dc 56%);box-shadow:0 6px 0 rgba(217,96,63,.25)}
+.mbossbtn:disabled{filter:grayscale(.65);opacity:.8}
+.mboss.ready .mbossbtn{animation:wiggle 1.4s ease-in-out infinite}
+.mbossimg{display:block;width:96px;aspect-ratio:230/270}
+.mbossimg svg{width:100%;height:100%}
+.mbosslab{display:inline-flex;align-items:center;gap:5px;padding:6px 12px;border-radius:99px;background:#3d3566;color:#fff;font:900 13.5px/1.2 var(--body);text-align:center}
+.mbosslab .ic{width:15px;height:15px}
+.mboss.beaten .mbosslab{background:var(--mint-d)}
+.mapzone.closed>*:not(.mapclosed){filter:grayscale(.7);opacity:.45}
+.mapclosed{position:absolute;inset:auto 14px 40% 14px;z-index:3;display:grid;justify-items:center;gap:4px;padding:16px;border-radius:24px;background:#fff;box-shadow:var(--sh-lg);text-align:center}
+.mapclosed .ic{width:30px;height:30px;color:var(--lilac)}
+.mapclosed b{font:700 20px/1.1 var(--display)}
+.mapclosed small{font-weight:800;color:var(--muted)}
+
+/* ================= KANDANG DINO ================= */
+.petmini{display:flex;align-items:center;gap:12px;width:100%;text-align:left;padding:12px 14px}
+.pmimg{display:block;width:70px;aspect-ratio:230/270;flex:none;border-radius:20px;background:var(--mint-l)}
+.pmimg svg{width:100%;height:100%}
+.petmini b{display:block;font:700 20px/1.1 var(--display)}
+.petmini small{display:block;color:var(--muted);font-weight:800;font-size:15px}
+.pb{display:block;height:12px;margin-top:6px;border-radius:99px;background:#ede8fb;overflow:hidden}
+.pb i{display:block;height:100%;border-radius:99px}
+.chipbtn{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:8px 14px;border-radius:99px;background:var(--lilac-l);color:var(--ink);font:900 15px/1 var(--body);white-space:nowrap}
+.chipbtn:disabled{opacity:.5}
+.petcard{display:grid;gap:16px}
+@media (min-width:700px){.petcard{grid-template-columns:300px minmax(0,1fr);align-items:center}}
+.petstage{position:relative;display:grid;place-items:end center;height:290px;border-radius:30px;background:radial-gradient(circle at 50% 74%,#d6f5e4 0 52%,#f1fbf6 53%)}
+.petimg{display:block;width:calc(230px * var(--k));aspect-ratio:230/270;margin-bottom:8px}
+.petimg svg{width:100%;height:100%}
+.petbubble{position:absolute;right:10px;top:12px;display:grid;padding:8px 12px;border-radius:18px 18px 4px 18px;background:#fff;box-shadow:var(--sh);z-index:1}
+.petbubble b{font:700 17px/1.1 var(--display)}
+.petbubble small{color:var(--muted);font-weight:800;font-size:13px}
+.pbarrow{display:grid;grid-template-columns:28px 84px minmax(0,1fr) 48px;gap:10px;align-items:center;font-weight:900}
+.pbarrow .pb{height:16px;margin:0}
+.pbarrow>span:last-child{text-align:right}
+.petwarn{padding:10px 14px;border-radius:16px;background:var(--coral-l);color:var(--bad-deep);font-weight:800}
+.petstages{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.pst{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 6px;border-radius:22px;background:#fff;box-shadow:var(--sh);opacity:.55;text-align:center}
+.pst.on{opacity:1}
+.pst.cur{box-shadow:0 0 0 4px var(--primary)}
+.pst>span{display:block;width:62px;height:66px}
+.pst>span svg{width:100%;height:100%}
+.pst b{font:700 17px/1 var(--display)}
+.pst small{font-weight:800;font-size:12.5px;color:var(--muted)}
+.foods{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (min-width:700px){.foods{grid-template-columns:repeat(6,minmax(0,1fr))}}
+.food{display:flex;flex-direction:column;align-items:center;gap:3px;padding:12px 6px;border-radius:24px;background:#fff;box-shadow:var(--sh);text-align:center}
+.food .fe{font-size:42px;line-height:1}
+.food b{font:700 19px/1.1 var(--display)}
+.food small{font-weight:800;font-size:13px;color:var(--muted)}
+.food.sel{background:var(--primary-l);box-shadow:0 0 0 4px var(--primary)}
+
+/* ================= ARENA MINI-GAME ================= */
+.arena-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (min-width:700px){.arena-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.agame{display:flex;flex-direction:column;gap:4px;padding:14px;border-radius:26px;background:var(--gc);box-shadow:var(--sh);text-align:left;min-height:150px}
+.agame .ae{font-size:40px;line-height:1}
+.agame b{font:700 21px/1.1 var(--display)}
+.agame small{font-weight:800;font-size:14.5px;color:var(--muted)}
+.agame .wchip{align-self:flex-start;margin-top:auto}
+.agame:active{transform:translateY(3px)}
+.game .gtitle{flex:1;font:700 22px/1.1 var(--display)}
+.gtarget{display:flex;align-items:center;gap:12px;padding:12px 16px}
+.gpic .pic{--ps:56px}
+.gtarget .spk{margin-left:auto}
+.sky-area{position:relative;height:min(58dvh,520px);border-radius:28px;background:linear-gradient(180deg,#e7dcff 0%,#ffe9df 70%,#eafaf0 100%);overflow:hidden;box-shadow:var(--sh)}
+.balloon{position:absolute;left:0;top:0;display:grid;place-items:center;width:104px;height:120px;border-radius:50% 50% 46% 46%;background:var(--c);box-shadow:inset -10px -12px 0 rgba(0,0,0,.08),inset 10px 10px 0 rgba(255,255,255,.35);font:700 20px/1.05 var(--display);color:#2f3a3a;padding:6px;text-align:center;will-change:transform}
+.balloon::after{content:"";position:absolute;bottom:-34px;left:50%;width:2px;height:34px;background:#9aa3a3}
+.balloon span{overflow-wrap:anywhere}
+.balloon.pop{animation:popout .22s forwards}
+.balloon.bad{animation:shake .35s}
+@keyframes popout{to{transform:scale(1.5);opacity:0}}
+.memgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+@media (min-width:600px){.memgrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+.mcard{position:relative;aspect-ratio:1;border-radius:22px;perspective:600px;background:none}
+.mcard>span{position:absolute;inset:0;display:grid;place-items:center;border-radius:22px;backface-visibility:hidden;-webkit-backface-visibility:hidden;transition:transform .3s;box-shadow:var(--sh)}
+.mfront{background:#fff;transform:rotateY(180deg)}
+.mfront .pic{--ps:56px}
+.mfront b{font:700 22px/1.1 var(--display);padding:4px;text-align:center}
+.mback{background:var(--grad);color:#fff}
+.mback .ic{width:34px;height:34px}
+.mcard.up .mfront{transform:rotateY(0)}
+.mcard.up .mback{transform:rotateY(-180deg)}
+.mcard.done .mfront{background:var(--mint-l);box-shadow:none}
+.track{position:relative;height:150px;border-radius:28px;background:linear-gradient(180deg,#e7dcff 0 55%,#a5e4bf 56%);overflow:hidden;box-shadow:var(--sh)}
+.runner{position:absolute;left:8%;bottom:14px;animation:hop .5s ease-in-out infinite alternate}
+.gateline{position:absolute;right:10%;top:20px;bottom:10px;width:10px;border-radius:99px;background:repeating-linear-gradient(180deg,#ff8a6b 0 14px,#fff 14px 28px)}
+.tbar{position:absolute;left:14px;right:14px;top:12px;height:10px;border-radius:99px;background:rgba(255,255,255,.6);overflow:hidden}
+.tbar i{display:block;height:100%;width:100%;border-radius:99px;background:linear-gradient(90deg,#ff6b6b,#ffd36e)}
+.gates{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.gate{text-align:center;min-height:86px;border-radius:24px;background:#fff;box-shadow:var(--sh);font:700 22px/1.1 var(--display);padding:8px;overflow-wrap:anywhere}
+.gate:active{transform:translateY(3px);background:var(--primary-l)}
+.bigscore{font:700 54px/1 var(--display)}
+.bigscore small{font-size:20px;color:var(--muted)}
+
+/* ================= LENCANA BERTINGKAT & RARITY ================= */
+.tierrow{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.tier{display:flex;flex-direction:column;align-items:center;gap:2px;padding:8px 4px;border-radius:16px;font:900 16px/1.1 var(--body)}
+.tier b{font:800 12.5px/1 var(--body)}
+.t-b.tier,.bchip.t-b{background:#ffe6d3}.t-s.tier,.bchip.t-s{background:#eef1f6}.t-g.tier,.bchip.t-g{background:#fff1c4}.t-l.tier,.bchip.t-l{background:#efe6ff}
+.bic.on.t-b{background:#e8a26b;color:#fff}.bic.on.t-s{background:#b8c0cc;color:#2f3a3a}.bic.on.t-g{background:#ffcf3f}.bic.on.t-l{background:linear-gradient(135deg,#b9a3ff,#ff9ad5);color:#fff}
+.tierh{margin-top:12px}
+.rar{display:inline-block;padding:2px 8px;border-radius:99px;font-weight:900}
+.rar.r-b{background:var(--soft)}.rar.r-l{background:#efe6ff;color:#5a3fc8}.rar.r-g{background:#fff1c4;color:#8a5f00}
+.citem.r-l{box-shadow:var(--sh),inset 0 0 0 3px #c7b3ff}
+.citem.r-g{box-shadow:var(--sh),inset 0 0 0 3px #ffcf3f;background:linear-gradient(180deg,#fffaf0,#fff)}
+.citem.locked .cth{filter:grayscale(.85) brightness(1.08);opacity:.55}
+.citem.sel{box-shadow:0 0 0 4px var(--primary)}
+.wchip.lock{background:#efeaf8;color:var(--muted)}
+.wchip.lock .ic{width:14px;height:14px}
+.cstage.r-g{box-shadow:var(--sh-lg),inset 0 0 0 4px #ffcf3f}
+.cstage.r-l{box-shadow:var(--sh-lg),inset 0 0 0 4px #c7b3ff}
+.ctxt .btn .ic{width:22px;height:22px;flex:none}
+.ctxt .btn{font-size:18px;line-height:1.15}
+
+/* ================= 3 BABAK ================= */
+.babaks{display:grid;gap:12px}
+@media (min-width:760px){.babaks{grid-template-columns:repeat(3,minmax(0,1fr))}}
+.babak{display:flex;align-items:center;gap:12px;padding:14px;border-radius:24px;background:#fff;box-shadow:var(--sh);text-align:left;min-height:84px}
+.babak .bn{display:grid;place-items:center;width:52px;height:52px;flex:none;border-radius:50%;background:var(--soft);box-shadow:inset 0 0 0 3px #e3dcf6;font:700 24px/1 var(--display);color:var(--muted)}
+.babak .bn .ic{width:24px;height:24px}
+.babak b{display:block;font:700 19px/1.15 var(--display)}
+.babak small{display:block;color:var(--muted);font-weight:800;font-size:14.5px}
+.babak.done .bn{background:var(--mint);color:#fff;box-shadow:none}
+.babak.cur{box-shadow:0 0 0 4px var(--sun),var(--sh)}
+.babak.cur .bn{background:var(--sun);color:var(--ink);box-shadow:none}
+.babak:disabled{opacity:.55;box-shadow:none}
+.babak .wchip{flex:none}
+.babchip{display:inline-flex;align-items:center;padding:6px 12px;border-radius:99px;background:var(--lilac-l);color:#5a3fc8;font:900 14px/1 var(--body)}
+.mlab small{font-weight:800;font-size:12px;color:var(--muted)}
 </style>
 </head>
 <body>
@@ -1219,60 +1440,120 @@ const SPECIES = {
  styraco: { n: "Styracosaurus", nick: "Stira", c: "#c7a6ff", a: "#fff3d6", f: ["spikefrill", "nosehorn", "tail"], fact: "Perisai di kepalanya dihiasi duri-duri panjang." },
  micro:   { n: "Microraptor", nick: "Mikro", c: "#8fb7e8", a: "#5a7fd6", f: ["wings", "feathers", "tail"], fact: "Dinosaurus kecil berbulu yang punya empat sayap dan bisa melayang dari pohon ke pohon." }
 };
-const PLAYABLE = ["trex", "trike", "stego", "brachio", "ankylo", "para", "spino", "raptor", "pachy", "dilo", "carno", "styraco"];
+const PLAYABLE = ["trex", "trike", "stego", "brachio", "ankylo", "para", "spino", "raptor", "pachy", "dilo"];
 
 function hx(h) { h = h.replace("#", ""); return [0, 2, 4].map(i => parseInt(h.slice(i, i + 2), 16)); }
 function mix(a, b, t) { const A = hx(a), B = hx(b); return "#" + A.map((v, i) => Math.round(v + (B[i] - v) * t).toString(16).padStart(2, "0")).join(""); }
 const INK = "#2f3a3a";
 
-/* lemari: warna, topi, wajah, aksesori (koordinat kepala: tengah 100,82) */
+/* lemari: 24 barang per kategori · r: b=biasa, l=langka, g=legenda (req = lencana) */
 const CLOSET = {
  color: [
-  { id: "asli", n: "Warna asli", p: 0 }, { id: "hijau", n: "Hijau daun", p: 30, c: "#7fd88a" }, { id: "biru", n: "Biru langit", p: 30, c: "#8cc8ff" },
-  { id: "pink", n: "Merah muda", p: 40, c: "#ffa8c8" }, { id: "ungu", n: "Ungu", p: 40, c: "#b9a3ff" }, { id: "oranye", n: "Oranye", p: 40, c: "#ffb38a" },
-  { id: "kuning", n: "Kuning", p: 50, c: "#ffd36e" }, { id: "toska", n: "Toska", p: 50, c: "#7fd6c8" }, { id: "merah", n: "Merah", p: 60, c: "#ff8a8a" },
-  { id: "abu", n: "Abu batu", p: 60, c: "#b8c0cc" }, { id: "malam", n: "Biru malam", p: 120, c: "#7a7fe0" }, { id: "emas", n: "Emas berkilau", p: 200, c: "#ffcf3f" }],
+  { id: "asli", n: "Warna asli", p: 0, r: "b" }, { id: "hijau", n: "Hijau daun", p: 75, c: "#7fd88a", r: "b" }, { id: "biru", n: "Biru langit", p: 75, c: "#8cc8ff", r: "b" },
+  { id: "pink", n: "Merah muda", p: 100, c: "#ffa8c8", r: "b" }, { id: "ungu", n: "Ungu", p: 100, c: "#b9a3ff", r: "b" }, { id: "oranye", n: "Oranye", p: 100, c: "#ffb38a", r: "b" },
+  { id: "kuning", n: "Kuning", p: 125, c: "#ffd36e", r: "b" }, { id: "toska", n: "Toska", p: 125, c: "#7fd6c8", r: "b" }, { id: "merah", n: "Merah", p: 150, c: "#ff8a8a", r: "b" },
+  { id: "abu", n: "Abu batu", p: 150, c: "#b8c0cc", r: "b" }, { id: "krem", n: "Krem", p: 150, c: "#f3dfb8", r: "b" }, { id: "lilac", n: "Lilac", p: 175, c: "#d6c4ff", r: "b" },
+  { id: "peach", n: "Peach", p: 175, c: "#ffc4a8", r: "b" }, { id: "langit", n: "Biru muda", p: 200, c: "#a8d8ff", r: "b" },
+  { id: "malam", n: "Biru malam", p: 300, c: "#7a7fe0", r: "l" }, { id: "susu", n: "Cokelat susu", p: 350, c: "#b9875f", r: "l" }, { id: "salju", n: "Putih salju", p: 400, c: "#eef4ff", r: "l" },
+  { id: "zamrud", n: "Zamrud", p: 450, c: "#3fbf8a", r: "l" }, { id: "ruby", n: "Merah delima", p: 500, c: "#e0566b", r: "l" }, { id: "emas", n: "Emas berkilau", p: 600, c: "#ffcf3f", r: "l" },
+  { id: "galaksi", n: "Galaksi", p: 0, c: "#4b3f9e", r: "g", req: "boss6" }, { id: "pelangi", n: "Pelangi", p: 0, c: "#ff9ad5", r: "g", req: "stkall" },
+  { id: "berlian", n: "Berlian", p: 0, c: "#bfefff", r: "g", req: "streak30" }, { id: "lava", n: "Lava", p: 0, c: "#ff5a36", r: "g", req: "allstar" }],
  hat: [
-  { id: "none", n: "Tanpa topi", p: 0, s: "" },
-  { id: "party", n: "Topi pesta", p: 40, s: '<path d="M100 -12 L127 44 H73 Z" fill="#ff7a59"/><path d="M88 16 H112 M81 30 H119" stroke="#fff" stroke-width="4"/><circle cx="100" cy="-14" r="8" fill="#ffd36e"/>' },
-  { id: "cap", n: "Topi pet", p: 50, s: '<path d="M56 48 Q56 4 100 4 Q144 4 144 48 Z" fill="#5aa9f5"/><path d="M122 44 Q162 38 176 50 Q148 58 120 52 Z" fill="#3a8ee6"/><circle cx="100" cy="6" r="5" fill="#3a8ee6"/>' },
-  { id: "beanie", n: "Kupluk", p: 50, s: '<path d="M54 50 Q100 -16 146 50 Z" fill="#7fd6a8"/><rect x="50" y="40" width="100" height="14" rx="7" fill="#3fb87a"/><circle cx="100" cy="2" r="10" fill="#3fb87a"/>' },
-  { id: "flower", n: "Mahkota bunga", p: 70, s: '<path d="M56 46 Q100 26 144 46" fill="none" stroke="#6fbf6f" stroke-width="5"/><g><circle cx="60" cy="44" r="9" fill="#ff9fc4"/><circle cx="80" cy="36" r="9" fill="#ffd36e"/><circle cx="100" cy="33" r="10" fill="#ff8a6b"/><circle cx="120" cy="36" r="9" fill="#b9a3ff"/><circle cx="140" cy="44" r="9" fill="#ffd36e"/></g><g fill="#fff"><circle cx="60" cy="44" r="3"/><circle cx="80" cy="36" r="3"/><circle cx="100" cy="33" r="3"/><circle cx="120" cy="36" r="3"/><circle cx="140" cy="44" r="3"/></g>' },
-  { id: "bunny", n: "Telinga kelinci", p: 70, s: '<path d="M78 46 Q62 -10 76 -16 Q90 -12 92 44 Z" fill="#fff"/><path d="M108 44 Q110 -12 124 -16 Q138 -10 122 46 Z" fill="#fff"/><path d="M80 40 Q70 0 77 -6 Q85 0 87 40 Z" fill="#ffb3c9"/><path d="M113 40 Q115 0 123 -6 Q130 0 120 40 Z" fill="#ffb3c9"/>' },
-  { id: "chef", n: "Topi koki", p: 80, s: '<rect x="68" y="24" width="64" height="22" rx="5" fill="#fff" stroke="#e1dcef" stroke-width="2"/><circle cx="76" cy="16" r="16" fill="#fff" stroke="#e1dcef" stroke-width="2"/><circle cx="100" cy="6" r="20" fill="#fff" stroke="#e1dcef" stroke-width="2"/><circle cx="124" cy="16" r="16" fill="#fff" stroke="#e1dcef" stroke-width="2"/><rect x="70" y="18" width="60" height="16" fill="#fff"/>' },
-  { id: "cowboy", n: "Topi koboi", p: 90, s: '<path d="M30 44 Q50 58 100 54 Q150 58 170 44 Q150 40 136 46 Z" fill="#b07a4f"/><path d="M66 46 Q62 0 100 4 Q138 0 134 46 Z" fill="#c98f5e"/><rect x="66" y="34" width="68" height="9" fill="#7a4f2e"/>' },
-  { id: "wizard", n: "Topi penyihir", p: 110, s: '<path d="M100 -34 L134 44 H66 Z" fill="#7d61e8"/><ellipse cx="100" cy="44" rx="48" ry="10" fill="#5a3fc8"/><path d="M96 4 l4 8 9 1-7 6 2 9-8-4-8 4 2-9-7-6 9-1z" fill="#ffd36e"/>' },
-  { id: "propeller", n: "Topi baling-baling", p: 130, s: '<path d="M58 48 Q100 4 142 48 Z" fill="#ffd36e"/><path d="M58 48 Q76 16 100 12 L100 48 Z" fill="#ff8a8a"/><rect x="97" y="-8" width="6" height="22" fill="#3d3566"/><ellipse cx="82" cy="-8" rx="18" ry="5" fill="#5aa9f5"/><ellipse cx="118" cy="-8" rx="18" ry="5" fill="#7fd6a8"/>' },
-  { id: "crown", n: "Mahkota raja", p: 200, s: '<path d="M66 46 L64 6 L84 24 L100 0 L116 24 L136 6 L134 46 Z" fill="#ffd36e" stroke="#e0a83a" stroke-width="3" stroke-linejoin="round"/><circle cx="100" cy="30" r="6" fill="#ff7a7a"/><circle cx="80" cy="35" r="4" fill="#7cc4ff"/><circle cx="120" cy="35" r="4" fill="#7fd88a"/>' },
-  { id: "astro", n: "Helm astronot", p: 220, s: '<circle cx="100" cy="86" r="66" fill="rgba(190,225,255,.28)" stroke="#e6ecf5" stroke-width="9"/><path d="M58 52 Q70 34 92 28" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".8"/>' }],
+  { id: "none", n: "Tanpa topi", p: 0, r: "b", s: "" },
+  { id: "party", n: "Topi pesta", p: 100, r: "b", s: '<path d="M100 -12 L127 44 H73 Z" fill="#ff7a59"/><path d="M88 16 H112 M81 30 H119" stroke="#fff" stroke-width="4"/><circle cx="100" cy="-14" r="8" fill="#ffd36e"/>' },
+  { id: "cap", n: "Topi pet", p: 125, r: "b", s: '<path d="M56 48 Q56 4 100 4 Q144 4 144 48 Z" fill="#5aa9f5"/><path d="M122 44 Q162 38 176 50 Q148 58 120 52 Z" fill="#3a8ee6"/><circle cx="100" cy="6" r="5" fill="#3a8ee6"/>' },
+  { id: "beanie", n: "Kupluk", p: 125, r: "b", s: '<path d="M54 50 Q100 -16 146 50 Z" fill="#7fd6a8"/><rect x="50" y="40" width="100" height="14" rx="7" fill="#3fb87a"/><circle cx="100" cy="2" r="10" fill="#3fb87a"/>' },
+  { id: "beret", n: "Baret", p: 150, r: "b", s: '<ellipse cx="96" cy="40" rx="48" ry="16" fill="#e0566b"/><path d="M58 44 Q100 54 142 44" fill="none" stroke="#b83f52" stroke-width="5"/><rect x="95" y="18" width="7" height="10" rx="3" fill="#b83f52"/>' },
+  { id: "straw", n: "Topi jerami", p: 150, r: "b", s: '<ellipse cx="100" cy="46" rx="72" ry="13" fill="#f2cf7a"/><path d="M64 46 Q64 8 100 8 Q136 8 136 46 Z" fill="#f6dc94"/><rect x="64" y="34" width="72" height="8" fill="#ff8a8a"/>' },
+  { id: "flower", n: "Mahkota bunga", p: 175, r: "b", s: '<path d="M56 46 Q100 26 144 46" fill="none" stroke="#6fbf6f" stroke-width="5"/><g><circle cx="60" cy="44" r="9" fill="#ff9fc4"/><circle cx="80" cy="36" r="9" fill="#ffd36e"/><circle cx="100" cy="33" r="10" fill="#ff8a6b"/><circle cx="120" cy="36" r="9" fill="#b9a3ff"/><circle cx="140" cy="44" r="9" fill="#ffd36e"/></g><g fill="#fff"><circle cx="60" cy="44" r="3"/><circle cx="80" cy="36" r="3"/><circle cx="100" cy="33" r="3"/><circle cx="120" cy="36" r="3"/><circle cx="140" cy="44" r="3"/></g>' },
+  { id: "bunny", n: "Telinga kelinci", p: 175, r: "b", s: '<path d="M78 46 Q62 -10 76 -16 Q90 -12 92 44 Z" fill="#fff"/><path d="M108 44 Q110 -12 124 -16 Q138 -10 122 46 Z" fill="#fff"/><path d="M80 40 Q70 0 77 -6 Q85 0 87 40 Z" fill="#ffb3c9"/><path d="M113 40 Q115 0 123 -6 Q130 0 120 40 Z" fill="#ffb3c9"/>' },
+  { id: "headphones", n: "Headphone", p: 200, r: "b", s: '<path d="M44 88 Q44 24 100 24 Q156 24 156 88" fill="none" stroke="#3d3566" stroke-width="9" stroke-linecap="round"/><rect x="32" y="72" width="22" height="34" rx="9" fill="#7d61e8"/><rect x="146" y="72" width="22" height="34" rx="9" fill="#7d61e8"/>' },
+  { id: "chef", n: "Topi koki", p: 200, r: "b", s: '<rect x="68" y="24" width="64" height="22" rx="5" fill="#fff" stroke="#e1dcef" stroke-width="2"/><circle cx="76" cy="16" r="16" fill="#fff" stroke="#e1dcef" stroke-width="2"/><circle cx="100" cy="6" r="20" fill="#fff" stroke="#e1dcef" stroke-width="2"/><circle cx="124" cy="16" r="16" fill="#fff" stroke="#e1dcef" stroke-width="2"/><rect x="70" y="18" width="60" height="16" fill="#fff"/>' },
+  { id: "cowboy", n: "Topi koboi", p: 225, r: "b", s: '<path d="M30 44 Q50 58 100 54 Q150 58 170 44 Q150 40 136 46 Z" fill="#b07a4f"/><path d="M66 46 Q62 0 100 4 Q138 0 134 46 Z" fill="#c98f5e"/><rect x="66" y="34" width="68" height="9" fill="#7a4f2e"/>' },
+  { id: "pirate", n: "Topi bajak laut", p: 225, r: "b", s: '<path d="M44 48 Q100 -26 156 48 Q100 36 44 48 Z" fill="#3d3566"/><circle cx="100" cy="18" r="8" fill="#fff"/><path d="M95 24 L105 30 M105 24 L95 30" stroke="#fff" stroke-width="3"/>' },
+  { id: "tophat", n: "Topi tinggi", p: 250, r: "b", s: '<rect x="70" y="-8" width="60" height="50" rx="6" fill="#3d3566"/><rect x="70" y="26" width="60" height="9" fill="#e0566b"/><ellipse cx="100" cy="44" rx="52" ry="9" fill="#2b2547"/>' },
+  { id: "santa", n: "Topi sinterklas", p: 250, r: "b", s: '<path d="M58 46 Q72 0 120 6 Q146 12 150 34 L136 40 Q120 18 100 18 Q80 22 76 46 Z" fill="#e0453f"/><rect x="54" y="38" width="96" height="14" rx="7" fill="#fff"/><circle cx="152" cy="36" r="9" fill="#fff"/>' },
+  { id: "wizard", n: "Topi penyihir", p: 300, r: "l", s: '<path d="M100 -34 L134 44 H66 Z" fill="#7d61e8"/><ellipse cx="100" cy="44" rx="48" ry="10" fill="#5a3fc8"/><path d="M96 4 l4 8 9 1-7 6 2 9-8-4-8 4 2-9-7-6 9-1z" fill="#ffd36e"/>' },
+  { id: "propeller", n: "Topi baling-baling", p: 350, r: "l", s: '<path d="M58 48 Q100 4 142 48 Z" fill="#ffd36e"/><path d="M58 48 Q76 16 100 12 L100 48 Z" fill="#ff8a8a"/><rect x="97" y="-8" width="6" height="22" fill="#3d3566"/><ellipse cx="82" cy="-8" rx="18" ry="5" fill="#5aa9f5"/><ellipse cx="118" cy="-8" rx="18" ry="5" fill="#7fd6a8"/>' },
+  { id: "graduate", n: "Topi wisuda", p: 400, r: "l", s: '<path d="M40 22 L100 2 L160 22 L100 42 Z" fill="#3d3566"/><path d="M68 32 V48 Q100 58 132 48 V32" fill="#2b2547"/><path d="M150 26 V52" stroke="#ffd36e" stroke-width="3"/><circle cx="150" cy="55" r="5" fill="#ffd36e"/>' },
+  { id: "viking", n: "Helm viking", p: 450, r: "l", s: '<path d="M56 50 Q56 8 100 8 Q144 8 144 50 Z" fill="#b8c0cc"/><rect x="54" y="40" width="92" height="10" fill="#8a929e"/><path d="M58 36 Q30 30 28 4 Q46 22 64 24 Z" fill="#fff3d6"/><path d="M142 36 Q170 30 172 4 Q154 22 136 24 Z" fill="#fff3d6"/>' },
+  { id: "tiara", n: "Tiara", p: 500, r: "l", s: '<path d="M64 46 Q100 28 136 46" fill="none" stroke="#c0c8d8" stroke-width="5"/><path d="M78 40 L84 22 L92 38 M100 34 L100 12 M108 38 L116 22 L122 40" fill="none" stroke="#c0c8d8" stroke-width="4" stroke-linecap="round"/><circle cx="100" cy="12" r="6" fill="#ff9fc4"/><circle cx="84" cy="22" r="4" fill="#9fd8ff"/><circle cx="116" cy="22" r="4" fill="#9fd8ff"/>' },
+  { id: "crown", n: "Mahkota raja", p: 600, r: "l", s: '<path d="M66 46 L64 6 L84 24 L100 0 L116 24 L136 6 L134 46 Z" fill="#ffd36e" stroke="#e0a83a" stroke-width="3" stroke-linejoin="round"/><circle cx="100" cy="30" r="6" fill="#ff7a7a"/><circle cx="80" cy="35" r="4" fill="#7cc4ff"/><circle cx="120" cy="35" r="4" fill="#7fd88a"/>' },
+  { id: "trexcrown", n: "Mahkota T-Rex", p: 0, r: "g", req: "boss6", s: '<path d="M58 48 L54 0 L76 22 L88 -8 L100 18 L112 -8 L124 22 L146 0 L142 48 Z" fill="#ffcf3f" stroke="#c98a00" stroke-width="3" stroke-linejoin="round"/><rect x="58" y="38" width="84" height="10" fill="#e0453f"/><circle cx="100" cy="26" r="7" fill="#7fd6ff"/><circle cx="76" cy="32" r="4" fill="#7fd88a"/><circle cx="124" cy="32" r="4" fill="#ff9fc4"/>' },
+  { id: "halo", n: "Lingkaran cahaya", p: 0, r: "g", req: "bossperfect", s: '<ellipse cx="100" cy="12" rx="40" ry="11" fill="none" stroke="#ffe27a" stroke-width="10" opacity=".45"/><ellipse cx="100" cy="12" rx="38" ry="10" fill="none" stroke="#ffd36e" stroke-width="6"/>' },
+  { id: "unicorn", n: "Tanduk unicorn", p: 0, r: "g", req: "stkall", s: '<path d="M90 42 L104 -16 L114 42 Z" fill="#ffe7a8" stroke="#f0c050" stroke-width="2"/><path d="M93 30 L111 24 M96 16 L108 11" stroke="#f0c050" stroke-width="2"/><circle cx="72" cy="40" r="8" fill="#ff9fc4"/><circle cx="128" cy="40" r="8" fill="#b9a3ff"/>' },
+  { id: "astro", n: "Helm astronot", p: 0, r: "g", req: "petadult", s: '<circle cx="100" cy="86" r="66" fill="rgba(190,225,255,.28)" stroke="#e6ecf5" stroke-width="9"/><path d="M58 52 Q70 34 92 28" fill="none" stroke="#fff" stroke-width="6" stroke-linecap="round" opacity=".8"/>' }],
  face: [
-  { id: "none", n: "Tanpa", p: 0, s: "" },
-  { id: "round", n: "Kacamata bulat", p: 40, s: '<g fill="rgba(255,255,255,.25)" stroke="#3d3566" stroke-width="4"><circle cx="80" cy="78" r="17"/><circle cx="120" cy="78" r="17"/></g><path d="M97 77 H103" stroke="#3d3566" stroke-width="4" stroke-linecap="round"/>' },
-  { id: "sun", n: "Kacamata hitam", p: 60, s: '<rect x="60" y="66" width="36" height="24" rx="10" fill="#3d3566"/><rect x="104" y="66" width="36" height="24" rx="10" fill="#3d3566"/><path d="M96 74 H104" stroke="#3d3566" stroke-width="4"/><path d="M68 72 H80 M112 72 H124" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".7"/>' },
-  { id: "heart", n: "Kacamata hati", p: 70, s: '<path d="M80 96 L62 77 A9.5 9.5 0 0 1 80 66 A9.5 9.5 0 0 1 98 77 Z" fill="#ff6fa5"/><path d="M120 96 L102 77 A9.5 9.5 0 0 1 120 66 A9.5 9.5 0 0 1 138 77 Z" fill="#ff6fa5"/>' },
-  { id: "star", n: "Kacamata bintang", p: 70, s: '<path d="M80 60l5 11 12 2-9 8 2 12-10-6-10 6 2-12-9-8 12-2z" fill="#ffd36e" stroke="#e0a83a" stroke-width="2"/><path d="M120 60l5 11 12 2-9 8 2 12-10-6-10 6 2-12-9-8 12-2z" fill="#ffd36e" stroke="#e0a83a" stroke-width="2"/>' },
-  { id: "goggles", n: "Kacamata renang", p: 80, s: '<path d="M46 78 H154" stroke="#3a8ee6" stroke-width="6"/><ellipse cx="80" cy="78" rx="17" ry="14" fill="rgba(90,169,245,.35)" stroke="#2a6fc0" stroke-width="4"/><ellipse cx="120" cy="78" rx="17" ry="14" fill="rgba(90,169,245,.35)" stroke="#2a6fc0" stroke-width="4"/>' },
-  { id: "three", n: "Kacamata 3D", p: 90, s: '<rect x="58" y="65" width="84" height="26" rx="6" fill="#fff" stroke="#e1dcef" stroke-width="2"/><rect x="63" y="69" width="30" height="18" rx="4" fill="rgba(240,80,80,.75)"/><rect x="107" y="69" width="30" height="18" rx="4" fill="rgba(70,140,240,.75)"/>' },
-  { id: "whisker", n: "Kumis kucing", p: 50, s: '<g stroke="#3d3566" stroke-width="3" stroke-linecap="round"><path d="M62 104 L36 98 M62 110 L34 112 M62 116 L38 124 M138 104 L164 98 M138 110 L166 112 M138 116 L162 124"/></g>' },
-  { id: "cheekstar", n: "Pipi bintang", p: 60, s: '<g fill="#ffd36e" stroke="#e0a83a" stroke-width="1.5"><path d="M62 92l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/><path d="M138 92l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></g>' },
-  { id: "monocle", n: "Kacamata satu", p: 90, s: '<circle cx="120" cy="78" r="17" fill="rgba(255,255,255,.25)" stroke="#e0a83a" stroke-width="4"/><path d="M136 86 Q146 110 138 132" fill="none" stroke="#e0a83a" stroke-width="2.5"/>' },
-  { id: "mustache", n: "Kumis lucu", p: 100, s: '<path d="M100 100 Q90 92 80 97 Q74 102 82 104 Q90 104 100 100 Q110 104 118 104 Q126 102 120 97 Q110 92 100 100 Z" fill="#5a3b2a"/>' },
-  { id: "hero", n: "Topeng pahlawan", p: 140, s: '<path d="M54 72 Q100 58 146 72 Q146 94 124 92 Q110 90 100 84 Q90 90 76 92 Q54 94 54 72 Z" fill="#ff6b6b"/><ellipse cx="80" cy="78" rx="9" ry="8" fill="#fff"/><ellipse cx="120" cy="78" rx="9" ry="8" fill="#fff"/><circle cx="81" cy="79" r="4.5" fill="#2f3a3a"/><circle cx="119" cy="79" r="4.5" fill="#2f3a3a"/>' }],
+  { id: "none", n: "Tanpa", p: 0, r: "b", s: "" },
+  { id: "freckles", n: "Bintik pipi", p: 100, r: "b", s: '<g fill="#c98a5a" opacity=".75"><circle cx="58" cy="96" r="2.6"/><circle cx="65" cy="102" r="2.6"/><circle cx="55" cy="104" r="2.6"/><circle cx="142" cy="96" r="2.6"/><circle cx="135" cy="102" r="2.6"/><circle cx="145" cy="104" r="2.6"/></g>' },
+  { id: "bandage", n: "Plester lucu", p: 100, r: "b", s: '<g transform="rotate(-20 136 100)"><rect x="122" y="95" width="28" height="11" rx="5" fill="#f6d2a8"/><circle cx="132" cy="100" r="1.3" fill="#d9a878"/><circle cx="140" cy="100" r="1.3" fill="#d9a878"/></g>' },
+  { id: "round", n: "Kacamata bulat", p: 100, r: "b", s: '<g fill="rgba(255,255,255,.25)" stroke="#3d3566" stroke-width="4"><circle cx="80" cy="78" r="17"/><circle cx="120" cy="78" r="17"/></g><path d="M97 77 H103" stroke="#3d3566" stroke-width="4" stroke-linecap="round"/>' },
+  { id: "whisker", n: "Kumis kucing", p: 125, r: "b", s: '<g stroke="#3d3566" stroke-width="3" stroke-linecap="round"><path d="M62 104 L36 98 M62 110 L34 112 M62 116 L38 124 M138 104 L164 98 M138 110 L166 112 M138 116 L162 124"/></g>' },
+  { id: "clown", n: "Hidung badut", p: 125, r: "b", s: '<circle cx="100" cy="99" r="10" fill="#ff4d4d"/><circle cx="96" cy="95" r="3" fill="#fff" opacity=".75"/>' },
+  { id: "sun", n: "Kacamata hitam", p: 150, r: "b", s: '<rect x="60" y="66" width="36" height="24" rx="10" fill="#3d3566"/><rect x="104" y="66" width="36" height="24" rx="10" fill="#3d3566"/><path d="M96 74 H104" stroke="#3d3566" stroke-width="4"/><path d="M68 72 H80 M112 72 H124" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".7"/>' },
+  { id: "cheekstar", n: "Pipi bintang", p: 150, r: "b", s: '<g fill="#ffd36e" stroke="#e0a83a" stroke-width="1.5"><path d="M62 92l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/><path d="M138 92l3 6 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z"/></g>' },
+  { id: "paint", n: "Cat wajah", p: 150, r: "b", s: '<path d="M52 92 L72 96 M52 101 L72 103 M148 92 L128 96 M148 101 L128 103" stroke="#7d61e8" stroke-width="4" stroke-linecap="round"/>' },
+  { id: "heart", n: "Kacamata hati", p: 175, r: "b", s: '<path d="M80 96 L62 77 A9.5 9.5 0 0 1 80 66 A9.5 9.5 0 0 1 98 77 Z" fill="#ff6fa5"/><path d="M120 96 L102 77 A9.5 9.5 0 0 1 120 66 A9.5 9.5 0 0 1 138 77 Z" fill="#ff6fa5"/>' },
+  { id: "star", n: "Kacamata bintang", p: 175, r: "b", s: '<path d="M80 60l5 11 12 2-9 8 2 12-10-6-10 6 2-12-9-8 12-2z" fill="#ffd36e" stroke="#e0a83a" stroke-width="2"/><path d="M120 60l5 11 12 2-9 8 2 12-10-6-10 6 2-12-9-8 12-2z" fill="#ffd36e" stroke="#e0a83a" stroke-width="2"/>' },
+  { id: "goggles", n: "Kacamata renang", p: 200, r: "b", s: '<path d="M46 78 H154" stroke="#3a8ee6" stroke-width="6"/><ellipse cx="80" cy="78" rx="17" ry="14" fill="rgba(90,169,245,.35)" stroke="#2a6fc0" stroke-width="4"/><ellipse cx="120" cy="78" rx="17" ry="14" fill="rgba(90,169,245,.35)" stroke="#2a6fc0" stroke-width="4"/>' },
+  { id: "three", n: "Kacamata 3D", p: 225, r: "b", s: '<rect x="58" y="65" width="84" height="26" rx="6" fill="#fff" stroke="#e1dcef" stroke-width="2"/><rect x="63" y="69" width="30" height="18" rx="4" fill="rgba(240,80,80,.75)"/><rect x="107" y="69" width="30" height="18" rx="4" fill="rgba(70,140,240,.75)"/>' },
+  { id: "mustache", n: "Kumis lucu", p: 250, r: "b", s: '<path d="M100 100 Q90 92 80 97 Q74 102 82 104 Q90 104 100 100 Q110 104 118 104 Q126 102 120 97 Q110 92 100 100 Z" fill="#5a3b2a"/>' },
+  { id: "monocle", n: "Kacamata satu", p: 300, r: "l", s: '<circle cx="120" cy="78" r="17" fill="rgba(255,255,255,.25)" stroke="#e0a83a" stroke-width="4"/><path d="M136 86 Q146 110 138 132" fill="none" stroke="#e0a83a" stroke-width="2.5"/>' },
+  { id: "eyepatch", n: "Penutup mata", p: 300, r: "l", s: '<path d="M58 66 L148 54" stroke="#3d3566" stroke-width="3"/><ellipse cx="120" cy="78" rx="15" ry="14" fill="#3d3566"/>' },
+  { id: "hero", n: "Topeng pahlawan", p: 350, r: "l", s: '<path d="M54 72 Q100 58 146 72 Q146 94 124 92 Q110 90 100 84 Q90 90 76 92 Q54 94 54 72 Z" fill="#ff6b6b"/><ellipse cx="80" cy="78" rx="9" ry="8" fill="#fff"/><ellipse cx="120" cy="78" rx="9" ry="8" fill="#fff"/><circle cx="81" cy="79" r="4.5" fill="#2f3a3a"/><circle cx="119" cy="79" r="4.5" fill="#2f3a3a"/>' },
+  { id: "butterfly", n: "Topeng kupu-kupu", p: 400, r: "l", s: '<path d="M100 80 Q82 56 60 64 Q56 84 76 92 Q90 94 100 80 Q110 94 124 92 Q144 84 140 64 Q118 56 100 80 Z" fill="#c7a6ff"/><ellipse cx="80" cy="78" rx="7" ry="6" fill="#fff"/><ellipse cx="120" cy="78" rx="7" ry="6" fill="#fff"/><circle cx="81" cy="79" r="3.5" fill="#2f3a3a"/><circle cx="119" cy="79" r="3.5" fill="#2f3a3a"/>' },
+  { id: "pilot", n: "Kacamata pilot", p: 450, r: "l", s: '<path d="M44 74 H156" stroke="#7a4f2e" stroke-width="6"/><circle cx="80" cy="76" r="16" fill="rgba(255,207,63,.35)" stroke="#b07a4f" stroke-width="5"/><circle cx="120" cy="76" r="16" fill="rgba(255,207,63,.35)" stroke="#b07a4f" stroke-width="5"/>' },
+  { id: "sparkle", n: "Mata berkilau", p: 500, r: "l", s: '<g fill="#fff"><path d="M86 70l2 4 4 1-4 2-2 4-2-4-4-2 4-1z"/><path d="M122 70l2 4 4 1-4 2-2 4-2-4-4-2 4-1z"/></g><g fill="#ffd36e"><path d="M60 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/><path d="M142 56l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></g>' },
+  { id: "rainbow", n: "Kacamata pelangi", p: 0, r: "g", req: "allstar", s: '<g stroke-width="5" fill="rgba(255,255,255,.2)"><circle cx="80" cy="78" r="16" stroke="#ff6b6b"/><circle cx="120" cy="78" r="16" stroke="#7d61e8"/><circle cx="80" cy="78" r="10" stroke="#ffd36e" stroke-width="3"/><circle cx="120" cy="78" r="10" stroke="#5aa9f5" stroke-width="3"/></g><path d="M96 76 H104" stroke="#3fbf8a" stroke-width="5"/>' },
+  { id: "visor", n: "Visor masa depan", p: 0, r: "g", req: "day100", s: '<path d="M52 66 Q100 54 148 66 L144 90 Q100 98 56 90 Z" fill="rgba(110,220,255,.55)" stroke="#5aa9f5" stroke-width="3"/><path d="M62 72 H90" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".8"/>' },
+  { id: "dragon", n: "Topeng naga", p: 0, r: "g", req: "boss6", s: '<path d="M52 70 Q100 50 148 70 L140 92 Q120 86 100 92 Q80 86 60 92 Z" fill="#3fbf8a"/><ellipse cx="80" cy="78" rx="8" ry="7" fill="#ffd36e"/><ellipse cx="120" cy="78" rx="8" ry="7" fill="#ffd36e"/><circle cx="81" cy="79" r="3.5" fill="#2f3a3a"/><circle cx="119" cy="79" r="3.5" fill="#2f3a3a"/><path d="M60 70 L48 54 M140 70 L152 54" stroke="#3fbf8a" stroke-width="6" stroke-linecap="round"/>' },
+  { id: "goldstar", n: "Kacamata bintang emas", p: 0, r: "g", req: "streak30", s: '<path d="M80 56l6 13 14 2-10 10 2 14-12-7-12 7 2-14-10-10 14-2z" fill="#ffcf3f" stroke="#c98a00" stroke-width="2.5"/><path d="M120 56l6 13 14 2-10 10 2 14-12-7-12 7 2-14-10-10 14-2z" fill="#ffcf3f" stroke="#c98a00" stroke-width="2.5"/><g fill="#fff"><circle cx="76" cy="72" r="2"/><circle cx="116" cy="72" r="2"/></g>' }],
  acc: [
-  { id: "none", n: "Tanpa", p: 0, s: "", l: "front" },
-  { id: "tie", n: "Dasi sekolah", p: 50, l: "front", s: '<path d="M94 128 H106 L103 136 L109 164 L100 174 L91 164 L97 136 Z" fill="#5aa9f5"/><path d="M95 146 L105 142 M94 156 L106 152" stroke="#3a8ee6" stroke-width="2"/>' },
-  { id: "flowerpin", n: "Jepit bunga", p: 50, l: "front", s: '<g transform="translate(140 50)"><circle cx="0" cy="-9" r="8" fill="#ff9fc4"/><circle cx="9" cy="0" r="8" fill="#ff9fc4"/><circle cx="0" cy="9" r="8" fill="#ff9fc4"/><circle cx="-9" cy="0" r="8" fill="#ff9fc4"/><circle r="6" fill="#ffd36e"/></g>' },
-  { id: "bow", n: "Dasi kupu-kupu", p: 40, l: "front", s: '<path d="M80 128 L100 138 L80 148 Z M120 128 L100 138 L120 148 Z" fill="#ff7a59"/><circle cx="100" cy="138" r="6" fill="#d9603f"/>' },
-  { id: "scarf", n: "Syal hangat", p: 60, l: "front", s: '<path d="M60 124 Q100 142 140 124 L142 138 Q100 156 58 138 Z" fill="#ffd36e"/><path d="M118 140 L126 176 L112 176 L106 142 Z" fill="#f0b93a"/>' },
-  { id: "bell", n: "Kalung lonceng", p: 60, l: "front", s: '<path d="M64 128 Q100 146 136 128" fill="none" stroke="#ff6b6b" stroke-width="6"/><circle cx="100" cy="146" r="9" fill="#ffd36e" stroke="#e0a83a" stroke-width="3"/>' },
-  { id: "pearls", n: "Kalung mutiara", p: 80, l: "front", s: '<g fill="#fff" stroke="#e1dcef" stroke-width="1.5"><circle cx="66" cy="130" r="5"/><circle cx="76" cy="136" r="5"/><circle cx="88" cy="140" r="5"/><circle cx="100" cy="142" r="5"/><circle cx="112" cy="140" r="5"/><circle cx="124" cy="136" r="5"/><circle cx="134" cy="130" r="5"/></g>' },
-  { id: "medal", n: "Medali juara", p: 100, l: "front", s: '<path d="M86 126 L96 156 M114 126 L104 156" stroke="#5aa9f5" stroke-width="8"/><circle cx="100" cy="164" r="13" fill="#ffd36e" stroke="#e0a83a" stroke-width="3"/><path d="M100 156l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1z" fill="#fff"/>' },
-  { id: "balloon", n: "Balon merah", p: 80, l: "back", s: '<path d="M150 170 Q168 110 172 60" fill="none" stroke="#7a7f8a" stroke-width="2"/><ellipse cx="174" cy="40" rx="18" ry="23" fill="#ff6b6b"/><path d="M167 30 Q170 24 176 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>' },
-  { id: "backpack", n: "Ransel petualang", p: 100, l: "back", s: '<rect x="136" y="120" width="42" height="58" rx="14" fill="#ff9f4c"/><rect x="142" y="146" width="30" height="20" rx="6" fill="#e07a2a"/>' },
-  { id: "cape", n: "Jubah pahlawan", p: 150, l: "back", s: '<path d="M58 124 Q34 180 30 214 Q100 200 170 214 Q166 180 142 124 Z" fill="#ff6b6b"/>' },
-  { id: "wings", n: "Sayap peri", p: 180, l: "back", s: '<path d="M58 130 Q0 80 6 140 Q12 176 54 162 Z" fill="#e3dcff" stroke="#b9a3ff" stroke-width="3"/><path d="M142 130 Q200 80 194 140 Q188 176 146 162 Z" fill="#e3dcff" stroke="#b9a3ff" stroke-width="3"/>' }]
+  { id: "none", n: "Tanpa", p: 0, r: "b", s: "", l: "front" },
+  { id: "bow", n: "Dasi kupu-kupu", p: 100, r: "b", l: "front", s: '<path d="M80 128 L100 138 L80 148 Z M120 128 L100 138 L120 148 Z" fill="#ff7a59"/><circle cx="100" cy="138" r="6" fill="#d9603f"/>' },
+  { id: "tie", n: "Dasi sekolah", p: 125, r: "b", l: "front", s: '<path d="M94 128 H106 L103 136 L109 164 L100 174 L91 164 L97 136 Z" fill="#5aa9f5"/><path d="M95 146 L105 142 M94 156 L106 152" stroke="#3a8ee6" stroke-width="2"/>' },
+  { id: "flowerpin", n: "Jepit bunga", p: 125, r: "b", l: "front", s: '<g transform="translate(140 50)"><circle cx="0" cy="-9" r="8" fill="#ff9fc4"/><circle cx="9" cy="0" r="8" fill="#ff9fc4"/><circle cx="0" cy="9" r="8" fill="#ff9fc4"/><circle cx="-9" cy="0" r="8" fill="#ff9fc4"/><circle r="6" fill="#ffd36e"/></g>' },
+  { id: "scarf", n: "Syal hangat", p: 150, r: "b", l: "front", s: '<path d="M60 124 Q100 142 140 124 L142 138 Q100 156 58 138 Z" fill="#ffd36e"/><path d="M118 140 L126 176 L112 176 L106 142 Z" fill="#f0b93a"/>' },
+  { id: "bell", n: "Kalung lonceng", p: 150, r: "b", l: "front", s: '<path d="M64 128 Q100 146 136 128" fill="none" stroke="#ff6b6b" stroke-width="6"/><circle cx="100" cy="146" r="9" fill="#ffd36e" stroke="#e0a83a" stroke-width="3"/>' },
+  { id: "lei", n: "Kalung bunga", p: 150, r: "b", l: "front", s: '<g><circle cx="64" cy="128" r="7" fill="#ff9fc4"/><circle cx="76" cy="136" r="7" fill="#ffd36e"/><circle cx="90" cy="141" r="7" fill="#ff8a6b"/><circle cx="104" cy="142" r="7" fill="#b9a3ff"/><circle cx="118" cy="139" r="7" fill="#ff9fc4"/><circle cx="130" cy="133" r="7" fill="#ffd36e"/><circle cx="140" cy="125" r="7" fill="#ff8a6b"/></g>' },
+  { id: "kite", n: "Layang-layang", p: 175, r: "b", l: "back", s: '<path d="M170 14 L192 40 L170 70 L148 40 Z" fill="#ff8a6b"/><path d="M170 14 V70 M148 40 H192" stroke="#fff" stroke-width="2"/><path d="M170 70 Q160 118 150 165" fill="none" stroke="#7a7f8a" stroke-width="2"/>' },
+  { id: "pearls", n: "Kalung mutiara", p: 200, r: "b", l: "front", s: '<g fill="#fff" stroke="#e1dcef" stroke-width="1.5"><circle cx="66" cy="130" r="5"/><circle cx="76" cy="136" r="5"/><circle cx="88" cy="140" r="5"/><circle cx="100" cy="142" r="5"/><circle cx="112" cy="140" r="5"/><circle cx="124" cy="136" r="5"/><circle cx="134" cy="130" r="5"/></g>' },
+  { id: "balloon", n: "Balon merah", p: 200, r: "b", l: "back", s: '<path d="M150 170 Q168 110 172 60" fill="none" stroke="#7a7f8a" stroke-width="2"/><ellipse cx="174" cy="40" rx="18" ry="23" fill="#ff6b6b"/><path d="M167 30 Q170 24 176 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"/>' },
+  { id: "umbrella", n: "Payung", p: 200, r: "b", l: "back", s: '<path d="M138 72 Q172 30 206 72 Z" fill="#7fd6ff"/><path d="M155 72 Q172 56 189 72" fill="none" stroke="#fff" stroke-width="2"/><path d="M172 72 V160 Q172 168 164 166" fill="none" stroke="#3d3566" stroke-width="4"/>' },
+  { id: "camera", n: "Kamera", p: 225, r: "b", l: "front", s: '<path d="M70 124 Q100 150 130 124" fill="none" stroke="#3d3566" stroke-width="4"/><rect x="84" y="140" width="34" height="24" rx="6" fill="#3d3566"/><circle cx="101" cy="152" r="8" fill="#7fb7e8" stroke="#fff" stroke-width="2"/>' },
+  { id: "medal", n: "Medali juara", p: 250, r: "b", l: "front", s: '<path d="M86 126 L96 156 M114 126 L104 156" stroke="#5aa9f5" stroke-width="8"/><circle cx="100" cy="164" r="13" fill="#ffd36e" stroke="#e0a83a" stroke-width="3"/><path d="M100 156l3 6 6 1-4 4 1 6-6-3-6 3 1-6-4-4 6-1z" fill="#fff"/>' },
+  { id: "backpack", n: "Ransel petualang", p: 250, r: "b", l: "back", s: '<rect x="136" y="120" width="42" height="58" rx="14" fill="#ff9f4c"/><rect x="142" y="146" width="30" height="20" rx="6" fill="#e07a2a"/>' },
+  { id: "wand", n: "Tongkat ajaib", p: 350, r: "l", l: "front", s: '<path d="M150 178 L176 132" stroke="#5a3b2a" stroke-width="5" stroke-linecap="round"/><path d="M178 112 l4 9 10 1-8 6 3 10-9-5-9 5 3-10-8-6 10-1z" fill="#ffd36e"/>' },
+  { id: "cape", n: "Jubah pahlawan", p: 375, r: "l", l: "back", s: '<path d="M58 124 Q34 180 30 214 Q100 200 170 214 Q166 180 142 124 Z" fill="#ff6b6b"/>' },
+  { id: "guitar", n: "Gitar", p: 400, r: "l", l: "back", s: '<g transform="rotate(-25 160 160)"><rect x="155" y="104" width="10" height="60" fill="#7a4f2e"/><ellipse cx="160" cy="178" rx="21" ry="23" fill="#e0a060"/><circle cx="160" cy="178" r="6" fill="#5a3b2a"/></g>' },
+  { id: "wings", n: "Sayap peri", p: 450, r: "l", l: "back", s: '<path d="M58 130 Q0 80 6 140 Q12 176 54 162 Z" fill="#e3dcff" stroke="#b9a3ff" stroke-width="3"/><path d="M142 130 Q200 80 194 140 Q188 176 146 162 Z" fill="#e3dcff" stroke="#b9a3ff" stroke-width="3"/>' },
+  { id: "shield", n: "Perisai", p: 500, r: "l", l: "front", s: '<path d="M30 140 L58 132 L58 168 Q58 186 30 196 Q2 186 2 168 L2 132 Z" fill="#5aa9f5" stroke="#2a6fc0" stroke-width="3"/><path d="M30 148 l4 8 9 1-7 6 2 9-8-4-8 4 2-9-7-6 9-1z" fill="#ffd36e"/>' },
+  { id: "diamond", n: "Kalung berlian", p: 600, r: "l", l: "front", s: '<path d="M64 128 Q100 146 136 128" fill="none" stroke="#c0c8d8" stroke-width="3"/><path d="M100 140 L112 152 L100 168 L88 152 Z" fill="#9fe8ff" stroke="#5ab8e0" stroke-width="2"/>' },
+  { id: "trophy", n: "Piala emas", p: 0, r: "g", req: "allstar", l: "front", s: '<g transform="translate(154 150)"><path d="M-14 -16 H14 V-2 A14 14 0 0 1 -14 -2 Z" fill="#ffcf3f" stroke="#c98a00" stroke-width="2"/><path d="M-14 -12 Q-24 -10 -16 0 M14 -12 Q24 -10 16 0" fill="none" stroke="#c98a00" stroke-width="3"/><rect x="-3" y="10" width="6" height="8" fill="#e0a83a"/><rect x="-11" y="18" width="22" height="6" rx="2" fill="#c98a00"/></g>' },
+  { id: "starcape", n: "Jubah bintang", p: 0, r: "g", req: "streak30", l: "back", s: '<path d="M58 124 Q34 180 30 214 Q100 200 170 214 Q166 180 142 124 Z" fill="#3d3566"/><g fill="#ffd36e"><circle cx="60" cy="190" r="3"/><circle cx="140" cy="186" r="3"/><circle cx="100" cy="206" r="2.5"/><path d="M42 168 l2 5 5 1-5 2-2 5-2-5-5-2 5-1z"/><path d="M158 164 l2 5 5 1-5 2-2 5-2-5-5-2 5-1z"/></g>' },
+  { id: "dragonwings", n: "Sayap naga", p: 0, r: "g", req: "boss6", l: "back", s: '<path d="M60 136 Q20 60 -8 96 Q4 104 0 118 Q14 120 12 134 Q30 132 56 160 Z" fill="#3fbf8a" stroke="#22906a" stroke-width="3"/><path d="M140 136 Q180 60 208 96 Q196 104 200 118 Q186 120 188 134 Q170 132 144 160 Z" fill="#3fbf8a" stroke="#22906a" stroke-width="3"/>' },
+  { id: "rocket", n: "Ransel roket", p: 0, r: "g", req: "day100", l: "back", s: '<rect x="132" y="110" width="32" height="64" rx="13" fill="#c0c8d8"/><path d="M136 174 L148 202 L160 174 Z" fill="#ff8a3d"/><path d="M141 174 L148 190 L155 174 Z" fill="#ffd36e"/><circle cx="148" cy="132" r="7" fill="#7fd6ff"/>' }]
 };
+/* 24 karakter: 10 gratis, 8 beli, 6 legenda dari bos */
+const CHARS = [
+ ...["trex", "trike", "stego", "brachio", "ankylo", "para", "spino", "raptor", "pachy", "dilo"].map(k => ({ id: k, sp: k, nick: SPECIES[k].nick, n: SPECIES[k].n, p: 0, r: "b" })),
+ { id: "carno", sp: "carno", nick: "Karno", n: "Carnotaurus", p: 300, r: "b" }, { id: "diplo", sp: "diplo", nick: "Diplo", n: "Diplodocus", p: 300, r: "b" },
+ { id: "iguano", sp: "iguano", nick: "Igu", n: "Iguanodon", p: 350, r: "b" }, { id: "allo", sp: "allo", nick: "Allo", n: "Allosaurus", p: 400, r: "b" },
+ { id: "styraco", sp: "styraco", nick: "Stira", n: "Styracosaurus", p: 450, r: "l" }, { id: "micro", sp: "micro", nick: "Mikro", n: "Microraptor", p: 500, r: "l" },
+ { id: "rexipink", sp: "trex", c: "#ffb3d9", nick: "Rexi Permen", n: "T-Rex merah muda", p: 550, r: "l" }, { id: "tarigold", sp: "trike", c: "#ffcf3f", nick: "Tari Emas", n: "Triceratops emas", p: 600, r: "l" },
+ { id: "b-pachy", sp: "pachy", c: "#9b8bd6", nick: "Pachy Penjaga", n: "Bos Telur Dino", p: 0, r: "g", boss: 0 },
+ { id: "b-dilo", sp: "dilo", c: "#ff9a3d", nick: "Dilo Usil", n: "Bos Bayi Dino", p: 0, r: "g", boss: 1 },
+ { id: "b-carno", sp: "carno", c: "#d9534f", nick: "Karno Garang", n: "Bos Triceratops", p: 0, r: "g", boss: 2 },
+ { id: "b-allo", sp: "allo", c: "#9a7650", nick: "Allo Raksasa", n: "Bos Stegosaurus", p: 0, r: "g", boss: 3 },
+ { id: "b-spino", sp: "spino", c: "#ff6b5a", nick: "Spino Raja", n: "Bos Brachiosaurus", p: 0, r: "g", boss: 4 },
+ { id: "b-trex", sp: "trex", c: "#6a5fc0", nick: "T-Rex Kaisar", n: "Bos T-Rex", p: 0, r: "g", boss: 5 }
+];
+const BOSSLOOK = [{ hat: "viking" }, { face: "eyepatch" }, { hat: "pirate" }, { face: "sun" }, { hat: "crown" }, { hat: "trexcrown", acc: "starcape" }];
+const BOSSES = CHARS.filter(c => c.boss !== undefined).map(c => Object.assign({ hp: 6 + c.boss, look: BOSSLOOK[c.boss] }, c));
+const charOf = id => CHARS.find(c => c.id === id) || CHARS[0];
+const charSVG = (id, o = {}) => { const ch = charOf(id); return dinoSVG(ch.sp, { c: ch.c, look: o.look, mood: o.mood }); };
 const CATN = { char: "Karakter", color: "Warna", hat: "Topi", face: "Wajah", acc: "Aksesori" };
+const RARN = { b: "Biasa", l: "Langka", g: "Legenda" };
 const cItem = (cat, id) => CLOSET[cat].find(x => x.id === id) || CLOSET[cat][0];
 
 /* gambar dino: sp = jenis, o = { c: warna badan, look, mood } */
@@ -1329,7 +1610,7 @@ function dinoSVG(sp, o = {}) {
  top += face.s + hat.s + (ac.l !== "back" ? ac.s : "");
  return `<svg viewBox="-12 -40 230 270" aria-hidden="true">${back}${body}${head}${top}</svg>`;
 }
-const DN = () => (SPECIES[S.dino] || SPECIES.trex).nick;
+const DN = () => charOf(S.dino).nick;
 
 /* 32 stiker: 16 jenis × (warna asli + warna istimewa) */
 const VAR = [["Emas", "#ffcf3f"], ["Es", "#c4ecff"], ["Api", "#ff7b54"], ["Permen", "#ffb3d9"], ["Malam", "#7a7fe0"], ["Mint", "#9ff0d0"], ["Pelangi", "#c7a6ff"], ["Lava", "#e86a4a"]];
@@ -1380,6 +1661,9 @@ const ICONS = {
  trash: '<path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3"/>',
  sticker: '<path d="M14 21H6a3 3 0 0 1-3-3V6a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v8z"/><path d="M14 21v-4a3 3 0 0 1 3-3h4"/>',
  bolt: '<path d="M13 3L5 14h6l-1 7 8-11h-6z"/>',
+ sword: '<path d="M14 4h6v6L9 21l-6-6z"/><path d="M5 13l6 6"/>',
+ clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>',
+ paw: '<ellipse cx="12" cy="15.5" rx="4.6" ry="3.8"/><circle cx="6" cy="10" r="2"/><circle cx="9.5" cy="6.2" r="2"/><circle cx="14.5" cy="6.2" r="2"/><circle cx="18" cy="10" r="2"/>',
  gear: '<circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v2.6M12 18.9v2.6M4.6 4.6l1.9 1.9M17.5 17.5l1.9 1.9M2.5 12h2.6M18.9 12h2.6M4.6 19.4l1.9-1.9M17.5 6.5l1.9-1.9"/><circle cx="12" cy="12" r="6.6"/>',
  hanger: '<path d="M12 7.5a2.2 2.2 0 1 1 2.2-2.2"/><path d="M12 7.5v1.8L3.2 16a1.2 1.2 0 0 0 .7 2.2h16.2a1.2 1.2 0 0 0 .7-2.2L12 9.3"/>',
  grid: '<rect x="3" y="3" width="7" height="7" rx="2"/><rect x="14" y="3" width="7" height="7" rx="2"/><rect x="3" y="14" width="7" height="7" rx="2"/><rect x="14" y="14" width="7" height="7" rx="2"/>',
@@ -1389,16 +1673,16 @@ const I = (n, cls = "ic") => `<svg class="${cls}" viewBox="0 0 24 24" aria-hidde
 
 /* maskot = dino pilihan anak, tampak depan (lihat dino.js) */
 function REXI(size, mood = "happy", cls = "") {
- const sp = SPECIES[S.dino] ? S.dino : "trex";
- return `<span class="rexi ${cls}" style="width:${size}px;height:${Math.round(size * 1.17)}px" role="img" aria-label="${DN()} si ${SPECIES[sp].n}">${dinoSVG(sp, { look: S.look, mood })}</span>`;
+ const ch = charOf(S.dino);
+ return `<span class="rexi ${cls}" style="width:${size}px;height:${Math.round(size * 1.17)}px" role="img" aria-label="${esc(ch.nick)} si ${SPECIES[ch.sp].n}">${charSVG(ch.id, { look: S.look, mood })}</span>`;
 }
-const LOGO = s => `<span class="mark" style="width:${s}px;height:${s}px">${dinoSVG(SPECIES[S.dino] ? S.dino : "trex", { look: { color: S.look.color } }).replace('viewBox="-12 -40 230 270"', 'viewBox="38 26 124 124"')}</span>`;
+const LOGO = s => `<span class="mark" style="width:${s}px;height:${s}px">${charSVG(S.dino, { look: { color: S.look.color } }).replace('viewBox="-12 -40 230 270"', 'viewBox="38 26 124 124"')}</span>`;
 /* telur dino: utuh berbintik, dan pecah dengan bayi dino (warna dino pilihan) mengintip */
 function eggSVG(hatched) {
  const shell = "#f6ead0", sd = "#e2cfa6";
  const spots = '<g opacity=".9"><ellipse cx="34" cy="72" rx="7" ry="5" fill="#a9dc8f"/><ellipse cx="64" cy="80" rx="6" ry="4.5" fill="#ffb38a"/><ellipse cx="70" cy="66" rx="4" ry="3" fill="#a9dc8f"/><ellipse cx="46" cy="86" rx="4" ry="3" fill="#c7a6ff"/></g>';
  if (!hatched) return `<svg viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="94" rx="30" ry="5" fill="rgba(0,0,0,.08)"/><path d="M50 6C74 6 88 40 88 62C88 84 71 96 50 96C29 96 12 84 12 62C12 40 26 6 50 6Z" fill="${shell}" stroke="${sd}" stroke-width="3"/><g opacity=".9"><ellipse cx="38" cy="34" rx="8" ry="6" fill="#a9dc8f"/><ellipse cx="62" cy="28" rx="5" ry="4" fill="#ffb38a"/><ellipse cx="66" cy="48" rx="7" ry="5" fill="#c7a6ff"/><ellipse cx="30" cy="56" rx="5" ry="4" fill="#ffb38a"/></g>${spots}<ellipse cx="36" cy="22" rx="6" ry="10" fill="#fff" opacity=".55" transform="rotate(25 36 22)"/></svg>`;
- const sp = SPECIES[S.dino] || SPECIES.trex, c = sp.c, d = mix(c, "#1d2a2a", .28), lt = mix(c, "#ffffff", .45);
+ const ch = charOf(S.dino), c = ch.c || SPECIES[ch.sp].c, d = mix(c, "#1d2a2a", .28), lt = mix(c, "#ffffff", .45);
  return `<svg viewBox="0 0 100 100" aria-hidden="true"><ellipse cx="50" cy="94" rx="30" ry="5" fill="rgba(0,0,0,.08)"/>
  <g transform="translate(0 -6)"><circle cx="50" cy="46" r="25" fill="${c}"/><ellipse cx="50" cy="56" rx="15" ry="9" fill="${lt}"/>
  <ellipse cx="41" cy="42" rx="5.5" ry="6" fill="#fff"/><ellipse cx="59" cy="42" rx="5.5" ry="6" fill="#fff"/><circle cx="42" cy="43" r="3.4" fill="#2f3a3a"/><circle cx="58" cy="43" r="3.4" fill="#2f3a3a"/><circle cx="43.3" cy="41.3" r="1.2" fill="#fff"/><circle cx="59.3" cy="41.3" r="1.2" fill="#fff"/>
@@ -1419,6 +1703,8 @@ function pic(p, extra = "") {
  let inner;
  if (p.startsWith("c:")) inner = `<span class="pic-c" style="--c:${p.slice(2)}"></span>`;
  else if (p.startsWith("t:")) inner = `<span class="pic-t">${esc(p.slice(2))}</span>`;
+ else if (p.startsWith("m:")) { const [, e, n] = p.split(":"); inner = `<span class="pic-m n${n}">${Array(+n).fill(`<span>${e}</span>`).join("")}</span>`; }
+ else if (p.startsWith("p:")) { const [, a, b] = p.split(":"); inner = `<span class="pic-p"><span>${a}</span><span>${b}</span></span>`; }
  else if (p.startsWith("s:")) inner = `<svg viewBox="0 0 100 100" aria-hidden="true"><g fill="#ff8a1f" stroke="#c4561a" stroke-width="5">${SHAPES[p.slice(2)]}</g></svg>`;
  else inner = `<span class="pic-e">${p}</span>`;
  return `<span class="pic"${extra}>${inner}</span>`;
@@ -1433,25 +1719,26 @@ LEVELS.forEach((L, li) => L.lessons.forEach((x, idx) => {
  x.sents.forEach(s => WMAP[s.key] = s);
  LESSONS.push(x);
 }));
-const RANKS = [[0, "Penjelajah Pemula"], [200, "Pencari Fosil"], [600, "Penggali Tulang"], [1500, "Ahli Dino"], [3000, "Penjaga Hutan Purba"], [6000, "Raja Dino"]];
+const RANKS = [[0, "Penjelajah Pemula"], [500, "Pencari Fosil"], [1500, "Penggali Tulang"], [4000, "Ahli Dino"], [8000, "Penjaga Hutan Purba"], [15000, "Raja Dino"]];
 
 /* ================= STATE ================= */
-const KEY = "englishkids_v1";
-const fresh = () => ({ onb: 0, name: "", start: 0, allOpen: false, done: {}, tests: {}, fosil: 0, fosilAll: 0, streak: 0, best: 0, lastDay: "", days: {}, wrong: {}, known: {}, stickers: {}, badges: {}, egg: "", daily: "", matchBest: 0, spoke: {}, read: {}, sang: {}, sound: true, praise: true, sfx: true, rate: "normal", ans: 0, cor: 0, bestCombo: 0, perf: 0, games: 0, dino: "", look: { color: "asli", hat: "none", face: "none", acc: "none" }, owned: {}, coins: 50, coinsAll: 0 });
+const KEY = "englishkids_v2", OLDKEY = "englishkids_v1";
+const fresh = () => ({ onb: 0, name: "", start: 0, allOpen: false, done: {}, tests: {}, fosil: 0, fosilAll: 0, streak: 0, best: 0, lastDay: "", days: {}, wrong: {}, known: {}, stickers: {}, badges: {}, egg: "", daily: "", matchBest: 0, spoke: {}, read: {}, sang: {}, sound: true, praise: true, sfx: true, rate: "normal", ans: 0, cor: 0, bestCombo: 0, perf: 0, games: 0, dino: "", look: { color: "asli", hat: "none", face: "none", acc: "none" }, owned: {}, coins: 0, coinsAll: 0, boss: {}, pet: petFresh(), daysTotal: 0, st: { spell: 0, lsent: 0, lsentRun: 0, lsentBest: 0, games: 0, balloon: 0, memory: 0, memoryBest: 0, runner: 0, timed: 0, bossWins: 0, bossPerfect: 0, fed: 0 } });
 let S = fresh();
 function load() {
+ /* reset satu kali: versi baru mulai dari nol untuk semua pemain lama */
+ try { if (!localStorage.getItem(KEY) && localStorage.getItem(OLDKEY)) { localStorage.removeItem(OLDKEY); WASRESET = true; } } catch (e) {}
  try { const r = localStorage.getItem(KEY); if (r) S = Object.assign(fresh(), JSON.parse(r)); } catch (e) {}
- S.look = Object.assign({ color: "asli", hat: "none", face: "none", acc: "none" }, S.look || {});
- if (S.onb && !SPECIES[S.dino]) S.dino = "trex";
- /* stiker versi lama (emoji) diganti stiker dino dengan jumlah yang sama */
- const ids = new Set(STICKERS.map(x => x.id)), old = Object.keys(S.stickers).filter(k => !ids.has(k));
- old.forEach(k => { delete S.stickers[k]; const left = STICKERS.filter(x => !S.stickers[x.id]); if (left.length) S.stickers[pick(left).id] = dkey(); });
+ const F0 = fresh();
+ S.look = Object.assign(F0.look, S.look || {}); S.st = Object.assign(F0.st, S.st || {}); S.pet = Object.assign(petFresh(), S.pet || {});
+ if (S.onb && !CHARS.some(c => c.id === S.dino)) S.dino = "trex";
 }
+let WASRESET = false;
 function save() { try { localStorage.setItem(KEY, JSON.stringify(S)); } catch (e) {} }
 const today = () => { const k = dkey(); return S.days[k] || (S.days[k] = { q: 0, c: 0, h: 0, g: 0 }); };
 function touchDay() {
  const t = dkey(); if (S.lastDay === t) return;
- S.streak = S.lastDay === dayAgo(1) ? S.streak + 1 : 1; S.lastDay = t; S.best = Math.max(S.best, S.streak);
+ S.streak = S.lastDay === dayAgo(1) ? S.streak + 1 : 1; S.lastDay = t; S.daysTotal = (S.daysTotal || 0) + 1; S.best = Math.max(S.best, S.streak);
  const ks = Object.keys(S.days).sort(); while (ks.length > 60) delete S.days[ks.shift()];
 }
 const streakNow = () => (S.lastDay === dkey() || S.lastDay === dayAgo(1)) ? S.streak : 0;
@@ -1459,8 +1746,9 @@ function addFosil(n) { S.fosil += n; S.fosilAll += n; }
 function addCoins(n) { S.coins += n; S.coinsAll += n; }
 function rankOf(x) { let k = 0; RANKS.forEach((r, i) => { if (x >= r[0]) k = i; }); const n = RANKS[k + 1]; return { name: RANKS[k][1], at: RANKS[k][0], next: n ? { at: n[0], name: n[1] } : null }; }
 
-const levelDone = li => LEVELS[li].lessons.every(x => S.done[x.id]);
-const levelOpen = li => S.allOpen || li <= S.start || levelDone(li - 1) || (S.tests[LEVELS[li - 1].id] || 0) >= 75;
+const levelDone = li => LEVELS[li].lessons.every(x => (S.done[x.id] || 0) >= 3);
+const BABAKN = ["", "Babak 1 · Kenalan", "Babak 2 · Latihan", "Babak 3 · Tantangan"];
+const levelOpen = li => S.allOpen || li <= S.start || !!S.boss[LEVELS[li - 1].id];
 function lessonOpen(x) {
  if (!levelOpen(x.li)) return false;
  if (S.allOpen || x.idx === 0 || x.li < S.start || S.done[x.id]) return true;
@@ -1469,7 +1757,7 @@ function lessonOpen(x) {
 const doneCount = () => LESSONS.filter(x => S.done[x.id]).length;
 function nextLesson() {
  const order = LESSONS.filter(x => x.li >= S.start).concat(LESSONS.filter(x => x.li < S.start));
- return order.find(x => lessonOpen(x) && !S.done[x.id]) || null;
+ return order.find(x => lessonOpen(x) && !S.done[x.id]) || order.find(x => lessonOpen(x) && (S.done[x.id] || 0) < 3) || null;
 }
 const opened = () => { const o = LESSONS.filter(lessonOpen); return o.length ? o : [LESSONS[0]]; };
 const pool = () => opened().flatMap(x => x.words);
@@ -1526,46 +1814,17 @@ function tone(seq) {
 const SFX = { ok: () => tone([[660, .12], [880, .18]]), no: () => tone([[300, .18, "triangle"], [220, .22, "triangle"]]), tap: () => tone([[520, .05, "sine", .05]]), win: () => tone([[523, .12], [659, .12], [784, .12], [1047, .3]]) };
 
 /* ================= LENCANA ================= */
-const nPassed = () => Object.values(S.tests).filter(v => v >= 75).length;
-const BADGES = [
- { id: "first", n: "Langkah Pertama", d: "Selesaikan 1 pelajaran", ic: "star", p: () => doneCount() / 1 },
- { id: "l5", n: "Rajin Belajar", d: "Selesaikan 5 pelajaran", ic: "book", p: () => doneCount() / 5 },
- { id: "l15", n: "Pejuang Kata", d: "Selesaikan 15 pelajaran", ic: "bolt", p: () => doneCount() / 15 },
- { id: "lall", n: "Raja Dino", d: "Selesaikan semua pelajaran", ic: "trophy", p: () => doneCount() / LESSONS.length },
- { id: "s3", n: "Tiga Hari", d: "Belajar 3 hari berturut-turut", ic: "flame", p: () => S.best / 3 },
- { id: "s7", n: "Seminggu Penuh", d: "Belajar 7 hari berturut-turut", ic: "flame", p: () => S.best / 7 },
- { id: "perfect", n: "Sempurna!", d: "Semua jawaban benar dalam 1 kuis", ic: "sparkle", p: () => S.perf / 1 },
- { id: "combo", n: "Combo 10", d: "10 jawaban benar berturut-turut", ic: "bolt", p: () => S.bestCombo / 10 },
- { id: "w30", n: "Kamus Mini", d: "Hafal 30 kata", ic: "cards", p: () => knownCount() / 30 },
- { id: "story3", n: "Kutu Buku", d: "Selesaikan 3 cerita", ic: "book", p: () => Object.keys(S.read).length / 3 },
- { id: "sing3", n: "Penyanyi Cilik", d: "Nyanyikan 3 lagu", ic: "music", p: () => Object.keys(S.sang).length / 3 },
- { id: "talk20", n: "Suara Lantang", d: "Ucapkan 20 kata", ic: "mic", p: () => Object.keys(S.spoke).length / 20 },
- { id: "test1", n: "Lulus Ujian", d: "Lulus 1 Ujian Bintang", ic: "trophy", p: () => nPassed() / 1 },
- { id: "test3", n: "Bintang Tiga Level", d: "Lulus 3 Ujian Bintang", ic: "trophy", p: () => nPassed() / 3 },
- { id: "stk12", n: "Kolektor Stiker", d: "Kumpulkan 12 stiker dino", ic: "sticker", p: () => Object.keys(S.stickers).length / 12 },
- { id: "stkall", n: "Museum Dino", d: "Kumpulkan semua stiker dino", ic: "sticker", p: () => Object.keys(S.stickers).length / STICKERS.length },
- { id: "dress3", n: "Gaya Keren", d: "Beli 3 barang di Lemari", ic: "hanger", p: () => Object.keys(S.owned).length / 3 },
- { id: "coin500", n: "Celengan Penuh", d: "Kumpulkan 500 koin", ic: "star", p: () => S.coinsAll / 500 }
-];
-const bp = b => Math.max(0, Math.min(1, b.p() || 0));
-function checkBadges() {
- const got = BADGES.filter(b => !S.badges[b.id] && bp(b) >= 1);
- got.forEach(b => S.badges[b.id] = dkey());
- if (got.length) { save(); setTimeout(() => toast(`Lencana baru: <b>${esc(got[0].n)}</b>`), 400); }
-}
-const badgeRow = b => `<div class="bnear"><span class="bic${S.badges[b.id] ? " on" : ""}">${I(S.badges[b.id] ? b.ic : "lock")}</span><span class="grow"><b>${b.n}</b><small>${b.d}</small>${S.badges[b.id] ? "" : `<span class="skbar"><i style="width:${bp(b) * 100}%"></i></span>`}</span><span class="pct">${S.badges[b.id] ? I("check") : Math.round(bp(b) * 100) + "%"}</span></div>`;
-
 /* ================= MISI HARIAN ================= */
 const missions = () => { const t = today(); return [
  { t: "Selesaikan 1 pelajaran atau permainan", n: t.g, of: 1 },
  { t: "Dengarkan 10 kata", n: t.h, of: 10 },
- { t: "Jawab benar 15 soal", n: t.c, of: 15 }]; };
+ { t: "Jawab benar 20 soal", n: t.c, of: 20 }]; };
 const missionsDone = () => missions().every(m => m.n >= m.of);
 
 /* ================= TAMPILAN UMUM ================= */
 let R = { name: "home" };
-function go(name, arg) { if (name !== R.name) W.sel = null; R = { name, arg }; if (window.speechSynthesis) speechSynthesis.cancel(); stopRec(); render(); window.scrollTo(0, 0); }
-const SUBS = ["lesson", "quiz", "result", "flash", "match", "say", "chant", "story", "parent", "welcome", "stories", "chants", "tests", "stickers"];
+function go(name, arg) { if (!G || G.kind !== name) stopGames(); if (name !== R.name) { W.sel = null; PF = null; } R = { name, arg }; if (window.speechSynthesis) speechSynthesis.cancel(); stopRec(); render(); window.scrollTo(0, 0); }
+const SUBS = ["lesson", "quiz", "result", "flash", "match", "say", "chant", "story", "parent", "welcome", "stories", "chants", "tests", "stickers", "balloon", "memory", "runner", "timed", "bosses"];
 function render() {
  if (!S.onb && R.name !== "welcome") R = { name: "welcome" };
  document.body.classList.toggle("sub", SUBS.includes(R.name));
@@ -1577,7 +1836,7 @@ function renderTop() {
  <div class="chips"><span class="chip" aria-label="Belajar ${streakNow()} hari berturut-turut">${I("flame")}${streakNow()}</span><span class="chip fos" aria-label="${S.fosil} fosil">${I("bone", "ic bone")}${S.fosil}</span><button class="chip coin" data-act="nav" data-v="closet" aria-label="${S.coins} koin, buka Lemari">${COIN}${S.coins}</button></div>`;
 }
 function renderNav() {
- const it = [["home", "home", "Belajar"], ["practice", "game", "Latihan"], ["closet", "hanger", "Lemari"], ["profile", "user", "Profil"]];
+ const it = [["home", "home", "Belajar"], ["practice", "game", "Arena"], ["pet", "paw", "Kandang"], ["closet", "hanger", "Lemari"], ["profile", "user", "Profil"]];
  $("#nav").innerHTML = it.map(([r, ic, t]) => `<button data-act="nav" data-v="${r}" ${R.name === r ? 'aria-current="page"' : ""}>${I(ic)}<span class="t">${t}</span></button>`).join("");
 }
 function toast(html) {
@@ -1612,11 +1871,11 @@ let WEL = { g: null, d: null };
 VIEWS.welcome = () => {
  const g = WEL.g, d = WEL.d, ok = g !== null && d;
  app.innerHTML = `<div class="stack welcome" style="max-width:860px;margin:0 auto">
- <div class="welcome-hero">${d ? `<span class="rexi wave" style="width:110px;height:128px">${dinoSVG(d)}</span>` : `<span class="rexi wave" style="width:110px;height:128px">${dinoSVG("trex")}</span>`}<div><p class="eyebrow">Rawr! Selamat datang.</p><h1>English for Kids</h1><p class="muted">Belajar bahasa Inggris sambil bertualang di dunia dinosaurus. Gratis, tanpa daftar.</p></div></div>
+ <div class="welcome-hero">${d ? `<span class="rexi wave" style="width:110px;height:128px">${dinoSVG(d)}</span>` : `<span class="rexi wave" style="width:110px;height:128px">${dinoSVG("trex")}</span>`}<div><p class="eyebrow">${WASRESET ? "Petualangan baru dimulai! Semua dimulai dari awal." : "Rawr! Selamat datang."}</p><h1>English for Kids</h1><p class="muted">Belajar bahasa Inggris sambil bertualang di dunia dinosaurus. Gratis, tanpa daftar.</p></div></div>
  <div class="card stack"><label for="nm"><h2>Siapa namamu?</h2></label>
  <input id="nm" class="namefield" type="text" maxlength="20" autocomplete="off" placeholder="Contoh: Dinda" value="${esc(S.name)}"></div>
  <div class="stack"><h2>Pilih teman dinomu</h2><p class="muted" style="margin-top:-8px">Dia akan menemanimu belajar. Nanti bisa diganti dan didandani di Lemari.</p>
- <div class="dpick">${PLAYABLE.map(k => `<button class="dp${d === k ? " on" : ""}" data-act="pickdino" data-v="${k}" aria-pressed="${d === k}"><span class="dpi">${dinoSVG(k)}</span><b>${SPECIES[k].nick}</b><small>${SPECIES[k].n}</small></button>`).join("")}</div></div>
+ <div class="dpick">${PLAYABLE.map(k => `<button class="dp${d === k ? " on" : ""}" data-act="pickdino" data-v="${k}" aria-pressed="${d === k}"><span class="dpi">${dinoSVG(k)}</span><b>${SPECIES[k].nick}</b><small>${SPECIES[k].n}</small></button>`).join("")}</div><p class="muted" style="margin-top:4px">14 dino lain bisa dibeli atau dibuka dengan mengalahkan bos.</p><div></div></div>
  <div class="stack"><h2>Kamu sekarang di kelas berapa?</h2><p class="muted" style="margin-top:-8px">Belajar dimulai dari level yang pas. Level sebelumnya tetap bisa dibuka.</p>
  <div class="grades">${LEVELS.map((L, i) => `<button class="grade${g === i ? " on" : ""}" data-act="grade" data-v="${i}" aria-pressed="${g === i}"><b>${L.grade}</b><span>${L.name}</span></button>`).join("")}</div></div>
  <button class="btn" data-act="startapp" ${ok ? "" : "disabled"}>Mulai petualangan</button>
@@ -1624,85 +1883,6 @@ VIEWS.welcome = () => {
  </div>`;
 };
 
-VIEWS.home = () => {
- const nx = nextLesson(), ms = missions(), mDone = ms.filter(m => m.n >= m.of).length;
- const eggReady = missionsDone() && S.egg !== dkey(), eggDone = S.egg === dkey();
- const name = S.name || "Penjelajah Cilik";
- const msg = !doneCount() ? `Aku ${DN()}. Ayo mulai pelajaran pertamamu!` : streakNow() > 1 ? `Hebat, ${streakNow()} hari berturut-turut belajar!` : "Yuk gali fosil kata baru hari ini.";
- const contL = nx ? nx.L : null;
- app.innerHTML = `<div class="home">
- <div class="stack">
-  <div class="greet">${REXI(92, "happy", "wave")}<div class="say"><b>Rawr! Halo, ${esc(name)}!</b><span>${msg}</span></div></div>
-  ${nx ? `<button class="cont" data-act="lesson" data-v="${nx.id}"><span class="tag">Lanjutkan · ${contL.name} (${contL.grade})</span>
-   <span class="go"><span><span class="t">${esc(nx.t)}</span><br><small>${esc(nx.d)} · ${nx.words.length} kata</small></span><span class="play">${I("play")}</span></span>
-   <span class="row" style="flex-wrap:nowrap"><span class="pbar"><i style="width:${Math.round(contL.lessons.filter(x => S.done[x.id]).length / contL.lessons.length * 100)}%"></i></span><small>${contL.lessons.filter(x => S.done[x.id]).length} dari ${contL.lessons.length}</small></span></button>`
-   : `<button class="cont" data-act="nav" data-v="practice"><span class="tag">Semua pelajaran yang terbuka sudah selesai</span><span class="go"><span class="t">Main di Latihan</span><span class="play">${I("play")}</span></span></button>`}
-  <div class="card mission"><div class="mission-h"><h2>Misi hari ini</h2><span class="muted">${mDone} dari 3</span></div>
-   ${ms.map(m => { const d = m.n >= m.of; return `<div class="mrow${d ? " done" : ""}"><span class="mbox">${d ? I("check") : ""}</span><span><span class="mt">${m.t}</span><span class="pbar" style="display:block"><i style="width:${Math.min(100, m.n / m.of * 100)}%"></i></span></span><span class="mn">${Math.min(m.n, m.of)}/${m.of}</span></div>`; }).join("")}
-   <button class="egg${eggReady ? " ready" : ""}" data-act="egg" ${eggReady ? "" : 'aria-disabled="true"'}><span class="ee">${eggSVG(eggDone)}</span><span><b>${eggDone ? "Telur sudah menetas hari ini" : eggReady ? "Telur dino siap menetas!" : "Telur dino misterius"}</b><small>${eggDone ? "Datang lagi besok untuk telur baru" : eggReady ? "Ketuk untuk melihat stiker dino barumu" : "Selesaikan 3 misi untuk menetaskan stiker dino"}</small></span></button>
-  </div>
-  <div class="tiles">
-   ${[["flash", "image", "Kata bergambar", "Balik kartu & dengar", "#ffe0cc", "#ff8a4c", "🍎"], ["hearq", "headphones", "Dengar & pilih", "Telinga jagoan", "#d9ecff", "#3a8ee6", "🎧"], ["say", "mic", "Ucapkan", "Tirukan suaranya", "#ffdcec", "#e9558f", "🎤"], ["stories", "book", "Cerita", "Baca bersama " + DN(), "#e9e1ff", "#7d61e8", "📖"]]
-    .map(([a, ic, t, s, bg, ti, em]) => `<button class="tile" data-act="${a}" style="--tc:${bg};--ti:${ti}"><span class="tic">${I(ic)}</span><span class="deco" aria-hidden="true">${em}</span><b>${t}</b><small>${s}</small></button>`).join("")}
-  </div>
- </div>
- <div class="side stack">
-  <div class="secthead"><h2>Petualanganku</h2><span class="muted">${doneCount()} dari ${LESSONS.length} pelajaran</span></div>
-  <div class="levels">${LEVELS.map((L, li) => levelCard(L, li, nx)).join("")}</div>
- </div></div>`;
-};
-function levelCard(L, li, nx) {
- const open = levelOpen(li), dn = L.lessons.filter(x => S.done[x.id]).length, all = L.lessons.length;
- const isCur = nx && nx.li === li;
- return `<details class="lvcard${dn === all ? " done" : ""}${isCur ? " cur" : ""}" style="--lv:${L.lv};--ldk:${L.ldk}" ${isCur ? "open" : ""}>
- <summary class="lv-h"><span class="roundel">${dn === all ? I("check") : li + 1}</span><span class="lv-t"><span class="lv-n">${L.name} · ${L.grade}</span><span class="lv-s">${L.desc}</span><span class="lvbar"><i style="width:${dn / all * 100}%"></i></span></span>${open ? "" : `<span class="lk" aria-label="Terkunci">${I("lock")}</span>`}<span class="chev">${I("down")}</span></summary>
- ${open ? "" : `<p class="lv-d">Terkunci. Selesaikan level sebelumnya, atau lulus Ujian Bintang level sebelumnya.</p>`}
- <ul class="lrows">${L.lessons.map((x, k) => { const op = lessonOpen(x), d = S.done[x.id], cur = nx && nx.id === x.id;
-  return `<li><button class="lrow${d ? " done" : ""}${cur ? " cur" : ""}" data-act="lesson" data-v="${x.id}" ${op ? "" : "disabled"}><span class="n">${d ? I("check") : k + 1}</span><span><b>${esc(x.t)}</b><small>${esc(x.d)}</small></span>${cur ? '<span class="go">Main</span>' : d ? starHTML(d) : op ? `<span class="lk">${I("chev")}</span>` : `<span class="lk">${I("lock")}</span>`}</button></li>`; }).join("")}</ul>
- ${open ? `<button class="lvtest" data-act="test" data-v="${li}">${I("trophy")}<span><b>Ujian Bintang ${L.name}</b><small>${S.tests[L.id] != null ? "Skor terbaik " + S.tests[L.id] + "%" : "12 soal · lulus 75% membuka level berikutnya"}</small></span></button>` : ""}
- </details>`;
-}
-
-VIEWS.practice = () => {
- const due = wrongDue().length, dailyDone = S.daily === dkey();
- const tools = [
-  ["picq", "image", "Tebak gambar", "Lihat gambar, pilih katanya", "8 soal", "#c99300"],
-  ["flash", "cards", "Kartu bergambar", "Balik kartu, dengar suaranya", knownCount() + " hafal", "var(--primary)"],
-  ["match", "link", "Cocokkan pasangan", "Pasangkan gambar dan kata", S.matchBest ? "Rekor " + S.matchBest + " dtk" : "Baru", "var(--coral-d)"],
-  ["hearq", "headphones", "Dengar & pilih", "Dengarkan, ketuk yang benar", "8 soal", "var(--leaf-d)"],
-  ["say", "mic", "Ucapkan kata", "Bicara, " + DN() + " mendengarkan", Object.keys(S.spoke).length + " kata", "#d0456d"],
-  ["chants", "music", "Nyanyi & tepuk", "Lagu pendek sambil tepuk tangan", CHANTS.length + " lagu", "#e07a1f"],
-  ["stories", "book", "Cerita bergambar", "Baca cerita, jawab pertanyaan", Object.keys(S.read).length + "/" + STORIES.length, "#6a4ee0"],
-  ["review", "retry", "Ulang yang salah", due ? "Soal yang pernah salah" : "Belum ada soal untuk diulang", due + " soal", "#3f6fe0"],
-  ["tests", "trophy", "Ujian bintang", "Uji satu level, buka level berikutnya", Object.values(S.tests).filter(v => v >= 75).length + "/" + LEVELS.length + " lulus", "#3f8a2a"]];
- app.innerHTML = `<div class="stack">
- <div class="greet">${REXI(92, "happy", "wave")}<div><h1>Latihan seru</h1><p class="muted">Semua permainan memakai kata dari pelajaran yang sudah terbuka.</p></div></div>
- <button class="egg${dailyDone ? "" : " ready"}" data-act="daily" style="min-height:84px"><span class="ee" aria-hidden="true">📅</span><span class="grow"><b style="font:700 22px/1.15 var(--display)">Tantangan harian</b><small>${dailyDone ? "Sudah selesai hari ini. Boleh main lagi, tanpa bonus." : "10 soal campuran · bonus 30 fosil & 15 koin"}</small></span></button>
- <div class="tools" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))">${tools.map(([a, ic, t, s, m, c]) => `<button class="tool" data-act="${a}" style="--ldk:${c}" ${a === "review" && !due ? "disabled" : ""}><span class="tic">${I(ic)}</span><span><b>${t}</b><small>${s}</small></span><span class="meta">${m}</span></button>`).join("")}</div>
- <button class="setrow" data-act="parent">${I("heart")}<span class="grow"><b>Sudut Orang Tua & Guru</b><small>Lihat progres, atur level, pindahkan atau hapus progres</small></span>${I("lock")}</button>
- </div>`;
-};
-
-VIEWS.profile = () => {
- const rk = rankOf(S.fosilAll), pct = rk.next ? (S.fosilAll - rk.at) / (rk.next.at - rk.at) * 100 : 100;
- const got = BADGES.filter(b => S.badges[b.id]), near = BADGES.filter(b => !S.badges[b.id]).sort((a, b) => bp(b) - bp(a)).slice(0, 3);
- const mine = STICKERS.filter(x => S.stickers[x.id]);
- app.innerHTML = `<div class="stack">
- <div class="iconrow top"><button class="icbtn" data-act="settings" aria-label="Pengaturan">${I("gear")}<span>Pengaturan</span></button></div>
- <div class="prof">${REXI(104, "happy", "wave")}<div class="grow"><p class="eyebrow">${rk.name}</p><h1>${esc(S.name || "Penjelajah Cilik")}</h1><button class="btn ghost auto sm" data-act="nav" data-v="closet">${I("hanger")}Dandani ${DN()}</button></div></div>
- <div class="card rank"><div class="sp"><b class="big">${I("bone", "ic bone")} ${S.fosilAll} fosil terkumpul</b><span class="muted">${rk.next ? "Menuju " + rk.next.name + " (" + rk.next.at + ")" : "Peringkat tertinggi!"}</span></div><div class="bar"><i style="width:${pct}%"></i></div></div>
- <dl class="statgrid"><div><dt>Fosil</dt><dd>${S.fosil}</dd></div><div><dt>Koin</dt><dd>${S.coins}</dd></div><div><dt>Hari beruntun</dt><dd>${streakNow()}</dd></div><div><dt>Kata hafal</dt><dd>${knownCount()}</dd></div></dl>
- <div class="ptab">
- <div class="card stack"><div class="sp"><h2>Stiker dino</h2><span class="muted">${mine.length} dari ${STICKERS.length}</span></div>
-  ${mine.length ? `<div class="stk">${mine.slice(-8).reverse().map(x => stickerBtn(x)).join("")}</div>` : `<p class="muted">Belum ada stiker. Selesaikan 3 misi harian, lalu tetaskan telur dino di Beranda.</p>`}
-  <button class="btn ghost" data-act="nav" data-v="stickers">${I("grid")}Lihat semua stiker</button></div>
- <div class="card stack"><div class="sp"><h2>Lencana</h2><span class="muted">${got.length} dari ${BADGES.length}</span></div>
-  ${got.length ? `<div class="bgot">${got.map(b => `<span class="bchip"><span class="bic on">${I(b.ic)}</span><b>${b.n}</b></span>`).join("")}</div>` : `<p class="muted">Belum ada lencana. Ayo selesaikan pelajaran pertamamu!</p>`}
-  ${near.length ? `<h3>Hampir didapat</h3><div class="stack" style="gap:10px">${near.map(badgeRow).join("")}</div>` : ""}
-  <button class="btn ghost" data-act="allbadges">Lihat semua lencana</button></div>
- </div>
- </div>`;
-};
 const stickerBtn = x => { const own = !!S.stickers[x.id]; return `<button class="st${own ? "" : " off"}${x.rare ? " rare" : ""}" data-act="stk" data-v="${x.id}" aria-label="${own ? esc(x.n) : "Stiker belum didapat"}"><span class="stb" style="background:${own ? x.bg : "#efeaf8"}">${stickerSVG(x)}</span><small>${own ? esc(x.n) : "???"}</small></button>`; };
 VIEWS.stickers = () => {
  const n = Object.keys(S.stickers).length;
@@ -1710,32 +1890,6 @@ VIEWS.stickers = () => {
  <div class="greet">${REXI(92, "happy", "wave")}<div><h1>Koleksi stiker dino</h1><p class="muted">${n} dari ${STICKERS.length} stiker. Ketuk stiker untuk melihat gambar besar.</p></div></div>
  <div class="card stack"><h2>Dinosaurus</h2><div class="stk">${STICKERS.filter(x => !x.rare).map(stickerBtn).join("")}</div></div>
  <div class="card stack"><h2>Warna istimewa</h2><div class="stk">${STICKERS.filter(x => x.rare).map(stickerBtn).join("")}</div></div></div>`;
-};
-
-/* ---------- Lemari: dandani dino dengan koin ---------- */
-let W = { tab: "char", sel: null };
-VIEWS.closet = () => {
- const tab = W.tab, isChar = tab === "char";
- const items = isChar ? PLAYABLE.map(k => ({ id: k, n: SPECIES[k].nick, sub: SPECIES[k].n, p: 0 })) : CLOSET[tab];
- const curId = isChar ? S.dino : S.look[tab], sel = W.sel ?? curId, it = items.find(x => x.id === sel) || items[0];
- const owned = isChar || it.p === 0 || !!S.owned[tab + ":" + it.id], wearing = it.id === curId;
- const sp = isChar ? it.id : S.dino, look = isChar ? S.look : Object.assign({}, S.look, { [tab]: it.id });
- let foot;
- if (wearing) foot = `<button class="btn" disabled>${I("check")}Sedang dipakai</button>`;
- else if (owned) foot = `<button class="btn" data-act="cwear">${isChar ? "Pilih " + esc(it.n) : "Pakai " + esc(it.n)}</button>`;
- else if (S.coins >= it.p) foot = `<button class="btn sun" data-act="cbuy">${COIN}Beli · ${it.p} koin</button>`;
- else foot = `<button class="btn" disabled>Koin kurang · butuh ${it.p - S.coins} lagi</button>`;
- app.innerHTML = `<div class="closet">
- <div class="cstage card"><div class="cbig">${dinoSVG(sp, { look, mood: "happy" })}</div>
-  <div class="ctxt"><p class="eyebrow">Lemari ${esc(isChar ? it.n : DN())}</p><h1>${esc(isChar ? it.n + " · " + it.sub : it.n)}</h1>
-  <span class="coinpill">${COIN}<b>${S.coins}</b> koin</span>
-  <p class="muted chint">${isChar ? "Gratis, bisa diganti kapan saja." : "Ketuk barang untuk mencoba dulu."}</p>${foot}</div></div>
- <div class="cpick">
-  <div class="seg scroll ctabs" role="tablist">${Object.keys(CATN).map(k => `<button role="tab" data-act="ctab" data-v="${k}" aria-selected="${tab === k}">${CATN[k]}</button>`).join("")}</div>
-  <div class="cgrid">${items.map(x => { const own = isChar || x.p === 0 || S.owned[tab + ":" + x.id], on = x.id === curId;
-   const th = isChar ? dinoSVG(x.id, { look: S.look }) : dinoSVG(S.dino, { look: Object.assign({}, S.look, { [tab]: x.id }) });
-   return `<button class="citem${x.id === sel ? " sel" : ""}" data-act="citem" data-v="${x.id}" aria-pressed="${x.id === sel}"><span class="cth">${th}</span><b>${esc(x.n)}</b>${on ? '<span class="wchip on">Dipakai</span>' : own ? '<span class="wchip own">Punya</span>' : `<span class="wchip">${COIN}${x.p}</span>`}</button>`; }).join("")}</div>
- </div></div>`;
 };
 
 /* ---------- pelajaran: kenalan kata ---------- */
@@ -1747,12 +1901,18 @@ VIEWS.lesson = id => {
  <div class="greet">${REXI(64)}<div class="say"><span style="color:var(--ink);font-weight:700">Ketuk setiap kartu untuk mendengar cara bacanya. Setelah itu, ayo main!</span></div></div>
  <div class="wgrid2">${x.words.map((w, i) => `<button class="wcard" data-act="hearw" data-v="${i}" aria-label="Dengar ${esc(w.w)}, artinya ${esc(w.m)}">${pic(w.pic)}<b>${esc(w.w)}</b><small>${esc(w.m)}</small><span class="hear">${I("speaker")}Dengar</span></button>`).join("")}</div>
  ${x.sents.length ? `<h2>Contoh kalimat</h2><div class="slist">${x.sents.map((s, i) => `<button class="srow" data-act="hears" data-v="${i}">${pic(s.pic)}<span class="grow"><b>${esc(s.full)}</b><span>${esc(s.m)}</span></span><span class="spk">${I("speaker")}</span></button>`).join("")}</div>` : ""}
- <button class="btn" data-act="startlesson" data-v="${x.id}">${I("play")}Mulai main · ${quizLen(x)} soal</button>
+ <h2>Pilih babak</h2>
+ <div class="babaks">${[1, 2, 3].map(b => { const d = S.done[x.id] || 0, done = d >= b, open = d >= b - 1, cur = d === b - 1;
+  return `<button class="babak${done ? " done" : ""}${cur ? " cur" : ""}" data-act="startlesson" data-v="${x.id}:${b}" ${open ? "" : "disabled"}><span class="bn">${done ? I("check") : open ? b : I("lock")}</span><span class="grow"><b>${BABAKN[b]}</b><small>10 soal · ${["", "Mulai dari soal mudah", "Eja huruf & pengecoh mirip", "Dengar kalimat, soal sulit"][b]}</small></span><span class="wchip">${done ? "Ulang · +" + ECO.replayCoin : "+" + ECO.babakCoin[b - 1]} ${COIN}</span></button>`; }).join("")}</div>
+ <p class="muted" style="text-align:center">Lulus babak dengan skor minimal 70% dan masih punya hati. Babak 1 membuka pelajaran berikutnya; ketiga babak semua pelajaran membuka bos.</p>
  </div>`;
 };
-const quizLen = x => Math.max(8, Math.min(10, x.words.length + x.sents.length));
+const quizLen = () => 10;
 
-/* ================= MESIN KUIS ================= */
+/* ================= MESIN KUIS (adaptif) ================= */
+const DIFFN = ["Mudah", "Sedang", "Sulit"];
+const minDiff = li => li >= 3 ? 1 : 0;
+const startDiff = li => li === 0 ? 0 : 1;
 function distract(item, n, fieldOk = () => true) {
  const same = LESSONS.find(l => l.id === item.lid).words.filter(o => o.w !== item.w && o.pic !== item.pic && fieldOk(o));
  let out = shuffle(same).slice(0, n);
@@ -1760,104 +1920,183 @@ function distract(item, n, fieldOk = () => true) {
  if (out.length < n) { const more = shuffle(VOCAB.filter(o => o.w !== item.w && !out.some(z => z.w === o.w || z.pic === o.pic))); out = out.concat(more.slice(0, n - out.length)); }
  return out;
 }
+/* pengecoh mirip: tulisan/bunyi mirip (cat, cap, car) */
+const simScore = (a, b) => lev(a, b) + (a[0] === b[0] ? 0 : 1.5) + Math.abs(a.length - b.length) * .3;
+function distractSim(it, n) {
+ const c = VOCAB.filter(o => o.w !== it.w && o.pic !== it.pic && !o.pic.startsWith("t:") && o.w.includes(" ") === it.w.includes(" "))
+  .map(o => [simScore(it.w, o.w), o]).sort((a, b) => a[0] - b[0]).slice(0, 7).map(x => x[1]);
+ const out = [];
+ shuffle(c).forEach(o => { if (out.length < n && !out.some(z => z.w === o.w || z.pic === o.pic)) out.push(o); });
+ return out.length < n ? out.concat(distract(it, n - out.length, o => !out.some(z => z.w === o.w))) : out;
+}
 const UNC = ["rice", "bread", "milk", "water", "juice", "ice cream"];
 const article = (it) => { const l = it.lid; if (["num", "col"].includes(l) || UNC.includes(it.w)) return it.w; return (/^[aeiou]/i.test(it.w) ? "an " : "a ") + it.w; };
-function makeQ(type, it) {
- const base = { type, key: it.key, show: { pic: it.pic, w: it.w, m: it.m } };
- if (type === "pic" || type === "hear") { const o = shuffle([it, ...distract(it, 3)]); return Object.assign(base, { say: it.w, opts: o.map(z => ({ pic: z.pic, v: z.w })), a: it.w }); }
- if (type === "word") { const o = shuffle([it, ...distract(it, 3)]); return Object.assign(base, { say: null, opts: o.map(z => ({ txt: z.w, v: z.w, sayOpt: z.w })), a: it.w }); }
+const canSpell = it => /^[a-z]{3,9}$/.test(it.w);
+const LETTERS = "aeioutrnslcmpdbgkhfw";
+function makeQ(type, it, diff = 0) {
+ const sim = diff >= 1, base = { type, key: it.key, show: { pic: it.pic, w: it.w, m: it.m }, diff };
+ const dis = n => sim ? distractSim(it, n) : distract(it, n);
+ if (type === "pic" || type === "hear") { const o = shuffle([it, ...dis(3)]); return Object.assign(base, { say: it.w, opts: o.map(z => ({ pic: z.pic, v: z.w })), a: it.w }); }
+ if (type === "word") { const o = shuffle([it, ...dis(3)]); return Object.assign(base, { say: null, opts: o.map(z => ({ txt: z.w, v: z.w, sayOpt: diff < 2 ? z.w : null })), a: it.w }); }
+ if (type === "hearw") { const o = shuffle([it, ...distractSim(it, 3)]); return Object.assign(base, { say: it.w, opts: o.map(z => ({ txt: z.w, v: z.w })), a: it.w }); }
  if (type === "mean") { const o = shuffle([it, ...distract(it, 3, z => z.m !== it.m)]); return Object.assign(base, { say: it.w, opts: o.map(z => ({ txt: z.m, v: z.m })), a: it.m, long: true }); }
+ if (type === "spell") {
+  const L = it.w.split(""), pre = diff >= 2 ? 0 : 1, extra = diff >= 2 ? 3 : 2;
+  const ex = shuffle(LETTERS.split("").filter(c => !L.includes(c))).slice(0, extra);
+  return Object.assign(base, { say: it.w, pre: L.slice(0, pre).join(""), bank: shuffle(L.slice(pre).concat(ex)), need: L.length - pre, a: it.w });
+ }
  if (type === "yn") {
-  const yes = Math.random() < .5, other = yes ? it : distract(it, 1)[0];
+  const yes = Math.random() < .5, other = yes ? it : (sim ? distractSim(it, 1) : distract(it, 1))[0];
   const q = `Is it ${article(other)}?`;
   return Object.assign(base, { q, say: q, opts: [{ pic: "t:Yes", v: "yes", lab: "Ya" }, { pic: "t:No", v: "no", lab: "Bukan" }], a: yes ? "yes" : "no", two: true });
  }
 }
-function makeSQ(type, s) {
- const base = { type, key: s.key, show: { pic: s.pic, w: s.full, m: s.m }, say: null, after: s.full };
+function makeSQ(type, s, diff = 1) {
+ const base = { type, key: s.key, show: { pic: s.pic, w: s.full, m: s.m }, say: null, after: s.full, diff };
  if (type === "fill") return Object.assign(base, { text: s.t, opts: shuffle([s.ans, ...s.dis]).map(z => ({ txt: z, v: z })), a: s.ans });
  const toks = s.full.split(" ");
  let sh = shuffle(toks); for (let k = 0; k < 5 && sh.join(" ") === toks.join(" "); k++) sh = shuffle(toks);
  return Object.assign(base, { bank: sh, a: toks.join(" ") });
 }
-function typesFor(li) { return li <= 1 ? ["pic", "hear", "word", "yn"] : li === 2 ? ["pic", "hear", "word", "mean"] : ["pic", "word", "mean", "hear"]; }
-function itemQ(it, li, prefer) {
- if (it.full) return makeSQ(li >= 3 && Math.random() < .5 ? "order" : "fill", it);
- let ts = typesFor(li); if (it.lid === "num" || it.pic.startsWith("t:")) ts = ts.filter(t => t !== "yn");
- if (it.w.endsWith("s") && !["num", "col"].includes(it.lid)) ts = ts.filter(t => t !== "yn");
- return makeQ(prefer && ts.includes(prefer) ? prefer : pick(ts), it);
+/* dengar kalimat → pilih gambar (tanpa teks) */
+const CNT = [["🍎", "apple", "apel"], ["🐱", "cat", "kucing"], ["🐶", "dog", "anjing"], ["⚽", "ball", "bola"], ["🐟", "fish", "ikan"], ["🦆", "duck", "bebek"], ["🍌", "banana", "pisang"], ["🚗", "car", "mobil"], ["🎈", "balloon", "balon"], ["🐰", "rabbit", "kelinci"], ["🍪", "cookie", "biskuit"], ["🐘", "elephant", "gajah"], ["⭐", "star", "bintang"], ["🌳", "tree", "pohon"]];
+const NUMW = ["", "one", "two", "three", "four"], NUMI = ["", "satu", "dua", "tiga", "empat"];
+const plural = (w, n) => n === 1 ? w : w === "fish" ? "fish" : w + "s";
+const SUBJ = [["👧", "The girl", "Anak perempuan"], ["👦", "The boy", "Anak laki-laki"]];
+const ACTS = [["🎨", "is drawing", "sedang menggambar"], ["📖", "is reading a book", "sedang membaca buku"], ["⚽", "is playing football", "sedang bermain sepak bola"], ["🍎", "is eating an apple", "sedang makan apel"], ["🎤", "is singing", "sedang bernyanyi"], ["🚲", "is riding a bike", "sedang naik sepeda"], ["🐶", "is walking the dog", "sedang mengajak anjing jalan-jalan"], ["🍦", "is eating ice cream", "sedang makan es krim"]];
+function lsentQ(li, diff) {
+ if (li <= 1 || Math.random() < .35) {
+  const o = pick(CNT), n = 1 + Math.floor(Math.random() * 4), sent = `I see ${NUMW[n]} ${plural(o[1], n)}.`;
+  const ns = shuffle([1, 2, 3, 4].filter(k => k !== n)).slice(0, 2), o2 = pick(CNT.filter(z => z !== o));
+  const opts = shuffle([{ pic: `m:${o[0]}:${n}`, v: "a" }, { pic: `m:${o[0]}:${ns[0]}`, v: "b" }, { pic: `m:${o[0]}:${ns[1]}`, v: "c" }, { pic: `m:${o2[0]}:${n}`, v: "d" }]);
+  return { type: "lsent", key: "", say: sent, opts, a: "a", diff, show: { pic: `m:${o[0]}:${n}`, w: sent, m: `Aku melihat ${NUMI[n]} ${o[2]}.` } };
+ }
+ const s = pick(SUBJ), a = pick(ACTS), s2 = SUBJ.find(z => z !== s), a2 = pick(ACTS.filter(z => z !== a));
+ const sent = `${s[1]} ${a[1]}.`;
+ const opts = shuffle([{ pic: `p:${s[0]}:${a[0]}`, v: "a" }, { pic: `p:${s2[0]}:${a[0]}`, v: "b" }, { pic: `p:${s[0]}:${a2[0]}`, v: "c" }, { pic: `p:${s2[0]}:${a2[0]}`, v: "d" }]);
+ return { type: "lsent", key: "", say: sent, opts, a: "a", diff, show: { pic: `p:${s[0]}:${a[0]}`, w: sent, m: `${s[2]} ${a[2]}.` } };
 }
-function lessonQs(x) {
- const n = quizLen(x), qs = [], ws = shuffle(x.words), ts = shuffle(typesFor(x.li));
- const nS = Math.min(x.sents.length, 3), nW = n - nS;
- for (let i = 0; i < nW; i++) qs.push(itemQ(ws[i % ws.length], x.li, ts[i % ts.length]));
- shuffle(x.sents).slice(0, nS).forEach((s, k) => qs.push(makeSQ(x.li >= 3 && k % 2 ? "order" : "fill", s)));
- return qs;
+function typesFor(li, diff) {
+ if (diff === 0) return ["pic", "hear", "word", "yn"];
+ if (diff === 1) return ["hear", "word", "spell", "hearw"].concat(li >= 2 ? ["mean"] : ["pic"]);
+ return ["spell", "hearw", "lsent", "hear", "spell"];
+}
+function adaptQ(it, li, diff, prefer) {
+ if (!it) return lsentQ(li, diff);
+ if (it.full) return makeSQ(diff >= 2 || (li >= 3 && Math.random() < .4) ? "order" : "fill", it, diff);
+ let ts = typesFor(li, diff);
+ if (!canSpell(it)) ts = ts.filter(t => t !== "spell");
+ if (it.lid === "num" || it.pic.startsWith("t:")) ts = ts.filter(t => !["yn", "spell"].includes(t));
+ if (it.w.endsWith("s") && !["num", "col"].includes(it.lid)) ts = ts.filter(t => t !== "yn");
+ if (!ts.length) ts = ["hear", "word"];
+ let t = prefer && ts.includes(prefer) ? prefer : pick(ts.filter(x => x !== (Q && Q.lastType)).length ? ts.filter(x => x !== (Q && Q.lastType)) : ts);
+ if (t === "lsent") return lsentQ(li, diff);
+ return makeQ(t, it, diff);
+}
+const itemQ = (it, li, prefer) => adaptQ(it, li, Math.max(minDiff(li), 1), prefer);
+function lessonItems(x) {
+ const ws = shuffle(x.words), items = [], nS = Math.min(x.sents.length, 3), nW = 10 - nS;
+ for (let i = 0; i < nW; i++) items.push(ws[i % ws.length]);
+ shuffle(x.sents).slice(0, nS).forEach(s => items.splice(3 + Math.floor(Math.random() * (items.length - 3)), 0, s));
+ return items;
 }
 function mixedQs(items, n, prefer) { return shuffle(items).slice(0, n).map(it => itemQ(it, it.li, prefer)); }
 
 let Q = null, lastTap = 0, ORIGIN = "practice";
-function startQuiz(o) { Q = Object.assign({ i: 0, sel: null, locked: false, right: 0, combo: 0, earned: 0, missed: [], placed: [] }, o); go("quiz"); autoSay(); }
-function autoSay() { const q = Q && Q.qs[Q.i]; if (q && q.say && !Q.locked && ["pic", "hear", "mean", "yn", "story"].includes(q.type)) hear(q.say); }
+const HEARTS = 3;
+function startQuiz(o) {
+ Q = Object.assign({ i: 0, sel: null, locked: false, right: 0, combo: 0, earned: 0, coins: 0, missed: [], placed: [], hearts: o.kind === "story" ? 0 : HEARTS, run: 0, wrongRun: 0 }, o);
+ if (Q.items) { Q.diff = Q.diff ?? startDiff(Q.li || 0); Q.qs = Q.items.map(() => null); Q.qs[0] = adaptQ(Q.items[0], Q.li || 0, Q.diff); }
+ go("quiz"); autoSay();
+}
+function autoSay() { const q = Q && Q.qs[Q.i]; if (q && q.say && !Q.locked && ["pic", "hear", "mean", "yn", "story", "hearw", "lsent"].includes(q.type)) hear(q.say); }
 const cur = () => Q.qs[Q.i];
+const hideHint = () => Q && (Q.diff || 0) >= 1;
+function heartsHTML(n, of = HEARTS) { return `<span class="hearts" role="img" aria-label="${n} dari ${of} hati">${Array.from({ length: of }, (_, k) => `<svg viewBox="0 0 24 24" class="hrt${k < n ? " on" : ""}" aria-hidden="true"><path d="M12 21s-8-5-8-11a4.5 4.5 0 0 1 8-2.8A4.5 4.5 0 0 1 20 10c0 6-8 11-8 11z"/></svg>`).join("")}</span>`; }
 
 VIEWS.quiz = () => {
  if (!Q) return go("home");
- const q = cur(), n = Q.qs.length;
+ const q = cur(), n = Q.qs.length, boss = Q.kind === "boss";
  const blocks = Q.qs.map((z, k) => `<span class="${k < Q.i ? (Q.res && Q.res[k] ? "ok" : "no") : k === Q.i ? "cur" : ""}"></span>`).join("");
  let prompt = "", opts = "";
  const spk = (cls = "") => `<button class="spkbig ${cls}" data-act="sayq" aria-label="Putar suara">${I("speaker")}</button>`;
- if (q.type === "pic") prompt = `<div class="pwrap">${REXI(70)}<div class="prompt">${spk()}<span class="ptxt"><span class="pw">${esc(q.say)}</span><span class="ph">Ketuk gambar yang benar.</span></span></div></div>`;
- else if (q.type === "hear") prompt = `<div class="pwrap">${REXI(70)}<div class="prompt">${spk()}<span class="ptxt"><span class="pq">Dengarkan…</span><span class="ph">Ketuk tombol suara, lalu pilih gambarnya.</span></span></div></div>`;
- else if (q.type === "word") prompt = `<div class="bigpic">${pic(q.show.pic)}</div><p class="muted" style="text-align:center;font-weight:800;margin-top:-6px">Ini apa dalam bahasa Inggris? Ketuk pilihan untuk mendengar.</p>`;
- else if (q.type === "mean") prompt = `<div class="pwrap">${REXI(70)}<div class="prompt">${spk()}<span class="ptxt"><span class="pw">${esc(q.say)}</span><span class="ph">Apa artinya?</span></span></div></div>`;
+ const mascot = boss ? "" : REXI(70);
+ if (q.type === "pic") prompt = `<div class="pwrap">${mascot}<div class="prompt">${spk()}<span class="ptxt"><span class="pw">${esc(q.say)}</span><span class="ph">Ketuk gambar yang benar.</span></span></div></div>`;
+ else if (q.type === "hear") prompt = `<div class="pwrap">${mascot}<div class="prompt">${spk()}<span class="ptxt"><span class="pq">Dengarkan…</span><span class="ph">Pilih gambar yang kamu dengar.</span></span></div></div>`;
+ else if (q.type === "hearw") prompt = `<div class="pwrap">${mascot}<div class="prompt">${spk()}<span class="ptxt"><span class="pq">Dengarkan…</span><span class="ph">Pilih tulisan yang benar. Hati-hati, tulisannya mirip!</span></span></div></div>`;
+ else if (q.type === "lsent") prompt = `<div class="prompt lsent">${spk()}<span class="ptxt"><span class="pq">Dengarkan kalimatnya</span><span class="ph">Tidak ada tulisan. Pilih gambar yang cocok.</span></span></div>`;
+ else if (q.type === "word") prompt = `<div class="bigpic">${pic(q.show.pic)}</div><p class="muted qhint">${q.diff >= 2 ? "Ini apa dalam bahasa Inggris?" : "Ini apa dalam bahasa Inggris? Ketuk pilihan untuk mendengar."}</p>`;
+ else if (q.type === "spell") prompt = `<div class="prompt">${`<span class="spellpic">${pic(q.show.pic)}</span>`}<span class="ptxt"><span class="pq">Eja!</span><span class="ph">${q.diff >= 2 ? "Susun hurufnya. Ada 3 huruf pengecoh." : "Susun hurufnya. Huruf pertama sudah diisi."}</span></span>${spk("sm")}</div>`;
+ else if (q.type === "mean") prompt = `<div class="pwrap">${mascot}<div class="prompt">${spk()}<span class="ptxt"><span class="pw">${esc(q.say)}</span><span class="ph">Apa artinya?</span></span></div></div>`;
  else if (q.type === "yn") prompt = `<div class="bigpic">${pic(q.show.pic)}</div><div class="prompt">${spk("sm")}<span class="ptxt"><span class="pq">${esc(q.q)}</span><span class="ph">Ya atau bukan?</span></span></div>`;
- else if (q.type === "fill") prompt = `<div class="prompt">${pic(q.show.pic)}<span class="ptxt"><span class="sentence">${esc(q.text).replace(/\*(.+?)\*/, Q.locked ? '<u>$1</u>' : '<span class="blank"></span>')}</span><span class="ph">${esc(q.show.m)}</span></span></div><p class="muted" style="font-weight:800;margin-top:-4px">Pilih kata yang tepat untuk mengisi titik kosong.</p>`;
+ else if (q.type === "fill") prompt = `<div class="prompt">${pic(q.show.pic)}<span class="ptxt"><span class="sentence">${esc(q.text).replace(/\*(.+?)\*/, Q.locked ? '<u>$1</u>' : '<span class="blank"></span>')}</span>${hideHint() && !Q.locked ? "" : `<span class="ph">${esc(q.show.m)}</span>`}</span></div><p class="muted qhint">Pilih kata yang tepat untuk mengisi titik kosong.</p>`;
  else if (q.type === "order") prompt = `<div class="prompt">${pic(q.show.pic)}<span class="ptxt"><span class="pq">Susun kalimatnya</span><span class="ph">${esc(q.show.m)}</span></span></div>`;
- else if (q.type === "story") prompt = `<div class="pwrap">${REXI(70)}<div class="prompt">${spk()}<span class="ptxt"><span class="pq">${esc(q.say)}</span><span class="ph">${esc(q.id)}</span></span></div></div>`;
+ else if (q.type === "story") prompt = `<div class="pwrap">${mascot}<div class="prompt">${spk()}<span class="ptxt"><span class="pq">${esc(q.say)}</span><span class="ph">${esc(q.id)}</span></span></div></div>`;
  const st = (v) => { if (!Q.locked) return Q.sel === v ? " sel" : ""; if (v === q.a) return " right"; if (v === Q.sel) return " wrong"; return ""; };
  const dis = Q.locked ? " disabled" : "";
  if (q.type === "order") {
   opts = `<div id="ord" class="${Q.locked ? "locked " + (Q.ok ? "right" : "wrong") : ""}"><div class="slot">${Q.placed.length ? Q.placed.map((k, j) => `<button class="word" data-act="unplace" data-v="${j}"${dis}>${esc(q.bank[k])}</button>`).join("") : '<span class="hint">Ketuk kata di bawah sesuai urutan.</span>'}</div>
   <div class="bank">${q.bank.map((w, k) => `<button class="word${Q.placed.includes(k) ? " used" : ""}" data-act="place" data-v="${k}" ${Q.placed.includes(k) || Q.locked ? "disabled" : ""}>${esc(w)}</button>`).join("")}</div></div>`;
+ } else if (q.type === "spell") {
+  const slots = Array.from({ length: q.a.length }, (_, k) => { if (k < q.pre.length) return `<span class="lslot fixed">${q.pre[k]}</span>`; const j = k - q.pre.length, idx = Q.placed[j]; return idx === undefined ? `<span class="lslot"></span>` : `<button class="lslot filled" data-act="unplace" data-v="${j}"${dis}>${q.bank[idx]}</button>`; }).join("");
+  opts = `<div class="spell${Q.locked ? (Q.ok ? " right" : " wrong") : ""}"><div class="lslots">${slots}</div><div class="ltiles">${q.bank.map((c, k) => `<button class="ltile" data-act="place" data-v="${k}" ${Q.placed.includes(k) || Q.locked || Q.placed.length >= q.need ? "disabled" : ""}>${c}</button>`).join("")}</div></div>`;
  } else if (q.opts[0].pic) {
   opts = `<div class="optgrid${q.two ? " two" : ""}" role="group" aria-label="Pilihan jawaban">${q.opts.map((o, k) => `<button class="popt${st(o.v)}" data-act="sel" data-v="${k}" aria-pressed="${Q.sel === o.v}" aria-label="Pilihan ${k + 1}${o.lab ? ": " + o.lab : ""}"${dis}>${pic(o.pic)}${o.lab ? `<span class="lab">${o.lab}</span>` : ""}</button>`).join("")}</div>`;
  } else {
   opts = `<div class="tgrid${q.long ? " long" : ""}" role="group" aria-label="Pilihan jawaban">${q.opts.map((o, k) => `<button class="opt${st(o.v)}" data-act="sel" data-v="${k}" aria-pressed="${Q.sel === o.v}"${dis}>${esc(o.txt)}</button>`).join("")}</div>`;
  }
- const can = q.type === "order" ? Q.placed.length === q.bank.length : Q.sel !== null;
- const foot = Q.locked ? fbHTML(q) : `<button class="btn lockbtn" data-act="lock" ${can ? "" : "disabled"}>${I("lock")}Kunci Jawaban</button><p class="muted pickhint">${can ? "Sudah yakin? Kamu masih boleh ganti sebelum dikunci." : q.type === "order" ? "Susun semua kata dulu. Ketuk kata di atas untuk mengembalikannya." : "Ketuk satu pilihan dulu. Jawaban belum terkirim sampai dikunci."}</p>`;
- const split = ["pic", "hear", "word", "yn", "story"].includes(q.type);
- app.innerHTML = `<div class="quiz">
- <div class="qtop"><button class="iconbtn" data-act="quitq" aria-label="Keluar dari kuis">${I("x")}</button><div class="blocks" style="--n:${n}">${blocks}</div><span class="qcount">${Q.i + 1}/${n}</span>${Q.combo >= 3 ? `<span class="combo">${I("flame")} ${Q.combo}</span>` : ""}</div>
+ const can = q.type === "order" ? Q.placed.length === q.bank.length : q.type === "spell" ? Q.placed.length === q.need : Q.sel !== null;
+ const lockLbl = boss ? "Kunci & Serang!" : "Kunci Jawaban";
+ const foot = Q.locked ? fbHTML(q) : `<button class="btn lockbtn" data-act="lock" ${can ? "" : "disabled"}>${I(boss ? "sword" : "lock")}${lockLbl}</button><p class="muted pickhint">${can ? "Sudah yakin? Kamu masih boleh ganti sebelum dikunci." : q.type === "order" || q.type === "spell" ? "Isi semua kotak dulu. Ketuk huruf/kata di atas untuk mengembalikannya." : "Ketuk satu pilihan dulu. Jawaban belum terkirim sampai dikunci."}</p>`;
+ const split = ["pic", "hear", "word", "yn", "story", "lsent", "hearw"].includes(q.type);
+ const status = Q.hearts || boss ? `<div class="qstat">${Q.kind === "story" ? "" : heartsHTML(Q.hearts)}${Q.babak ? `<span class="babchip">Babak ${Q.babak}</span>` : ""}${Q.items ? `<span class="diffchip d${Q.diff}">${I("bolt")}${DIFFN[Q.diff]}</span>` : ""}<span class="combo${Q.combo >= 3 ? " hot" : ""}">${I("flame")} Combo ${Q.combo}</span></div>` : "";
+ const arena = boss ? bossArena() : "";
+ app.innerHTML = `<div class="quiz${boss ? " bossq" : ""}">
+ <div class="qtop"><button class="iconbtn" data-act="quitq" aria-label="Keluar dari kuis">${I("x")}</button>${boss ? `<b class="bosst">Lawan ${esc(Q.boss.nick)}</b>` : `<div class="blocks" style="--n:${n}">${blocks}</div><span class="qcount">${Q.i + 1}/${n}</span>`}</div>
+ ${status}${arena}
  <div class="qbody${split ? " split" : ""}"><div class="qside stack">${prompt}</div><div class="stack">${opts}${foot}</div></div>
  </div>`;
 };
 function fbHTML(q) {
  const ok = Q.ok, sh = q.show;
  const ansPic = q.type === "story" ? q.opts.find(o => o.v === q.a).pic : sh.pic;
+ const out = Q.kind !== "story" && Q.hearts <= 0, bossWin = Q.kind === "boss" && Q.bossHP <= 0;
+ const nextLbl = bossWin ? "Bos kalah! Lihat hadiah" : out ? "Hati habis. Lihat hasil" : (Q.i + 1 < Q.qs.length ? "Lanjut" : "Lihat hasil");
  return `<div class="fb ${ok ? "ok" : "no"}" role="status">
- <div class="fb-top">${REXI(64, ok ? "wow" : "oops", ok ? "hop" : "tilt")}<div class="fb-h"><span class="fbt">${esc(Q.praise || (ok ? "Benar sekali!" : "Hampir!"))}</span><span class="gains">${ok ? `<span class="plus">${I("bone", "ic bone")}+${Q.lastGain} fosil</span><span class="plus">${COIN}+2 koin</span>` : ""}</span></div></div>
+ <div class="fb-top">${REXI(64, ok ? "wow" : "oops", ok ? "hop" : "tilt")}<div class="fb-h"><span class="fbt">${esc(Q.praise || (ok ? "Benar sekali!" : "Hampir!"))}</span><span class="gains">${ok ? `<span class="plus">${I("bone", "ic bone")}+${Q.lastGain} fosil</span>${Q.lastCoin ? `<span class="plus">${COIN}+${Q.lastCoin} koin</span>` : ""}` : `<span class="plus lose">${I("heart")}−1 hati</span>`}</span></div></div>
  ${q.type === "story" ? (ok ? "" : `<div class="ans">${pic(ansPic)}<span class="grow"><b>Jawaban yang benar</b></span></div>`) :
   `<div class="ans">${pic(ansPic)}<span class="grow"><b>${esc(sh.w)}</b><span>${esc(sh.m)}</span></span><button class="spk" data-act="sayans" aria-label="Dengar jawaban">${I("speaker")}</button></div>`}
- ${!ok && q.type !== "story" ? '<small style="font-weight:700">Soal ini akan muncul lagi di "Ulang yang salah".</small>' : ""}
- <button class="btn" data-act="nextq">${Q.i + 1 < Q.qs.length ? "Lanjut" : "Lihat hasil"}</button></div>`;
+ <button class="btn" data-act="nextq">${nextLbl}</button></div>`;
 }
 function lockAnswer() {
  const q = cur(); if (Q.locked) return;
  let ok;
  if (q.type === "order") { ok = Q.placed.map(k => q.bank[k]).join(" ") === q.a; Q.sel = "x"; }
+ else if (q.type === "spell") { if (Q.placed.length < q.need) return; ok = q.pre + Q.placed.map(k => q.bank[k]).join("") === q.a; Q.sel = "x"; }
  else { if (Q.sel === null) return; ok = Q.sel === q.a; }
- Q.locked = true; Q.ok = ok; Q.praise = nextFrom(ok ? PRAISE : COMFORT); Q.res = Q.res || []; Q.res[Q.i] = ok;
+ Q.locked = true; Q.ok = ok; Q.praise = nextFrom(ok ? PRAISE : COMFORT); Q.res = Q.res || []; Q.res[Q.i] = ok; Q.lastType = q.type;
  const t = today(); t.q++; S.ans++; touchDay();
  if (ok) {
-  Q.right++; Q.combo++; S.cor++; t.c++; S.bestCombo = Math.max(S.bestCombo, Q.combo);
-  Q.lastGain = 10 + (Q.combo >= 3 ? 2 : 0); Q.earned += Q.lastGain; addFosil(Q.lastGain); addCoins(2); Q.coins = (Q.coins || 0) + 2;
+  Q.right++; Q.combo++; Q.run++; Q.wrongRun = 0; S.cor++; t.c++; S.bestCombo = Math.max(S.bestCombo, Q.combo);
+  Q.lastGain = ECO.fosilQ + (Q.combo >= 3 ? 1 : 0) + (q.diff >= 2 ? 1 : 0); Q.earned += Q.lastGain; addFosil(Q.lastGain);
+  Q.lastCoin = Q.combo >= 3 ? ECO.coinCombo : ECO.coinQ; if (Q.lastCoin) { addCoins(Q.lastCoin); Q.coins += Q.lastCoin; }
   if (q.show && q.type !== "story") S.known[q.show.w] = (S.known[q.show.w] || 0) + 1;
+  if (q.type === "spell") S.st.spell++;
+  if (q.type === "lsent") { S.st.lsent++; S.st.lsentRun++; S.st.lsentBest = Math.max(S.st.lsentBest, S.st.lsentRun); }
   if (S.wrong[q.key]) delete S.wrong[q.key];
+  petXP(1);
+  if (Q.kind === "boss") Q.bossHP--;
   SFX.ok();
  } else {
-  Q.combo = 0; Q.lastGain = 0; if (q.key) S.wrong[q.key] = dkey(); Q.missed.push(q); SFX.no();
+  Q.combo = 0; Q.run = 0; Q.wrongRun++; Q.lastGain = 0; Q.lastCoin = 0; if (Q.hearts) Q.hearts--; Q.lostHeart = true;
+  if (q.type === "lsent") S.st.lsentRun = 0;
+  if (q.key) S.wrong[q.key] = dkey(); Q.missed.push(q); SFX.no();
+ }
+ /* tingkat kesulitan otomatis */
+ if (Q.items) {
+  const li = Q.li || 0;
+  if (Q.run >= 3 && Q.diff < 2) { Q.diff++; Q.run = 0; Q.diffMsg = "naik"; }
+  else if (Q.wrongRun >= 2 && Q.diff > minDiff(li)) { Q.diff--; Q.wrongRun = 0; Q.diffMsg = "turun"; }
  }
  save(); render();
  const sayAfter = q.after || (q.type === "story" ? null : q.show && q.show.w);
@@ -1865,42 +2104,59 @@ function lockAnswer() {
  const b = $(".fb .btn"); if (b) b.focus({ preventScroll: true });
 }
 function nextQ() {
- if (Q.i + 1 < Q.qs.length) { Q.i++; Q.sel = null; Q.locked = false; Q.placed = []; render(); autoSay(); const t = $(".quiz"); if (t) t.scrollIntoView({ block: "start" }); }
- else finishQuiz();
+ const ended = (Q.kind !== "story" && Q.hearts <= 0) || (Q.kind === "boss" && Q.bossHP <= 0);
+ if (!ended && Q.i + 1 < Q.qs.length) {
+  Q.i++; Q.sel = null; Q.locked = false; Q.placed = [];
+  if (Q.items) Q.qs[Q.i] = adaptQ(Q.items[Q.i], Q.li || 0, Q.diff);
+  render(); autoSay();
+  if (Q.diffMsg) { toast(Q.diffMsg === "naik" ? `Hebat! Soal naik ke tingkat <b>${DIFFN[Q.diff]}</b>` : `Soal kembali ke tingkat <b>${DIFFN[Q.diff]}</b>`); Q.diffMsg = null; }
+  const t = $(".quiz"); if (t) t.scrollIntoView({ block: "start" });
+ } else finishQuiz();
 }
 function finishQuiz() {
- const n = Q.qs.length, pct = Math.round(Q.right / n * 100);
- const st = pct === 100 ? 3 : pct >= 75 ? 2 : pct >= 50 ? 1 : 0;
+ const n = Q.i + 1, total = Q.qs.length, pct = Math.round(Q.right / total * 100);
+ const out = Q.kind !== "story" && Q.hearts <= 0;
+ let st = out ? 0 : pct >= 90 ? 3 : pct >= 70 ? 2 : pct >= 50 ? 1 : 0;
  const t = today(); t.g++;
- let bonus = 0, note = "", coinB = 0;
- if (pct === 100) S.perf++;
+ let bonus = 0, note = out ? "Hatimu habis. Ayo coba lagi, kamu pasti bisa!" : "", coinB = 0;
+ if (!out && Q.right === total) S.perf++;
+ let cleared = false;
  if (Q.kind === "lesson") {
-  const x = LESSONS.find(l => l.id === Q.lid), was = S.done[x.id] || 0;
-  if (st > was) S.done[x.id] = st;
-  if (st && !was) { bonus = 20; coinB = 10; note = "Pelajaran selesai! Pelajaran berikutnya terbuka."; }
- } else if (Q.kind === "daily" && S.daily !== dkey()) { S.daily = dkey(); bonus = 30; coinB = 15; note = "Tantangan harian selesai!"; }
- else if (Q.kind === "test") {
-  const L = LEVELS[Q.li], was = S.tests[L.id];
-  S.tests[L.id] = Math.max(was || 0, pct);
-  if (pct >= 75 && (was || 0) < 75) { bonus = 50; coinB = 30; note = Q.li + 1 < LEVELS.length ? `Lulus! Level ${LEVELS[Q.li + 1].name} terbuka.` : "Lulus level terakhir. Kamu Raja Dino!"; }
-  else if (pct < 75) note = "Butuh 75% untuk lulus. Latihan dulu, lalu coba lagi.";
- } else if (Q.kind === "story" && st) { if (!S.read[Q.sid]) { bonus = 15; coinB = 10; note = "Cerita selesai!"; } S.read[Q.sid] = 1; }
+  const x = LESSONS.find(l => l.id === Q.lid), was = S.done[x.id] || 0, b = Q.babak || 1;
+  cleared = !out && pct >= 70;
+  if (cleared && b === was + 1) { S.done[x.id] = b; bonus = ECO.babakFosil[b - 1]; coinB = ECO.babakCoin[b - 1];
+   note = b === 1 ? "Babak 1 lulus! Pelajaran berikutnya terbuka, dan Babak 2 siap dimainkan." : b === 2 ? "Babak 2 lulus! Ayo taklukkan Babak 3." : levelDone(x.li) && !S.boss[x.L.id] ? "Babak 3 lulus! Semua pelajaran selesai, bos menunggumu!" : "Babak 3 lulus! Pelajaran ini tamat."; }
+  else if (cleared && pct >= 90) { coinB = ECO.replayCoin; bonus = 5; note = "Main ulang dengan skor hebat!"; }
+  else if (!cleared && !out) note = "Butuh skor 70% untuk lulus babak. Ayo coba lagi!";
+ } else if (Q.kind === "daily" && !out && S.daily !== dkey()) { S.daily = dkey(); bonus = ECO.dailyFosil; coinB = ECO.dailyCoin; note = "Tantangan harian selesai!"; }
+ else if (Q.kind === "boss") {
+  const L = LEVELS[Q.li], win = Q.bossHP <= 0, first = !S.boss[L.id];
+  st = win ? (Q.hearts === HEARTS ? 3 : Q.hearts === 2 ? 2 : 1) : 0;
+  if (win) {
+   S.st.bossWins++; if (!Q.lostHeart) S.st.bossPerfect++;
+   if (first) { S.boss[L.id] = dkey(); bonus = ECO.bossFosil; coinB = ECO.bossCoin; const rare = STICKERS.filter(x => x.rare && !S.stickers[x.id]); if (rare.length) { const r = pick(rare); S.stickers[r.id] = dkey(); Q.bossSticker = r; }
+    note = Q.li + 1 < LEVELS.length ? `${Q.boss.n} kalah! Level ${LEVELS[Q.li + 1].name} terbuka, dan ${Q.boss.nick} bisa jadi karaktermu.` : `${Q.boss.n} kalah! Kamu Raja Dino sejati!`; }
+   else { bonus = ECO.rematchFosil; coinB = ECO.rematchCoin; note = "Bos kalah lagi! Kamu makin jago."; }
+  } else note = "Bos masih kuat. Latihan dulu, lalu tantang lagi!";
+ } else if (Q.kind === "spellgame" && !out) { S.st.games++; bonus = 8; coinB = st >= 2 ? 15 : 5; note = "Eja Huruf selesai!";
+ } else if (Q.kind === "story" && st) { if (!S.read[Q.sid]) { bonus = ECO.storyFosil; coinB = ECO.storyCoin; note = "Cerita selesai!"; } S.read[Q.sid] = 1; }
  if (bonus) addFosil(bonus);
  if (coinB) addCoins(coinB);
- Q.result = { pct, st, bonus, note, coinB };
+ Q.result = { pct, st, bonus, note, coinB, out, cleared };
  save(); go("result"); if (st >= 2) { SFX.win(); confetti(); }
  checkBadges();
 }
 VIEWS.result = () => {
- const r = Q.result, n = Q.qs.length;
+ const r = Q.result, total = Q.qs.length, boss = Q.kind === "boss";
  const mood = r.st >= 2 ? "wow" : r.st ? "happy" : "oops";
- const line = r.st === 3 ? "Sempurna! Kamu juara!" : r.st === 2 ? "Hebat sekali!" : r.st === 1 ? "Bagus, terus berlatih ya!" : "Tidak apa-apa, ayo coba lagi!";
+ const line = boss ? (Q.bossHP <= 0 ? "Kamu menang!" : "Bos menang kali ini") : r.out ? "Hati habis!" : r.st === 3 ? "Sempurna! Kamu juara!" : r.st === 2 ? "Hebat sekali!" : r.st === 1 ? "Bagus, terus berlatih ya!" : "Tidak apa-apa, ayo coba lagi!";
  app.innerHTML = `<div class="res stack">
- <div class="res-h">${REXI(120, mood, "hop")}<div class="bigstars" role="img" aria-label="${r.st} dari 3 bintang">${[1, 2, 3].map(k => `<i class="${k <= r.st ? "on" : ""}">★</i>`).join("")}</div><h1>${line}</h1>${r.note ? `<p class="muted" style="font-weight:800">${r.note}</p>` : ""}</div>
- <dl class="stats3"><div><dt>Fosil</dt><dd>+${Q.earned + r.bonus}</dd></div><div><dt>Koin</dt><dd>+${(Q.coins || 0) + r.coinB}</dd></div><div><dt>Benar</dt><dd>${Q.right}/${n}</dd></div></dl>
+ <div class="res-h">${boss && Q.bossHP <= 0 ? `<span class="rexi" style="width:120px;height:140px">${charSVG(Q.boss.id, { mood: "oops" })}</span>` : REXI(120, mood, "hop")}<div class="bigstars" role="img" aria-label="${r.st} dari 3 bintang">${[1, 2, 3].map(k => `<i class="${k <= r.st ? "on" : ""}">★</i>`).join("")}</div><h1>${line}</h1>${r.note ? `<p class="muted" style="font-weight:800">${r.note}</p>` : ""}
+ ${Q.bossSticker ? `<div class="bossprize"><span class="stb" style="background:${Q.bossSticker.bg}">${stickerSVG(Q.bossSticker)}</span><span><b>Stiker langka!</b><br>${esc(Q.bossSticker.n)}</span></div>` : ""}</div>
+ <dl class="stats3"><div><dt>Fosil</dt><dd>+${Q.earned + r.bonus}</dd></div><div><dt>Koin</dt><dd>+${Q.coins + r.coinB}</dd></div><div><dt>Benar</dt><dd>${Q.right}/${boss ? Q.i + 1 : total}</dd></div></dl>
  ${Q.missed.length ? `<div class="stack"><h2>Yuk ingat lagi</h2><ul class="missed">${Q.missed.filter(m => m.type !== "story").map(m => `<li>${pic(m.show.pic)}<b>${esc(m.show.w)}</b><small>${esc(m.show.m)}</small></li>`).join("")}</ul></div>` : ""}
- <div class="pair"><button class="btn ghost" data-act="again">${I("retry")}Ulangi</button><button class="btn" data-act="afterres">${Q.kind === "lesson" && nextLesson() ? "Pelajaran berikutnya" : "Selesai"}</button></div>
- ${Q.kind === "lesson" || (Q.back && Q.back !== "home") ? `<button class="btn ghost" data-act="tohome">${I("home")}Kembali ke Beranda</button>` : ""}
+ <div class="pair"><button class="btn ghost" data-act="again">${I("retry")}Ulangi</button><button class="btn" data-act="afterres">${Q.kind === "lesson" && r.cleared ? ((S.done[Q.lid] || 0) < 3 ? "Babak berikutnya" : "Pelajaran berikutnya") : "Selesai"}</button></div>
+ <button class="btn ghost" data-act="tohome">${I("home")}Kembali ke Beranda</button>
  </div>`;
 };
 
@@ -1924,7 +2180,7 @@ VIEWS.match = () => {
  if (!M) return go("practice");
  const done = M.gone.length === M.items.length;
  if (done) {
-  app.innerHTML = `<div class="res stack"><div class="res-h">${REXI(110, "wow", "hop")}<h1>Semua cocok!</h1><p class="muted" style="font-weight:800">Waktumu ${M.time} detik${M.rec ? " · rekor baru!" : ""}</p></div><dl class="stats3"><div><dt>Fosil</dt><dd>+20</dd></div><div><dt>Koin</dt><dd>+5</dd></div><div><dt>Waktu</dt><dd>${M.time}s</dd></div></dl><div class="pair"><button class="btn ghost" data-act="match">${I("retry")}Main lagi</button><button class="btn" data-act="nav" data-v="${ORIGIN}">Selesai</button></div></div>`; return;
+  app.innerHTML = `<div class="res stack"><div class="res-h">${REXI(110, "wow", "hop")}<h1>Semua cocok!</h1><p class="muted" style="font-weight:800">Waktumu ${M.time} detik${M.rec ? " · rekor baru!" : ""}</p></div><dl class="stats3"><div><dt>Fosil</dt><dd>+10</dd></div><div><dt>Koin</dt><dd>+2</dd></div><div><dt>Waktu</dt><dd>${M.time}s</dd></div></dl><div class="pair"><button class="btn ghost" data-act="match">${I("retry")}Main lagi</button><button class="btn" data-act="nav" data-v="${ORIGIN}">Selesai</button></div></div>`; return;
  }
  const b = (side, it, k) => { const gone = M.gone.includes(it.w), sel = M.sel && M.sel.side === side && M.sel.k === k;
   return `<button class="mbtn${gone ? " gone" : ""}${sel ? " sel" : ""}${M.bad === side + k ? " no" : ""}" data-act="mt" data-v="${side}:${k}" ${gone ? "disabled" : ""} aria-pressed="${sel}">${side === "L" ? pic(it.pic) : esc(it.w)}</button>`; };
@@ -1950,12 +2206,12 @@ VIEWS.say = () => {
  <div class="saycard${SY.res === true ? " ok" : SY.res === false ? " no" : ""}">${pic(w.pic)}<b>${esc(w.w)}</b><span class="muted" style="font-weight:800">${esc(w.m)}</span><button class="spkbig sm" data-act="sayw" aria-label="Dengar contoh">${I("speaker")}</button></div>
  ${SR ? `<div style="display:grid;place-items:center;gap:8px"><button class="micbtn${SY.on ? " on" : ""}" data-act="mic" aria-label="${SY.on ? DN() + " sedang mendengarkan" : "Ketuk lalu ucapkan kata"}">${I("mic")}</button><span class="heard" role="status">${SY.on ? DN() + " mendengarkan… ucapkan sekarang!" : SY.heard ? `${DN()} mendengar: “${esc(SY.heard)}”` : "Ketuk mikrofon, lalu ucapkan katanya."}</span></div>`
   : `<p class="muted" style="text-align:center;font-weight:800">Dengarkan contohnya, lalu ucapkan keras-keras.</p>`}
- ${SY.res === true ? `<div class="fb ok"><div class="fb-h"><span>Rawr! Bagus sekali!</span><span class="plus">+5 fosil</span></div><button class="btn" data-act="saynext">Lanjut</button></div>`
+ ${SY.res === true ? `<div class="fb ok"><div class="fb-h"><span>Rawr! Bagus sekali!</span><span class="plus">+2 fosil</span></div><button class="btn" data-act="saynext">Lanjut</button></div>`
   : SY.res === false ? `<div class="pair"><button class="btn ghost" data-act="saynext">Lewati</button><button class="btn" data-act="mic">Coba lagi</button></div>`
   : SR ? `<button class="btn ghost" data-act="sayself">${DN()} tidak dengar? Aku sudah mengucapkannya</button>` : `<button class="btn leaf" data-act="sayself">${I("check")}Aku sudah mengucapkannya</button>`}
  </div>`;
 };
-function sayOk() { const w = SY.deck[SY.i]; SY.res = true; SY.ok++; S.spoke[w.w] = 1; addFosil(5); touchDay(); save(); SFX.ok(); render(); }
+function sayOk() { const w = SY.deck[SY.i]; SY.res = true; SY.ok++; S.spoke[w.w] = 1; addFosil(2); touchDay(); save(); SFX.ok(); render(); }
 /* ---------- lagu ---------- */
 let CH = null;
 VIEWS.chants = () => listView("Nyanyi & tepuk", "Lagu pendek yang seru. Dengarkan, ikuti, dan tepuk tangan!", CHANTS, "chant", c => S.sang[c.id] ? "Sudah" : "Baru");
@@ -2014,7 +2270,7 @@ VIEWS.parent = () => {
  <div class="ptab"><div class="stack">
   <dl class="statgrid"><div><dt>Pelajaran selesai</dt><dd>${doneCount()}/${LESSONS.length}</dd></div><div><dt>Ketepatan</dt><dd>${acc}%</dd></div><div><dt>Kata hafal</dt><dd>${knownCount()}</dd></div><div><dt>Rekor beruntun</dt><dd>${S.best} hr</dd></div></dl>
   <div class="card stack"><h2>Soal dijawab, 7 hari terakhir</h2><div class="week">${days.map(d => `<div><em>${d.q}</em><i class="${d.q >= 10 ? "hit" : ""}" style="height:${Math.max(6, d.q / mx * 100)}%"></i><span>${d.n}</span></div>`).join("")}</div><p class="muted">Batang hijau: 10 soal atau lebih pada hari itu.</p></div>
-  <div class="card lvp"><h2>Progres per level</h2>${LEVELS.map((L, li) => { const dn = L.lessons.filter(x => S.done[x.id]).length; return `<div class="lvp-r" style="--lv:${L.lv};--ldk:${L.ldk}"><span class="roundel sm">${li + 1}</span><span><b>${L.name} · ${L.grade}</b><span class="skbar"><i style="width:${dn / L.lessons.length * 100}%"></i></span></span><span class="muted" style="font-weight:800">${dn}/${L.lessons.length}${S.tests[L.id] != null ? " · uji " + S.tests[L.id] + "%" : ""}</span></div>`; }).join("")}</div>
+  <div class="card lvp"><h2>Progres per level</h2>${LEVELS.map((L, li) => { const dn = L.lessons.filter(x => S.done[x.id]).length; return `<div class="lvp-r" style="--lv:${L.lv};--ldk:${L.ldk}"><span class="roundel sm">${li + 1}</span><span><b>${L.name} · ${L.grade}</b><span class="skbar"><i style="width:${dn / L.lessons.length * 100}%"></i></span></span><span class="muted" style="font-weight:800">${dn}/${L.lessons.length}${S.boss[L.id] ? " · bos kalah" : ""}</span></div>`; }).join("")}</div>
  </div><div class="stack">
   <div class="card"><h2>Pengaturan belajar</h2>
    <div class="setting" style="display:grid"><b>Kelas / level awal</b><div class="grades" style="margin-top:8px">${LEVELS.map((L, i) => `<button class="grade${S.start === i ? " on" : ""}" data-act="setstart" data-v="${i}" aria-pressed="${S.start === i}"><b>${L.grade}</b><span>${L.name}</span></button>`).join("")}</div></div>
@@ -2037,7 +2293,10 @@ const ACT = {
  lesson: v => { const x = LESSONS.find(l => l.id === v); if (x && lessonOpen(x)) go("lesson", v); },
  hearw: (v, b) => { const x = LESSONS.find(l => l.id === R.arg); hear(x.words[+v].w); b.classList.add("played"); },
  hears: v => { const x = LESSONS.find(l => l.id === R.arg); hear(x.sents[+v].full); },
- startlesson: v => { const x = LESSONS.find(l => l.id === v); startQuiz({ kind: "lesson", lid: v, qs: lessonQs(x), back: "home" }); },
+ startlesson: v => { const [id, bb] = String(v).split(":"), x = LESSONS.find(l => l.id === id); if (!x) return;
+  const babak = +bb || Math.min(3, (S.done[x.id] || 0) + 1); if ((S.done[x.id] || 0) < babak - 1) return toast("Selesaikan babak sebelumnya dulu.");
+  const diff = babak === 1 ? startDiff(x.li) : babak === 2 ? Math.max(1, minDiff(x.li)) : 2;
+  startQuiz({ kind: "lesson", lid: id, li: x.li, babak, diff, items: lessonItems(x), back: "home" }); },
  sel: v => {
   const now = Date.now(); if (Q.locked || now - lastTap < 250) return; lastTap = now;
   const o = cur().opts[+v]; Q.sel = o.v; SFX.tap(); if (o.sayOpt) speak(o.sayOpt); render();
@@ -2050,18 +2309,27 @@ const ACT = {
  quitq: () => sheet(`<div class="sheet-h"><h2>Keluar dari kuis?</h2></div><p class="muted">Jawaban di kuis ini belum disimpan sebagai pelajaran selesai.</p><div class="pair"><button class="btn ghost" data-act="close">Lanjut main</button><button class="btn bad" data-act="quitok">Keluar</button></div>`, "Keluar dari kuis"),
  quitok: () => { closeSheet(); const b = Q.back || "home"; Q = null; go(b); },
  close: () => closeSheet(),
- again: () => { const o = Q; if (o.kind === "lesson") return ACT.startlesson(o.lid); if (o.kind === "test") return ACT.test(o.li); if (o.kind === "story") return ACT.storyq(); startQuiz({ kind: o.kind, qs: o.remake(), remake: o.remake, back: o.back }); },
+ again: () => { const o = Q; if (o.kind === "lesson") return ACT.startlesson(o.lid + ":" + o.babak); if (o.kind === "boss") return startBoss(o.li); if (o.kind === "daily") return ACT.daily(); if (o.kind === "story") return ACT.storyq(); startQuiz({ kind: o.kind, qs: o.remake(), remake: o.remake, back: o.back }); },
  tohome: () => { Q = null; go("home"); },
- afterres: () => { if (Q.kind === "lesson") { const n = nextLesson(); Q = null; return n ? go("lesson", n.id) : go("home"); } const b = Q.back || "home"; Q = null; go(b); },
- daily: () => { const mk = () => mixedQs(pool(), 10); startQuiz({ kind: "daily", qs: mk(), remake: mk, back: ORIGIN }); },
+ afterres: () => { if (Q.kind === "lesson") { const id = Q.lid, d = S.done[id] || 0; Q = null; if (d < 3) return go("lesson", id); const n = nextLesson(); return n ? go("lesson", n.id) : go("home"); } const b = Q.back || "home"; Q = null; go(b); },
+ daily: () => { const li = Math.max(...opened().map(x => x.li)); startQuiz({ kind: "daily", li, items: shuffle(pool().concat(opened().flatMap(x => x.sents))).slice(0, 10), back: ORIGIN }); },
  picq: () => { const mk = () => mixedQs(pool().filter(w => !w.pic.startsWith("t:")), 8, "word"); startQuiz({ kind: "picq", qs: mk(), remake: mk, back: ORIGIN }); },
  hearq: () => { const mk = () => mixedQs(pool(), 8, "hear").map(q => q.type === "hear" ? q : makeQ("hear", WMAP[q.key])); startQuiz({ kind: "hearq", qs: mk(), remake: mk, back: ORIGIN }); },
  review: () => { const ks = wrongDue(); if (!ks.length) return; const mk = () => shuffle(wrongDue().length ? wrongDue() : ks).slice(0, 10).map(k => itemQ(WMAP[k], WMAP[k].li)); startQuiz({ kind: "review", qs: mk(), remake: mk, back: ORIGIN }); },
- tests: () => go("tests"),
+ tests: () => go("bosses"), bosses: () => go("bosses"),
+ boss: v => { const li = +v; if (!levelOpen(li) || !levelDone(li)) return toast("Selesaikan ketiga babak di semua pelajaran level ini dulu."); startBoss(li); },
+ maplv: v => { MAPLV = +v; render(); },
+ balloon: () => balloonStart(), memory: () => memoryStart(), runner: () => runnerStart(), timed: () => timedStart(), spellgame: () => spellStart(),
+ gsay: () => { if (G && G.kind === "balloon" && G.target) speak(G.target.w); else if (G && G.q) speak(G.q.it.w); },
+ mflip: v => memoryFlip(+v), rgate: v => runnerAnswer(+v), tans: v => timedAnswer(+v),
+ petfood: v => { PF = +v; SFX.tap(); speak(FOODS[+v][1]); render(); },
+ petfeed: () => { const f = FOODS[PF]; if (!f || S.coins < f[3]) return; S.coins -= f[3]; S.pet.full = Math.min(100, S.pet.full + f[4]); if (f[1] === "cake") S.pet.joy = Math.min(100, S.pet.joy + 10); S.st.fed++; PF = null; save(); SFX.ok(); speakID("Nyam, enak!", () => speak("Yummy " + f[1] + "!")); checkBadges(); render(); },
+ petplay: () => { S.pet.play = Date.now(); S.pet.joy = Math.min(100, S.pet.joy + 20); save(); SFX.win(); speak("Let's play!"); render(); },
+ petbath: () => { S.pet.bath = Date.now(); S.pet.joy = Math.min(100, S.pet.joy + 15); save(); SFX.ok(); speak("So clean!"); render(); },
  test: v => { const li = +v; if (!levelOpen(li)) return; const L = LEVELS[li]; const items = L.lessons.flatMap(x => x.words.concat(x.sents)); startQuiz({ kind: "test", li, qs: shuffle(items).slice(0, 12).map(it => itemQ(it, li)), back: R.name === "tests" ? "tests" : "home" }); },
  flash: () => { F = { deck: shuffle(pool()).slice(0, 12), i: 0, on: false, k: 0 }; go("flash"); },
  flip: () => { F.on = !F.on; render(); if (F.on) hear(F.deck[F.i].w); },
- fk: v => { const w = F.deck[F.i]; if (+v) { S.known[w.w] = Math.max(3, S.known[w.w] || 0); F.k++; SFX.ok(); } F.i++; F.on = false; if (F.i >= F.deck.length) { today().g++; addFosil(10); addCoins(5); touchDay(); checkBadges(); } save(); render(); },
+ fk: v => { const w = F.deck[F.i]; if (+v) { S.known[w.w] = Math.max(3, S.known[w.w] || 0); F.k++; SFX.ok(); } F.i++; F.on = false; if (F.i >= F.deck.length) { today().g++; addFosil(5); addCoins(1); touchDay(); checkBadges(); } save(); render(); },
  match: () => { const ws = []; shuffle(pool()).forEach(w => { if (ws.length < 6 && !ws.some(z => z.w === w.w || z.pic === w.pic)) ws.push(w); }); M = { items: ws, left: shuffle(ws), right: shuffle(ws), gone: [], sel: null, t0: 0, miss: 0 }; go("match"); },
  mt: v => {
   const [side, k] = v.split(":"), it = (side === "L" ? M.left : M.right)[+k];
@@ -2069,7 +2337,7 @@ const ACT = {
   if (side === "R") speak(it.w);
   if (!M.sel || M.sel.side === side) { M.sel = { side, k: +k, it }; SFX.tap(); return render(); }
   if (M.sel.it.w === it.w) { M.gone.push(it.w); M.sel = null; SFX.ok(); speak(it.w);
-   if (M.gone.length === M.items.length) { M.time = Math.round((Date.now() - M.t0) / 1000); M.rec = !S.matchBest || M.time < S.matchBest; if (M.rec) S.matchBest = M.time; addFosil(20); addCoins(5); today().g++; touchDay(); save(); SFX.win(); confetti(); checkBadges(); }
+   if (M.gone.length === M.items.length) { M.time = Math.round((Date.now() - M.t0) / 1000); M.rec = !S.matchBest || M.time < S.matchBest; if (M.rec) S.matchBest = M.time; addFosil(10); addCoins(2); today().g++; touchDay(); save(); SFX.win(); confetti(); checkBadges(); }
   } else { M.miss++; M.bad = side + k; M.sel = null; SFX.no(); }
   render();
  },
@@ -2091,13 +2359,13 @@ const ACT = {
   } catch (e) { SY.on = false; render(); }
  },
  sayself: () => sayOk(),
- saynext: () => { SY.i++; SY.res = null; SY.heard = ""; if (SY.i >= SY.deck.length) { today().g++; addCoins(5); save(); checkBadges(); } render(); },
+ saynext: () => { SY.i++; SY.res = null; SY.heard = ""; if (SY.i >= SY.deck.length) { today().g++; addCoins(1); save(); checkBadges(); } render(); },
  chants: () => go("chants"), stories: () => go("stories"),
  chant: v => { CH = null; go("chant", v); },
  playchant: () => playChant(),
  cl: v => { const c = CHANTS.find(z => z.id === CH.id); CH.playing = false; CH.now = +v; render(); hear(c.l[+v][0]); },
  clap: (v, b) => { CH.claps++; tone([[880, .05, "square", .05]]); const s = b.querySelector("[aria-live]"); if (s) s.textContent = CH.claps; b.classList.remove("hit"); void b.offsetWidth; b.classList.add("hit"); },
- chantdone: () => { const first = !S.sang[CH.id]; S.sang[CH.id] = 1; today().g++; if (first) { addFosil(10); addCoins(5); } touchDay(); save(); toast(first ? "Hebat! +10 fosil, +5 koin" : "Hebat, kamu bernyanyi lagi!"); checkBadges(); go("chants"); },
+ chantdone: () => { const first = !S.sang[CH.id]; S.sang[CH.id] = 1; today().g++; if (first) { addFosil(5); addCoins(1); } touchDay(); save(); toast(first ? "Hebat! +5 fosil, +1 koin" : "Hebat, kamu bernyanyi lagi!"); checkBadges(); go("chants"); },
  story: v => { ST = null; go("story", v); setTimeout(() => ACT.saypage(), 400); },
  saypage: () => { const s = STORIES.find(z => z.id === ST.id); hear(s.p[ST.p][1]); },
  tr: () => { ST.tr = !ST.tr; render(); },
@@ -2105,9 +2373,9 @@ const ACT = {
  storyq: () => { const s = STORIES.find(z => z.id === (ST ? ST.id : Q.sid)); const qs = s.q.map(q => { const o = shuffle(q.o.map((p, k) => ({ pic: p, v: k }))); return { type: "story", say: q.q, id: q.id, opts: o, a: q.a, two: q.o.length === 2, show: null }; }); startQuiz({ kind: "story", sid: s.id, qs, back: "stories" }); },
  egg: () => {
   if (!(missionsDone() && S.egg !== dkey())) { toast(S.egg === dkey() ? "Telur hari ini sudah menetas. Datang lagi besok!" : "Selesaikan 3 misi dulu, ya."); return; }
-  const left = STICKERS.filter(x => !S.stickers[x.id]); const x = left.length ? pick(left) : pick(STICKERS);
-  S.stickers[x.id] = dkey(); S.egg = dkey(); addFosil(50); addCoins(20); save(); SFX.win(); confetti();
-  sheet(`<div class="hatch"><span class="stb big" style="background:${x.bg}">${stickerSVG(x)}</span><h2>Telurnya menetas!</h2><p class="muted" style="font-weight:800">Kamu dapat stiker <b>${esc(x.n)}</b>, 50 fosil, dan 20 koin.</p></div><button class="btn" data-act="closeh">Asyik!</button>`, "Telur menetas");
+  const common = STICKERS.filter(x => !x.rare && !S.stickers[x.id]), left = STICKERS.filter(x => !S.stickers[x.id]); const x = common.length ? pick(common) : left.length ? pick(left) : pick(STICKERS);
+  S.stickers[x.id] = dkey(); S.egg = dkey(); addFosil(ECO.eggFosil); addCoins(ECO.eggCoin); save(); SFX.win(); confetti();
+  sheet(`<div class="hatch"><span class="stb big" style="background:${x.bg}">${stickerSVG(x)}</span><h2>Telurnya menetas!</h2><p class="muted" style="font-weight:800">Kamu dapat stiker <b>${esc(x.n)}</b>, ${ECO.eggFosil} fosil, dan ${ECO.eggCoin} koin.</p></div><button class="btn" data-act="closeh">Asyik!</button>`, "Telur menetas");
   speak(SPECIES[x.sp].n);
   checkBadges();
  },
@@ -2119,7 +2387,7 @@ const ACT = {
   if (own) speak(sp.n);
  },
  saysp: v => speak(SPECIES[v].n),
- allbadges: () => sheet(`<div class="sheet-h"><h2>Semua lencana</h2><button class="iconbtn" data-act="close" aria-label="Tutup">${I("x")}</button></div><div class="stack" style="gap:10px">${BADGES.slice().sort((a, b) => (S.badges[b.id] ? 2 : bp(b)) - (S.badges[a.id] ? 2 : bp(a))).map(badgeRow).join("")}</div>`, "Semua lencana"),
+ allbadges: () => sheet(`<div class="sheet-h"><h2>Semua lencana</h2><button class="iconbtn" data-act="close" aria-label="Tutup">${I("x")}</button></div>${["b", "s", "g", "l"].map(t => `<h3 class="tierh t-${t}">${TIERN[t]} · ${BADGES.filter(b => b.t === t && S.badges[b.id]).length}/${BADGES.filter(b => b.t === t).length}</h3><div class="stack" style="gap:10px">${BADGES.filter(b => b.t === t).sort((a, b) => (S.badges[b.id] ? 2 : bp(b)) - (S.badges[a.id] ? 2 : bp(a))).map(badgeRow).join("")}</div>`).join("")}`, "Semua lencana"),
  settings: () => sheet(`<div class="sheet-h"><h2>Pengaturan</h2><button class="iconbtn" data-act="close" aria-label="Tutup">${I("x")}</button></div>
   <div class="setting"><label for="pn"><b>Nama</b></label><input id="pn" type="text" maxlength="20" value="${esc(S.name)}" placeholder="Namamu" data-input="name"></div>
   <div class="setting"><b>Suara bahasa Inggris</b><label class="switch"><input type="checkbox" data-input="sound" ${S.sound ? "checked" : ""}><span>${S.sound ? "Nyala" : "Mati"}</span></label></div>
@@ -2129,9 +2397,13 @@ const ACT = {
   <button class="setrow" data-act="parent">${I("heart")}<span class="grow"><b>Sudut Orang Tua & Guru</b><small>Progres, level, pindah atau hapus progres</small></span>${I("lock")}</button>`, "Pengaturan"),
  ctab: v => { W.tab = v; W.sel = null; render(); },
  citem: v => { W.sel = v; SFX.tap(); render(); if (W.tab === "char") speak("Hi! I am " + SPECIES[v].nick + "!"); },
- cwear: () => { const t = W.tab, id = W.sel; if (!id) return; if (t === "char") { S.dino = id; toast(`${SPECIES[id].nick} sekarang teman dinomu!`); } else { if (!(CLOSET[t].find(x => x.id === id).p === 0 || S.owned[t + ":" + id])) return; S.look[t] = id; } W.sel = null; SFX.ok(); save(); render(); },
- cbuy: () => { const it = CLOSET[W.tab].find(x => x.id === W.sel); if (!it) return; sheet(`<div class="sheet-h"><h2>Beli ${esc(it.n)}?</h2></div><div class="stkbig" style="background:var(--soft)">${dinoSVG(S.dino, { look: Object.assign({}, S.look, { [W.tab]: it.id }) })}</div><p class="muted" style="font-weight:800">Harganya ${it.p} koin. Koinmu sekarang ${S.coins}, sisa ${S.coins - it.p} setelah membeli.</p><div class="pair"><button class="btn ghost" data-act="close">Batal</button><button class="btn sun" data-act="cbuyok">${COIN}Beli</button></div>`, "Konfirmasi beli"); },
- cbuyok: () => { const it = CLOSET[W.tab].find(x => x.id === W.sel); if (!it || S.coins < it.p) return closeSheet(); S.coins -= it.p; S.owned[W.tab + ":" + it.id] = dkey(); S.look[W.tab] = it.id; W.sel = null; save(); closeSheet(); SFX.win(); confetti(); toast(`${esc(it.n)} sudah dipakai ${esc(DN())}!`); checkBadges(); render(); },
+ cwear: () => { const t = W.tab, id = W.sel; if (!id) return; const list = t === "char" ? CHARS : CLOSET[t], x = list.find(z => z.id === id); if (!x || itemState(t, x) !== "own") return;
+  if (t === "char") { S.dino = id; toast(`${esc(x.nick)} sekarang teman dinomu!`); } else S.look[t] = id; W.sel = null; SFX.ok(); save(); render(); },
+ cbuy: () => { const t = W.tab, list = t === "char" ? CHARS : CLOSET[t], it = list.find(x => x.id === W.sel); if (!it || itemState(t, it) !== "buy") return;
+  const look = t === "char" ? S.look : Object.assign({}, S.look, { [t]: it.id });
+  sheet(`<div class="sheet-h"><h2>Beli ${esc(t === "char" ? it.nick : it.n)}?</h2></div><div class="stkbig" style="background:var(--soft)">${t === "char" ? charSVG(it.id, { look }) : charSVG(S.dino, { look })}</div><p class="muted" style="font-weight:800">Harganya ${it.p} koin. Koinmu sekarang ${S.coins}, sisa ${S.coins - it.p} setelah membeli.</p><div class="pair"><button class="btn ghost" data-act="close">Batal</button><button class="btn sun" data-act="cbuyok">${COIN}Beli</button></div>`, "Konfirmasi beli"); },
+ cbuyok: () => { const t = W.tab, list = t === "char" ? CHARS : CLOSET[t], it = list.find(x => x.id === W.sel); if (!it || S.coins < it.p || itemState(t, it) !== "buy") return closeSheet();
+  S.coins -= it.p; S.owned[t + ":" + it.id] = dkey(); if (t === "char") S.dino = it.id; else S.look[t] = it.id; W.sel = null; save(); closeSheet(); SFX.win(); confetti(); toast(`${esc(t === "char" ? it.nick : it.n)} sudah jadi milikmu!`); checkBadges(); render(); },
  closeh: () => { closeSheet(); render(); },
  rate: v => { S.rate = v; save(); render(); if (document.querySelector(".modal")) ACT.settings(); speak("Hello! I am " + DN() + "."); },
  parent: () => { PG = null; go("parent"); },
@@ -2163,6 +2435,427 @@ document.addEventListener("keydown", e => {
  else if (e.key === "Enter") { e.preventDefault(); if (Q.locked) nextQ(); else lockAnswer(); }
 });
 document.addEventListener("keydown", e => { if (e.key === "Enter" && e.target.id === "pgin") ACT.pgok(); });
+
+
+
+/* ================= EKONOMI (lebih ketat) ================= */
+/* target: semua barang Lemari (±22.000 koin) terbeli dalam ±3 bulan main rutin (±240 koin/hari) */
+const ECO = { fosilQ: 4, coinQ: 1, coinCombo: 2, babakFosil: [15, 20, 30], babakCoin: [20, 25, 35], replayCoin: 5, dailyFosil: 20, dailyCoin: 60, bossFosil: 100, bossCoin: 150, rematchFosil: 20, rematchCoin: 20, storyFosil: 10, storyCoin: 10, eggFosil: 30, eggCoin: 40, gameCoinMax: 20 };
+const star3 = () => LESSONS.filter(x => S.done[x.id] === 3).length;
+const bossBeaten = () => Object.keys(S.boss).length;
+const ownedCount = () => Object.keys(S.owned).length;
+
+/* ================= 40 LENCANA (Perunggu, Perak, Emas, Legenda) ================= */
+const TIERN = { b: "Perunggu", s: "Perak", g: "Emas", l: "Legenda" };
+const BADGES = [
+ { id: "first", t: "b", n: "Langkah Pertama", d: "Selesaikan 1 pelajaran", ic: "star", p: () => doneCount() / 1 },
+ { id: "s3", t: "b", n: "Tiga Hari", d: "Belajar 3 hari berturut-turut", ic: "flame", p: () => S.best / 3 },
+ { id: "w10", t: "b", n: "Kata Pertama", d: "Hafal 10 kata", ic: "cards", p: () => knownCount() / 10 },
+ { id: "combo5", t: "b", n: "Combo 5", d: "5 jawaban benar berturut-turut", ic: "bolt", p: () => S.bestCombo / 5 },
+ { id: "spell10", t: "b", n: "Pengeja Cilik", d: "Eja 10 kata dengan benar", ic: "book", p: () => S.st.spell / 10 },
+ { id: "game1", t: "b", n: "Pemain Baru", d: "Selesaikan 1 mini-game", ic: "game", p: () => S.st.games / 1 },
+ { id: "story1", t: "b", n: "Pembaca Cilik", d: "Selesaikan 1 cerita", ic: "book", p: () => Object.keys(S.read).length / 1 },
+ { id: "sing1", t: "b", n: "Bernyanyi", d: "Nyanyikan 1 lagu", ic: "music", p: () => Object.keys(S.sang).length / 1 },
+ { id: "talk5", t: "b", n: "Berani Bicara", d: "Ucapkan 5 kata", ic: "mic", p: () => Object.keys(S.spoke).length / 5 },
+ { id: "egg1", t: "b", n: "Telur Pertama", d: "Tetaskan 1 telur dino", ic: "sticker", p: () => Object.keys(S.stickers).length / 1 },
+ { id: "feed1", t: "b", n: "Pengasuh Dino", d: "Beri makan dino peliharaan", ic: "heart", p: () => S.st.fed / 1 },
+ { id: "buy1", t: "b", n: "Belanja Pertama", d: "Beli 1 barang di Lemari", ic: "hanger", p: () => ownedCount() / 1 },
+ { id: "l10", t: "s", n: "Rajin Belajar", d: "Selesaikan 10 pelajaran", ic: "book", p: () => doneCount() / 10 },
+ { id: "boss2", t: "s", n: "Pemburu Bos", d: "Kalahkan 2 bos", ic: "sword", p: () => bossBeaten() / 2 },
+ { id: "combo15", t: "s", n: "Combo 15", d: "15 jawaban benar berturut-turut", ic: "bolt", p: () => S.bestCombo / 15 },
+ { id: "w50", t: "s", n: "Kamus Mini", d: "Hafal 50 kata", ic: "cards", p: () => knownCount() / 50 },
+ { id: "star20", t: "s", n: "Bintang Tiga", d: "20 pelajaran dengan 3 bintang", ic: "star", p: () => star3() / 20 },
+ { id: "s7", t: "s", n: "Seminggu Penuh", d: "Belajar 7 hari berturut-turut", ic: "flame", p: () => S.best / 7 },
+ { id: "spell50", t: "s", n: "Juara Eja", d: "Eja 50 kata dengan benar", ic: "book", p: () => S.st.spell / 50 },
+ { id: "lsent20", t: "s", n: "Telinga Tajam", d: "20 soal dengar kalimat benar", ic: "headphones", p: () => S.st.lsent / 20 },
+ { id: "balloon1500", t: "s", n: "Pemecah Balon", d: "Skor 1.500 di Pecahkan Balon", ic: "game", p: () => S.st.balloon / 1500 },
+ { id: "memory5", t: "s", n: "Ingatan Kuat", d: "Menang Kartu Memori 5 kali", ic: "cards", p: () => S.st.memory / 5 },
+ { id: "pet2", t: "s", n: "Dino Remaja", d: "Peliharaan tumbuh jadi Remaja", ic: "heart", p: () => (S.pet.stage || 0) / 2 },
+ { id: "coin300", t: "s", n: "Celengan", d: "Kumpulkan 300 koin", ic: "star", p: () => S.coinsAll / 300 },
+ { id: "streak30", t: "g", n: "Sebulan Penuh", d: "Belajar 30 hari berturut-turut", ic: "flame", p: () => S.best / 30 },
+ { id: "boss4", t: "g", n: "Penakluk Bos", d: "Kalahkan 4 bos", ic: "sword", p: () => bossBeaten() / 4 },
+ { id: "w150", t: "g", n: "Kamus Berjalan", d: "Hafal 150 kata", ic: "cards", p: () => knownCount() / 150 },
+ { id: "alllessons", t: "g", n: "Tamat Belajar", d: "Selesaikan semua pelajaran", ic: "trophy", p: () => doneCount() / LESSONS.length },
+ { id: "balloon3000", t: "g", n: "Raja Balon", d: "Skor 3.000 di Pecahkan Balon", ic: "game", p: () => S.st.balloon / 3000 },
+ { id: "runner1000", t: "g", n: "Pelari Kilat", d: "Lari 1.000 m di Dino Lari", ic: "bolt", p: () => S.st.runner / 1000 },
+ { id: "timed25", t: "g", n: "Secepat Kilat", d: "25 benar di Kejar Waktu", ic: "clock", p: () => S.st.timed / 25 },
+ { id: "lsent50", t: "g", n: "Telinga Emas", d: "50 dengar kalimat benar tanpa salah", ic: "headphones", p: () => S.st.lsentBest / 50 },
+ { id: "stk16", t: "g", n: "Kolektor Stiker", d: "Kumpulkan 16 stiker dino", ic: "sticker", p: () => Object.keys(S.stickers).length / 16 },
+ { id: "coin1500", t: "g", n: "Saudagar Dino", d: "Kumpulkan 1.500 koin", ic: "star", p: () => S.coinsAll / 1500 },
+ { id: "allstar", t: "l", n: "Sempurna Abadi", d: "Semua pelajaran 3 bintang", ic: "trophy", p: () => star3() / LESSONS.length },
+ { id: "bossperfect", t: "l", n: "Tak Tersentuh", d: "Kalahkan bos tanpa kehilangan hati", ic: "sword", p: () => S.st.bossPerfect / 1 },
+ { id: "stkall", t: "l", n: "Museum Dino", d: "Kumpulkan semua 32 stiker", ic: "sticker", p: () => Object.keys(S.stickers).length / STICKERS.length },
+ { id: "petadult", t: "l", n: "Dino Dewasa", d: "Peliharaan tumbuh jadi Dewasa", ic: "heart", p: () => (S.pet.stage || 0) / 3 },
+ { id: "day100", t: "l", n: "Seratus Hari", d: "Belajar di 100 hari berbeda", ic: "calendar", p: () => S.daysTotal / 100 },
+ { id: "boss6", t: "l", n: "Raja Para Bos", d: "Kalahkan semua 6 bos", ic: "trophy", p: () => bossBeaten() / 6 }
+];
+const bp = b => Math.max(0, Math.min(1, b.p() || 0));
+const secret = b => b.t === "l" && !S.badges[b.id] && bp(b) < .8;
+function checkBadges() {
+ const got = BADGES.filter(b => !S.badges[b.id] && bp(b) >= 1);
+ got.forEach(b => S.badges[b.id] = dkey());
+ if (got.length) { save(); setTimeout(() => toast(`Lencana ${TIERN[got[0].t]} baru: <b>${esc(got[0].n)}</b>`), 400); }
+}
+const badgeRow = b => { const on = !!S.badges[b.id], sec = secret(b);
+ return `<div class="bnear t-${b.t}"><span class="bic${on ? " on" : ""} t-${b.t}">${I(on ? b.ic : sec ? "lock" : b.ic)}</span><span class="grow"><b>${sec ? "??? Lencana rahasia" : b.n}</b><small>${TIERN[b.t]} · ${sec ? "Terus bermain untuk mengetahuinya" : b.d}</small>${on ? "" : `<span class="skbar"><i style="width:${bp(b) * 100}%"></i></span>`}</span><span class="pct">${on ? I("check") : Math.round(bp(b) * 100) + "%"}</span></div>`; };
+
+/* ================= DINO PELIHARAAN ================= */
+const FOODS = [["🍎", "apple", "apel", 5, 15], ["🌿", "leaves", "daun", 5, 15], ["🍓", "strawberry", "stroberi", 8, 22], ["🥕", "carrot", "wortel", 8, 22], ["🍉", "watermelon", "semangka", 12, 35], ["🍰", "cake", "kue", 20, 50]];
+const PET_XP = [0, 0, 250, 900];
+const PETN = ["Telur", "Bayi", "Remaja", "Dewasa"];
+function petFresh() { return { name: "", sp: "", stage: 0, xp: 0, full: 80, joy: 80, t: Date.now(), play: 0, bath: 0 }; }
+function petTick() {
+ const P = S.pet, now = Date.now(), h = Math.max(0, (now - (P.t || now)) / 3.6e6);
+ P.full = Math.max(0, P.full - h * 1.2); P.joy = Math.max(0, P.joy - h * 1); P.t = now;
+ if (P.stage === 0 && doneCount() >= 1) { P.stage = 1; P.sp = pick(PLAYABLE); P.name = P.name || pick(["Momo", "Kiki", "Bobo", "Lulu", "Dodo", "Nini"]); S.petNews = "hatch"; }
+}
+function petXP(n) {
+ const P = S.pet; if (!P || P.stage < 1) return;
+ P.xp += P.full < 30 ? n * .5 : n;
+ const next = P.stage + 1;
+ if (next <= 3 && P.xp >= PET_XP[next]) { P.stage = next; S.petNews = "grow"; setTimeout(() => toast(`${esc(P.name)} tumbuh jadi <b>${PETN[next]}</b>!`), 600); checkBadges(); }
+}
+const PETSIZE = [0, .62, .82, 1];
+function petSVG(P, mood) {
+ if (!P || P.stage < 1) return eggSVG(false);
+ const look = P.stage === 3 ? { hat: "crown" } : P.stage === 2 ? { acc: "scarf" } : {};
+ return dinoSVG(P.sp || "trex", { look, mood: mood || (P.full < 30 ? "oops" : "happy") });
+}
+let PF = null;
+VIEWS.pet = () => {
+ petTick(); save();
+ const P = S.pet, hungry = P.full < 30, sad = P.joy < 30, now = Date.now();
+ const nextXP = PET_XP[Math.min(3, P.stage + 1)], canPlay = now - P.play > 3 * 3.6e6, canBath = now - P.bath > 6 * 3.6e6;
+ const say = P.stage < 1 ? ["Telur ini akan menetas…", "Selesaikan 1 pelajaran dulu!"] : hungry ? ["I am hungry!", "Aku lapar!"] : sad ? ["Let's play!", "Ayo main!"] : ["I am happy!", "Aku senang!"];
+ const f = PF !== null ? FOODS[PF] : null;
+ app.innerHTML = `<div class="stack petview">
+ <div class="sp"><h1>Kandang Dino</h1><span class="coinpill">${COIN}<b>${S.coins}</b> koin</span></div>
+ <div class="card petcard">
+  <div class="petstage"><span class="petbubble"><b>${say[0]}</b><small>${say[1]}</small></span><span class="petimg" style="--k:${P.stage < 1 ? .7 : PETSIZE[P.stage]}">${petSVG(P)}</span></div>
+  <div class="stack" style="gap:12px">
+   <div><h2>${P.stage < 1 ? "Telur misterius" : esc(P.name)}</h2><p class="muted">${P.stage < 1 ? "Akan menetas setelah pelajaran pertamamu selesai." : `${SPECIES[P.sp].n} · ${PETN[P.stage]} · ${P.stage < 3 ? Math.floor(P.xp) + "/" + nextXP + " XP" : "Sudah dewasa!"}`}</p></div>
+   ${P.stage >= 1 ? [["Kenyang", "🍎", P.full, "#ff8a4c"], ["Senang", "😊", P.joy, "#ff6fa5"], ["Tumbuh", "🌱", P.stage < 3 ? (P.xp - PET_XP[P.stage]) / (nextXP - PET_XP[P.stage]) * 100 : 100, "#3cc489"]].map(([n, e, v, c]) => `<div class="pbarrow"><span aria-hidden="true">${e}</span><b>${n}</b><span class="pb"><i style="width:${Math.max(3, Math.min(100, v))}%;background:${c}"></i></span><span>${Math.round(Math.min(100, v))}%</span></div>`).join("") : ""}
+   ${P.stage >= 1 ? `<div class="row"><button class="chipbtn" data-act="petplay" ${canPlay ? "" : "disabled"}>⚽ ${canPlay ? "Main bola" : "Main lagi nanti"}</button><button class="chipbtn" data-act="petbath" ${canBath ? "" : "disabled"}>🛁 ${canBath ? "Mandikan" : "Masih bersih"}</button></div>` : ""}
+   ${hungry && P.stage >= 1 ? `<p class="petwarn">Dino yang lapar tumbuh lebih lambat. Beri makan dulu, ya!</p>` : ""}
+  </div>
+ </div>
+ <div class="petstages">${PETN.map((n, k) => `<div class="pst${P.stage >= k ? " on" : ""}${P.stage === k ? " cur" : ""}"><span>${k === 0 ? eggSVG(false) : dinoSVG(P.sp || "trex", { look: k === 3 ? { hat: "crown" } : k === 2 ? { acc: "scarf" } : {} })}</span><b>${n}</b>${k > 1 ? `<small>${PET_XP[k]} XP</small>` : ""}</div>`).join("")}</div>
+ ${P.stage >= 1 ? `<h2>Beri makan · ketuk untuk mendengar namanya</h2>
+ <div class="foods">${FOODS.map((x, k) => `<button class="food${PF === k ? " sel" : ""}" data-act="petfood" data-v="${k}" aria-pressed="${PF === k}"><span class="fe" aria-hidden="true">${x[0]}</span><b>${x[1]}</b><small>${x[2]} · +${x[4]}</small><span class="wchip">${COIN}${x[3]}</span></button>`).join("")}</div>
+ ${f ? (S.coins >= f[3] ? `<button class="btn" data-act="petfeed">Suapi ${f[1]} · ${f[3]} koin</button>` : `<button class="btn" disabled>Koin kurang · butuh ${f[3] - S.coins} lagi</button>`) : `<button class="btn" disabled>Pilih makanan dulu</button>`}` : ""}
+ <p class="muted" style="text-align:center">Dino tumbuh dari jawaban benarmu. Kenyang dan senang berkurang sedikit setiap jam.</p>
+ </div>`;
+};
+
+/* ================= PETA PETUALANGAN ================= */
+let MAPLV = null;
+function mapHTML(nx) {
+ const li = MAPLV ?? (nx ? nx.li : Math.min(LEVELS.length - 1, S.start)), L = LEVELS[li], open = levelOpen(li), boss = BOSSES[li];
+ const n = L.lessons.length, H = (n + 1) * 104 + 70, xs = [50, 74, 54, 26, 46, 72, 50, 28];
+ const pts = L.lessons.map((x, k) => [xs[k % xs.length], 60 + k * 104]);
+ const bossPt = [50, 60 + n * 104 + 10];
+ const path = [...pts, bossPt].map((p, k) => (k ? "L" : "M") + p[0] + " " + p[1]).join(" ");
+ const lvDone = levelDone(li), beaten = !!S.boss[L.id];
+ const nodes = L.lessons.map((x, k) => { const op = lessonOpen(x), d = S.done[x.id], cur = nx && nx.id === x.id; const [px, py] = pts[k];
+  return `<div class="mnode${d ? " done" : ""}${cur ? " cur" : ""}${op ? "" : " lock"}" style="left:${px}%;top:${py}px">${cur ? `<span class="mdino">${REXI(66)}</span>` : ""}<button class="mbtnode" data-act="lesson" data-v="${x.id}" ${op ? "" : "disabled"} aria-label="${esc(x.t)}">${d ? I("check") : op ? k + 1 : I("lock")}</button><span class="mlab"><b>${esc(x.t)}</b>${d ? starHTML(d) : op ? "<small>3 babak</small>" : ""}</span></div>`; }).join("");
+ return `<div class="card mapcard">
+ <div class="sp" style="padding:4px 4px 0"><h2>Peta Petualangan</h2><span class="muted">${L.lessons.reduce((t, x) => t + (S.done[x.id] || 0), 0)} dari ${n * 3} babak · lalu lawan bos!</span></div>
+ <div class="islands" role="tablist">${LEVELS.map((Z, k) => `<button role="tab" class="isl${k === li ? " on" : ""}${levelOpen(k) ? "" : " lock"}" style="--lv:${Z.lv}" data-act="maplv" data-v="${k}" aria-selected="${k === li}"><b>${Z.name}</b><small>${S.boss[Z.id] ? "✓ " : levelOpen(k) ? "" : "🔒 "}${Z.grade}</small></button>`).join("")}</div>
+ <div class="mapzone${open ? "" : " closed"}" style="height:${H}px;--lv:${L.lv};--ldk:${L.ldk}">
+  <svg class="mappath" viewBox="0 0 100 ${H}" preserveAspectRatio="none" aria-hidden="true"><path d="${path}" vector-effect="non-scaling-stroke" class="pw1"/><path d="${path}" vector-effect="non-scaling-stroke" class="pw2"/></svg>
+  ${nodes}
+  <div class="mboss${lvDone ? " ready" : ""}${beaten ? " beaten" : ""}" style="left:${bossPt[0]}%;top:${bossPt[1]}px">
+   <button class="mbossbtn" data-act="boss" data-v="${li}" ${lvDone && open ? "" : "disabled"} aria-label="Lawan ${esc(boss.nick)}"><span class="mbossimg">${charSVG(boss.id, { look: boss.look, mood: beaten ? "oops" : "happy" })}</span></button>
+   <span class="mbosslab">${I("sword")} ${beaten ? "Kalah! Tantang lagi" : lvDone ? "Lawan " + esc(boss.nick) + "!" : "Bos: " + esc(boss.nick)}</span>
+  </div>
+  ${open ? "" : `<div class="mapclosed"><span>${I("lock")}</span><b>Level terkunci</b><small>Kalahkan ${esc(BOSSES[li - 1].nick)} di level ${LEVELS[li - 1].name} dulu.</small></div>`}
+ </div></div>`;
+}
+
+/* ================= BOS ================= */
+function bossArena() {
+ const B = Q.boss, hit = Q.locked && Q.ok, pct = Math.max(0, Q.bossHP / B.hp * 100);
+ return `<div class="arena${hit ? " hit" : ""}${Q.locked && !Q.ok ? " miss" : ""}">
+ <div class="arow"><span class="ame">${REXI(92, Q.locked ? (Q.ok ? "wow" : "oops") : "happy")}</span><span class="vs">VS</span><span class="aboss">${charSVG(B.id, { look: B.look, mood: hit ? "oops" : "happy" })}</span></div>
+ <div class="ahp"><b>${esc(B.nick)}</b><span class="hpbar"><i style="width:${pct}%"></i></span><small>${Q.bossHP > 0 ? Q.bossHP + " serangan lagi!" : "Bos kalah!"}</small></div></div>`;
+}
+function startBoss(li, rematch) {
+ const L = LEVELS[li], B = BOSSES[li];
+ const items = shuffle(L.lessons.flatMap(x => x.words.concat(x.sents))).slice(0, B.hp + 6);
+ startQuiz({ kind: "boss", li, boss: B, bossHP: B.hp, items, diff: li === 0 ? 1 : 2, back: R.name === "bosses" ? "bosses" : "home", rematch });
+}
+VIEWS.bosses = () => {
+ app.innerHTML = `<div class="stack">${backBtn(ORIGIN)}<div class="greet">${REXI(92, "happy", "wave")}<div><h1>Arena Bos</h1><p class="muted">Selesaikan ketiga babak di semua pelajaran satu level untuk menantang bosnya. Bos yang kalah membuka level berikutnya dan bisa jadi karaktermu.</p></div></div>
+ <div class="lst">${BOSSES.map((B, li) => { const L = LEVELS[li], ready = levelOpen(li) && levelDone(li), beaten = !!S.boss[L.id];
+  return `<button class="tool bosscard${beaten ? " beaten" : ""}" data-act="boss" data-v="${li}" ${ready ? "" : "disabled"}><span class="bimg">${charSVG(B.id, { look: B.look })}</span><span><b>${esc(B.nick)}</b><small>${L.name} · ${L.grade} · ${B.hp} serangan</small></span><span class="meta">${beaten ? "Kalah ✓" : ready ? "Tantang!" : "Terkunci"}</span></button>`; }).join("")}</div></div>`;
+};
+
+/* ================= MINI-GAME ================= */
+const GAMES = [
+ ["balloon", "🎈", "Pecahkan Balon", "Ketuk balon kata yang benar", () => S.st.balloon ? "Rekor " + S.st.balloon : "Baru", "#ffdcec"],
+ ["spellgame", "🔤", "Eja Huruf", "Susun huruf jadi kata", () => S.st.spell + " kata", "#d9ecff"],
+ ["memory", "🃏", "Kartu Memori", "Cari pasangan gambar & kata", () => S.st.memoryBest ? S.st.memoryBest + " langkah" : "Baru", "#fff1b8"],
+ ["runner", "🏃", "Dino Lari", "Pilih gerbang yang benar sebelum menabrak", () => S.st.runner ? S.st.runner + " m" : "Baru", "#d6f5e4"],
+ ["timed", "⏱️", "Kejar Waktu", "60 detik, jawab sebanyak-banyaknya", () => S.st.timed ? S.st.timed + " benar" : "Baru", "#ffe0cc"],
+ ["bosses", "🐉", "Arena Bos", "Lawan bos dino tiap level", () => bossBeaten() + "/6 bos", "#e9e1ff"]];
+let G = null;
+function stopGames() { if (G) { G.run = false; if (G.raf) cancelAnimationFrame(G.raf); if (G.tm) clearInterval(G.tm); } }
+function gameReward(kind, score, fos, coin) {
+ S.st.games++; today().g++; touchDay();
+ const f = Math.min(40, fos), c = Math.min(ECO.gameCoinMax, coin); if (f) addFosil(f); if (c) addCoins(c);
+ save(); checkBadges(); return { f, c };
+}
+function gameOverHTML(title, big, unit, rec, rw, again) {
+ return `<div class="res stack"><div class="res-h">${REXI(110, rw.f ? "wow" : "oops", "hop")}<h1>${title}</h1><p class="bigscore">${big}<small> ${unit}</small></p>${rec ? '<p class="muted" style="font-weight:900">Rekor baru!</p>' : ""}</div>
+ <dl class="stats3"><div><dt>Fosil</dt><dd>+${rw.f}</dd></div><div><dt>Koin</dt><dd>+${rw.c}</dd></div><div><dt>Skor</dt><dd>${big}</dd></div></dl>
+ <div class="pair"><button class="btn ghost" data-act="${again}">${I("retry")}Main lagi</button><button class="btn" data-act="nav" data-v="${ORIGIN}">Selesai</button></div></div>`;
+}
+const gamePool = () => pool().filter(w => !w.pic.startsWith("t:") && !w.pic.startsWith("c:") && !w.pic.startsWith("s:"));
+
+/* Pecahkan Balon */
+VIEWS.balloon = () => {
+ if (G && G.kind === "balloon" && G.over) { app.innerHTML = gameOverHTML("Waktu habis!", G.score, "poin", G.rec, G.rw, "balloon"); return; }
+ app.innerHTML = `<div class="quiz stack game">
+ <div class="qtop"><button class="iconbtn" data-act="nav" data-v="${ORIGIN}" aria-label="Keluar">${I("x")}</button><b class="gtitle">Pecahkan Balon</b><span class="qcount" id="gtime">60</span></div>
+ <div class="qstat"><span id="ghearts">${heartsHTML(3)}</span><span class="combo hot" id="gscore">Skor 0</span></div>
+ <div class="gtarget card"><span class="muted">Pecahkan:</span><span id="gpic" class="gpic"></span><button class="spk" data-act="gsay" aria-label="Dengar kata">${I("speaker")}</button></div>
+ <div class="sky-area" id="garea" aria-live="polite"></div></div>`;
+};
+function balloonStart() {
+ stopGames();
+ const P = gamePool(); if (P.length < 4) P.push(...pool());
+ G = { kind: "balloon", P, score: 0, hearts: 3, time: 60, run: true, bal: [], last: performance.now(), spawn: 0, combo: 0 };
+ go("balloon"); nextTarget(); G.tm = setInterval(() => { if (!G.run) return; G.time--; const t = $("#gtime"); if (t) t.textContent = G.time; if (G.time <= 0) balloonEnd(); }, 1000);
+ G.raf = requestAnimationFrame(balloonLoop);
+}
+function nextTarget() { G.target = pick(G.P); const p = $("#gpic"); if (p) p.innerHTML = pic(G.target.pic); speak(G.target.w); G.sinceT = 0; }
+function balloonLoop(now) {
+ if (!G || !G.run || G.kind !== "balloon") return;
+ const dt = Math.min(.05, (now - G.last) / 1000); G.last = now; G.spawn -= dt; G.sinceT += dt;
+ const area = $("#garea"); if (!area) return;
+ const H = area.clientHeight, W = area.clientWidth, sp = 70 + G.score / 25;
+ if (G.spawn <= 0) {
+  G.spawn = Math.max(.45, 1 - G.score / 6000);
+  const isT = Math.random() < .4 || G.sinceT > 3 && !G.bal.some(b => b.w === G.target.w);
+  const w = isT ? G.target : (Math.random() < .6 ? distractSim(G.target, 1)[0] : pick(G.P));
+  const el = document.createElement("button"); el.className = "balloon"; el.style.setProperty("--c", pick(["#ff9aa8", "#ffd36e", "#b9a3ff", "#8cc8ff", "#7fd8a8", "#ffb38a"]));
+  el.innerHTML = `<span>${esc(w.w)}</span>`; el.setAttribute("aria-label", "Balon " + w.w);
+  const b = { el, w: w.w, x: 12 + Math.random() * (W - 120), y: H - 30 };
+  el.onclick = () => popBalloon(b); area.appendChild(el); G.bal.push(b);
+ }
+ G.bal.forEach(b => { b.y -= sp * dt; b.el.style.transform = `translate(${b.x}px, ${b.y}px)`; if (b.y < -140) { b.el.remove(); b.gone = true; } });
+ G.bal = G.bal.filter(b => !b.gone);
+ G.raf = requestAnimationFrame(balloonLoop);
+}
+function popBalloon(b) {
+ if (!G.run || b.gone) return;
+ if (b.w === G.target.w) { G.combo++; G.score += 100 + Math.min(10, G.combo) * 10; SFX.ok(); b.el.classList.add("pop"); b.gone = true; setTimeout(() => b.el.remove(), 220); nextTarget(); }
+ else { G.combo = 0; G.hearts--; SFX.no(); b.el.classList.add("bad"); const h = $("#ghearts"); if (h) h.innerHTML = heartsHTML(G.hearts); if (G.hearts <= 0) return balloonEnd(); }
+ const s = $("#gscore"); if (s) s.textContent = "Skor " + G.score;
+}
+function balloonEnd() { stopGames(); G.over = true; G.rec = G.score > (S.st.balloon || 0); if (G.rec) S.st.balloon = G.score; G.rw = gameReward("balloon", G.score, Math.floor(G.score / 60), Math.floor(G.score / 150)); render(); if (G.rw.f) { SFX.win(); confetti(); } }
+
+/* Kartu Memori */
+VIEWS.memory = () => {
+ if (!G || G.kind !== "memory") return go("practice");
+ if (G.over) { app.innerHTML = gameOverHTML("Semua pasangan ketemu!", G.moves, "langkah", G.rec, G.rw, "memory"); return; }
+ app.innerHTML = `<div class="quiz stack game">
+ <div class="qtop"><button class="iconbtn" data-act="nav" data-v="${ORIGIN}" aria-label="Keluar">${I("x")}</button><b class="gtitle">Kartu Memori</b><span class="qcount">${G.moves} langkah</span></div>
+ <p class="muted" style="text-align:center;font-weight:800">Balik dua kartu. Cari gambar dan kata yang berpasangan!</p>
+ <div class="memgrid">${G.cards.map((c, k) => { const up = c.up || c.done; return `<button class="mcard${up ? " up" : ""}${c.done ? " done" : ""}" data-act="mflip" data-v="${k}" ${c.done ? "disabled" : ""} aria-label="${up ? (c.t === "p" ? "gambar" : c.w) : "Kartu tertutup"}"><span class="mfront">${c.t === "p" ? pic(c.pic) : `<b>${esc(c.w)}</b>`}</span><span class="mback">${I("star")}</span></button>`; }).join("")}</div></div>`;
+};
+function memoryStart() {
+ stopGames();
+ const ws = []; shuffle(gamePool().length >= 6 ? gamePool() : pool()).forEach(w => { if (ws.length < 6 && !ws.some(z => z.w === w.w || z.pic === w.pic)) ws.push(w); });
+ G = { kind: "memory", cards: shuffle(ws.flatMap(w => [{ t: "p", pic: w.pic, w: w.w }, { t: "w", pic: w.pic, w: w.w }])), moves: 0, open: [] };
+ go("memory");
+}
+function memoryFlip(k) {
+ const c = G.cards[k]; if (c.up || c.done || G.open.length >= 2) return;
+ c.up = true; G.open.push(k); if (c.t === "w") speak(c.w); SFX.tap();
+ if (G.open.length === 2) {
+  G.moves++; const [a, b] = G.open.map(i => G.cards[i]);
+  if (a.w === b.w && a.t !== b.t) { a.done = b.done = true; G.open = []; SFX.ok(); speak(a.w);
+   if (G.cards.every(z => z.done)) { G.over = true; G.rec = !S.st.memoryBest || G.moves < S.st.memoryBest; if (G.rec) S.st.memoryBest = G.moves; S.st.memory++; G.rw = gameReward("memory", G.moves, G.moves <= 10 ? 15 : 8, G.moves <= 9 ? 18 : G.moves <= 12 ? 12 : 8); SFX.win(); confetti(); }
+  } else { render(); setTimeout(() => { G.open.forEach(i => G.cards[i].up = false); G.open = []; if (R.name === "memory") render(); }, 900); return; }
+ }
+ render();
+}
+
+/* Dino Lari */
+VIEWS.runner = () => {
+ if (!G || G.kind !== "runner") return go("practice");
+ if (G.over) { app.innerHTML = gameOverHTML("Dino kelelahan!", G.dist, "meter", G.rec, G.rw, "runner"); return; }
+ const q = G.q;
+ app.innerHTML = `<div class="quiz stack game">
+ <div class="qtop"><button class="iconbtn" data-act="nav" data-v="${ORIGIN}" aria-label="Keluar">${I("x")}</button><b class="gtitle">Dino Lari</b><span class="qcount">${G.dist} m</span></div>
+ <div class="qstat">${heartsHTML(G.hearts)}<span class="combo hot">${I("flame")} Combo ${G.combo}</span></div>
+ <div class="track"><span class="runner">${REXI(84, "happy")}</span><span class="gateline"></span><div class="tbar"><i id="rbar"></i></div></div>
+ <div class="gtarget card"><span class="muted">Lewati gerbang:</span><span class="gpic">${pic(q.it.pic)}</span><button class="spk" data-act="gsay" aria-label="Dengar kata">${I("speaker")}</button></div>
+ <div class="gates">${q.opts.map((o, k) => `<button class="gate" data-act="rgate" data-v="${k}">${esc(o.w)}</button>`).join("")}</div></div>`;
+ runnerTimer();
+};
+function runnerStart() { stopGames(); G = { kind: "runner", P: gamePool().length >= 4 ? gamePool() : pool(), dist: 0, hearts: 3, combo: 0, dur: 6000 }; runnerNext(); go("runner"); }
+function runnerNext() { const it = pick(G.P); G.q = { it, opts: shuffle([it, ...distractSim(it, 2)]) }; G.t0 = performance.now(); speak(it.w); }
+function runnerTimer() {
+ if (G.raf) cancelAnimationFrame(G.raf); G.run = true;
+ const f = now => { if (!G || !G.run || G.kind !== "runner" || G.over) return; const p = Math.min(1, (now - G.t0) / G.dur); const b = $("#rbar"); if (b) b.style.width = (100 - p * 100) + "%"; if (p >= 1) return runnerAnswer(-1); G.raf = requestAnimationFrame(f); };
+ G.raf = requestAnimationFrame(f);
+}
+function runnerAnswer(k) {
+ if (!G || G.over) return; G.run = false;
+ const ok = k >= 0 && G.q.opts[k].w === G.q.it.w;
+ if (ok) { G.combo++; G.dist += 50 + Math.min(10, G.combo) * 5; G.dur = Math.max(2400, G.dur - 220); SFX.ok(); }
+ else { G.combo = 0; G.hearts--; SFX.no(); toast(k < 0 ? "Terlambat! Gerbangnya: <b>" + esc(G.q.it.w) + "</b>" : "Salah gerbang! Jawabannya <b>" + esc(G.q.it.w) + "</b>"); }
+ if (G.hearts <= 0) { G.over = true; G.rec = G.dist > (S.st.runner || 0); if (G.rec) S.st.runner = G.dist; G.rw = gameReward("runner", G.dist, Math.floor(G.dist / 30), Math.floor(G.dist / 60)); render(); if (G.rw.f) { SFX.win(); confetti(); } return; }
+ runnerNext(); render();
+}
+
+/* Kejar Waktu */
+VIEWS.timed = () => {
+ if (!G || G.kind !== "timed") return go("practice");
+ if (G.over) { app.innerHTML = gameOverHTML("Waktu habis!", G.ok, "benar", G.rec, G.rw, "timed"); return; }
+ const q = G.q;
+ app.innerHTML = `<div class="quiz stack game">
+ <div class="qtop"><button class="iconbtn" data-act="nav" data-v="${ORIGIN}" aria-label="Keluar">${I("x")}</button><b class="gtitle">Kejar Waktu</b><span class="qcount" id="gtime">${G.time}</span></div>
+ <div class="qstat"><span class="combo hot">${I("check")} ${G.ok} benar</span><span class="diffchip d2">Salah = −3 detik</span></div>
+ <div class="prompt">${`<button class="spkbig" data-act="gsay" aria-label="Putar suara">${I("speaker")}</button>`}<span class="ptxt"><span class="pq">Dengarkan…</span><span class="ph">Ketuk gambarnya secepat mungkin!</span></span></div>
+ <div class="optgrid">${q.opts.map((o, k) => `<button class="popt" data-act="tans" data-v="${k}">${pic(o.pic)}</button>`).join("")}</div></div>`;
+};
+function timedStart() {
+ stopGames(); G = { kind: "timed", P: gamePool().length >= 4 ? gamePool() : pool(), ok: 0, time: 60, run: true };
+ timedNext(); go("timed");
+ G.tm = setInterval(() => { if (!G.run) return; G.time--; const t = $("#gtime"); if (t) t.textContent = Math.max(0, G.time); if (G.time <= 0) timedEnd(); }, 1000);
+}
+function timedNext() { const it = pick(G.P); G.q = { it, opts: shuffle([it, ...distractSim(it, 3)]) }; speak(it.w); }
+function timedAnswer(k) {
+ const now = Date.now(); if (now - lastTap < 250 || !G.run) return; lastTap = now;
+ if (G.q.opts[k].w === G.q.it.w) { G.ok++; SFX.ok(); } else { G.time = Math.max(0, G.time - 3); SFX.no(); if (G.time <= 0) return timedEnd(); }
+ timedNext(); render();
+}
+function timedEnd() { stopGames(); G.over = true; G.rec = G.ok > (S.st.timed || 0); if (G.rec) S.st.timed = G.ok; G.rw = gameReward("timed", G.ok, G.ok * 2, G.ok); render(); if (G.rw.f) { SFX.win(); confetti(); } }
+
+/* Eja Huruf (pakai mesin kuis) */
+function spellStart() {
+ const li = Math.max(...opened().map(x => x.li));
+ const ws = shuffle(pool().filter(canSpell)).slice(0, 8);
+ if (ws.length < 3) return toast("Selesaikan pelajaran dulu untuk membuka lebih banyak kata.");
+ startQuiz({ kind: "spellgame", qs: ws.map(w => makeQ("spell", w, li >= 2 ? 2 : 1)), back: ORIGIN, remake: () => shuffle(pool().filter(canSpell)).slice(0, 8).map(w => makeQ("spell", w, li >= 2 ? 2 : 1)) });
+}
+
+/* ================= BERANDA (peta) ================= */
+VIEWS.home = () => {
+ petTick();
+ const nx = nextLesson(), ms = missions(), mDone = ms.filter(m => m.n >= m.of).length;
+ const eggReady = missionsDone() && S.egg !== dkey(), eggDone = S.egg === dkey();
+ const name = S.name || "Penjelajah Cilik", P = S.pet;
+ const msg = S.petNews === "hatch" ? `Telur peliharaanmu menetas! Lihat di Kandang.` : !doneCount() ? `Aku ${DN()}. Ayo mulai pelajaran pertamamu!` : streakNow() > 1 ? `Hebat, ${streakNow()} hari berturut-turut belajar!` : "Yuk lanjutkan petualangan di peta!";
+ const contL = nx ? nx.L : null, bossReady = LEVELS.findIndex((L, li) => levelOpen(li) && levelDone(li) && !S.boss[L.id]);
+ app.innerHTML = `<div class="home">
+ <div class="stack">
+  <div class="greet">${REXI(92, "happy", "wave")}<div class="say"><b>Rawr! Halo, ${esc(name)}!</b><span>${msg}</span></div></div>
+  ${bossReady >= 0 ? `<button class="cont bossc" data-act="boss" data-v="${bossReady}"><span class="tag">${I("sword")} Bos menunggu!</span><span class="go"><span><span class="t">Lawan ${esc(BOSSES[bossReady].nick)}</span><br><small>${BOSSES[bossReady].hp} serangan · 3 hati · hadiah stiker langka</small></span><span class="play">${I("play")}</span></span></button>`
+   : nx ? `<button class="cont" data-act="lesson" data-v="${nx.id}"><span class="tag">Lanjutkan · ${contL.name} · Babak ${Math.min(3, (S.done[nx.id] || 0) + 1)} dari 3</span>
+   <span class="go"><span><span class="t">${esc(nx.t)}</span><br><small>${esc(nx.d)} · 10 soal · +${ECO.babakCoin[Math.min(2, S.done[nx.id] || 0)]} koin</small></span><span class="play">${I("play")}</span></span>
+   <span class="row" style="flex-wrap:nowrap"><span class="pbar"><i style="width:${Math.round(contL.lessons.reduce((t, x) => t + (S.done[x.id] || 0), 0) / (contL.lessons.length * 3) * 100)}%"></i></span><small>${contL.lessons.reduce((t, x) => t + (S.done[x.id] || 0), 0)}/${contL.lessons.length * 3} babak</small></span></button>`
+   : `<button class="cont" data-act="nav" data-v="practice"><span class="tag">Semua pelajaran yang terbuka sudah selesai</span><span class="go"><span class="t">Main di Arena</span><span class="play">${I("play")}</span></span></button>`}
+  <div class="card mission"><div class="mission-h"><h2>Misi hari ini</h2><span class="muted">${mDone} dari 3</span></div>
+   ${ms.map(m => { const d = m.n >= m.of; return `<div class="mrow${d ? " done" : ""}"><span class="mbox">${d ? I("check") : ""}</span><span><span class="mt">${m.t}</span><span class="pbar" style="display:block"><i style="width:${Math.min(100, m.n / m.of * 100)}%"></i></span></span><span class="mn">${Math.min(m.n, m.of)}/${m.of}</span></div>`; }).join("")}
+   <button class="egg${eggReady ? " ready" : ""}" data-act="egg" ${eggReady ? "" : 'aria-disabled="true"'}><span class="ee">${eggSVG(eggDone)}</span><span><b>${eggDone ? "Telur sudah menetas hari ini" : eggReady ? "Telur dino siap menetas!" : "Telur dino misterius"}</b><small>${eggDone ? "Datang lagi besok untuk telur baru" : eggReady ? "Ketuk untuk melihat stiker dino barumu" : "Selesaikan 3 misi untuk menetaskan stiker dino"}</small></span></button>
+  </div>
+  <button class="card petmini" data-act="nav" data-v="pet"><span class="pmimg">${petSVG(P)}</span><span class="grow"><b>Kandang Dino</b><small>${P.stage < 1 ? "Telur peliharaan menetas setelah pelajaran pertama" : `${esc(P.name)} · ${PETN[P.stage]}${P.full < 30 ? " · lapar!" : ""}`}</small>${P.stage >= 1 ? `<span class="pb"><i style="width:${Math.max(3, P.full)}%;background:#ff8a4c"></i></span>` : ""}</span><span class="chipbtn">${P.stage >= 1 && P.full < 30 ? "Beri makan" : "Lihat"}</span></button>
+  <div class="tiles">
+   ${[["flash", "image", "Kata bergambar", "Balik kartu & dengar", "#ffe0cc", "#ff8a4c", "🍎"], ["hearq", "headphones", "Dengar & pilih", "Telinga jagoan", "#d9ecff", "#3a8ee6", "🎧"], ["say", "mic", "Ucapkan", "Tirukan suaranya", "#ffdcec", "#e9558f", "🎤"], ["stories", "book", "Cerita", "Baca bersama " + DN(), "#e9e1ff", "#7d61e8", "📖"]]
+    .map(([a, ic, t, s, bg, ti, em]) => `<button class="tile" data-act="${a}" style="--tc:${bg};--ti:${ti}"><span class="tic">${I(ic)}</span><span class="deco" aria-hidden="true">${em}</span><b>${t}</b><small>${s}</small></button>`).join("")}
+  </div>
+ </div>
+ <div class="side stack">${mapHTML(nx)}</div></div>`;
+ if (S.petNews) { S.petNews = null; save(); }
+};
+
+/* ================= LATIHAN / ARENA ================= */
+VIEWS.practice = () => {
+ const due = wrongDue().length, dailyDone = S.daily === dkey();
+ const tools = [
+  ["picq", "image", "Tebak gambar", "Lihat gambar, pilih katanya", "8 soal", "#c99300"],
+  ["flash", "cards", "Kartu bergambar", "Balik kartu, dengar suaranya", knownCount() + " hafal", "var(--primary)"],
+  ["match", "link", "Cocokkan pasangan", "Pasangkan gambar dan kata", S.matchBest ? "Rekor " + S.matchBest + " dtk" : "Baru", "var(--coral-d)"],
+  ["hearq", "headphones", "Dengar & pilih", "Dengarkan, ketuk yang benar", "8 soal", "var(--leaf-d)"],
+  ["say", "mic", "Ucapkan kata", "Bicara, " + DN() + " mendengarkan", Object.keys(S.spoke).length + " kata", "#d0456d"],
+  ["chants", "music", "Nyanyi & tepuk", "Lagu pendek sambil tepuk tangan", CHANTS.length + " lagu", "#e07a1f"],
+  ["stories", "book", "Cerita bergambar", "Baca cerita, jawab pertanyaan", Object.keys(S.read).length + "/" + STORIES.length, "#6a4ee0"],
+  ["review", "retry", "Ulang yang salah", due ? "Soal yang pernah salah" : "Belum ada soal untuk diulang", due + " soal", "#3f6fe0"]];
+ app.innerHTML = `<div class="stack">
+ <div class="greet">${REXI(92, "happy", "wave")}<div><h1>Arena & Latihan</h1><p class="muted">Main 1 game = misi harian, fosil, dan sedikit koin.</p></div></div>
+ <button class="egg${dailyDone ? "" : " ready"}" data-act="daily" style="min-height:84px"><span class="ee" style="font-size:40px;width:auto;height:auto" aria-hidden="true">📅</span><span class="grow"><b style="font:700 22px/1.15 var(--display)">Tantangan harian</b><small>${dailyDone ? "Sudah selesai hari ini. Boleh main lagi, tanpa bonus." : `10 soal adaptif · bonus ${ECO.dailyFosil} fosil & ${ECO.dailyCoin} koin`}</small></span></button>
+ <h2>Arena Mini-Game</h2>
+ <div class="arena-grid">${GAMES.map(([a, e, n, d, r, c]) => `<button class="agame" data-act="${a}" style="--gc:${c}"><span class="ae" aria-hidden="true">${e}</span><b>${n}</b><small>${d}</small><span class="wchip own">${r()}</span></button>`).join("")}</div>
+ <h2>Latihan lain</h2>
+ <div class="tools" style="grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr))">${tools.map(([a, ic, t, s, m, c]) => `<button class="tool" data-act="${a}" style="--ldk:${c}" ${a === "review" && !due ? "disabled" : ""}><span class="tic">${I(ic)}</span><span><b>${t}</b><small>${s}</small></span><span class="meta">${m}</span></button>`).join("")}</div>
+ <button class="setrow" data-act="parent">${I("heart")}<span class="grow"><b>Sudut Orang Tua & Guru</b><small>Lihat progres, atur level, pindahkan atau hapus progres</small></span>${I("lock")}</button>
+ </div>`;
+};
+
+/* ================= PROFIL ================= */
+VIEWS.profile = () => {
+ const rk = rankOf(S.fosilAll), pct = rk.next ? (S.fosilAll - rk.at) / (rk.next.at - rk.at) * 100 : 100;
+ const got = BADGES.filter(b => S.badges[b.id]), near = BADGES.filter(b => !S.badges[b.id] && !secret(b)).sort((a, b) => bp(b) - bp(a)).slice(0, 3);
+ const mine = STICKERS.filter(x => S.stickers[x.id]);
+ const tierCount = t => `${BADGES.filter(b => b.t === t && S.badges[b.id]).length}/${BADGES.filter(b => b.t === t).length}`;
+ app.innerHTML = `<div class="stack">
+ <div class="iconrow top"><button class="icbtn" data-act="settings" aria-label="Pengaturan">${I("gear")}<span>Pengaturan</span></button></div>
+ <div class="prof">${REXI(104, "happy", "wave")}<div class="grow"><p class="eyebrow">${rk.name}</p><h1>${esc(S.name || "Penjelajah Cilik")}</h1><button class="btn ghost auto sm" data-act="nav" data-v="closet">${I("hanger")}Dandani ${DN()}</button></div></div>
+ <div class="card rank"><div class="sp"><b class="big">${I("bone", "ic bone")} ${S.fosilAll} fosil terkumpul</b><span class="muted">${rk.next ? "Menuju " + rk.next.name + " (" + rk.next.at + ")" : "Peringkat tertinggi!"}</span></div><div class="bar"><i style="width:${pct}%"></i></div></div>
+ <dl class="statgrid"><div><dt>Fosil</dt><dd>${S.fosil}</dd></div><div><dt>Koin</dt><dd>${S.coins}</dd></div><div><dt>Hari beruntun</dt><dd>${streakNow()}</dd></div><div><dt>Bos kalah</dt><dd>${bossBeaten()}/6</dd></div></dl>
+ <div class="ptab">
+ <div class="card stack"><div class="sp"><h2>Stiker dino</h2><span class="muted">${mine.length} dari ${STICKERS.length}</span></div>
+  ${mine.length ? `<div class="stk">${mine.slice(-8).reverse().map(x => stickerBtn(x)).join("")}</div>` : `<p class="muted">Belum ada stiker. Selesaikan 3 misi harian, lalu tetaskan telur dino di Beranda. Stiker langka didapat dari mengalahkan bos.</p>`}
+  <button class="btn ghost" data-act="nav" data-v="stickers">${I("grid")}Lihat semua stiker</button></div>
+ <div class="card stack"><div class="sp"><h2>Lencana</h2><span class="muted">${got.length} dari ${BADGES.length}</span></div>
+  <div class="tierrow">${["b", "s", "g", "l"].map(t => `<span class="tier t-${t}"><b>${TIERN[t]}</b>${tierCount(t)}</span>`).join("")}</div>
+  ${got.length ? `<div class="bgot">${got.slice(-10).reverse().map(b => `<span class="bchip t-${b.t}"><span class="bic on t-${b.t}">${I(b.ic)}</span><b>${b.n}</b></span>`).join("")}</div>` : `<p class="muted">Belum ada lencana. Ayo selesaikan pelajaran pertamamu!</p>`}
+  ${near.length ? `<h3>Hampir didapat</h3><div class="stack" style="gap:10px">${near.map(badgeRow).join("")}</div>` : ""}
+  <button class="btn ghost" data-act="allbadges">Lihat semua 40 lencana</button></div>
+ </div>
+ </div>`;
+};
+
+/* ================= LEMARI (24 per kategori, rarity) ================= */
+let W = { tab: "char", sel: null };
+function itemState(tab, x) {
+ if (tab === "char") {
+  if (x.boss !== undefined) return S.boss[LEVELS[x.boss].id] ? "own" : "lock";
+  return x.p === 0 || S.owned["char:" + x.id] ? "own" : "buy";
+ }
+ if (x.r === "g") return S.badges[x.req] ? "own" : "lock";
+ return x.p === 0 || S.owned[tab + ":" + x.id] ? "own" : "buy";
+}
+const lockWhy = (tab, x) => tab === "char" ? `Kalahkan bos ${LEVELS[x.boss].name} untuk membuka` : `Dapatkan lencana “${(BADGES.find(b => b.id === x.req) || {}).n}”`;
+VIEWS.closet = () => {
+ const tab = W.tab, isChar = tab === "char";
+ const items = isChar ? CHARS : CLOSET[tab];
+ const curId = isChar ? S.dino : S.look[tab], sel = W.sel ?? curId, it = items.find(x => x.id === sel) || items[0];
+ const stt = itemState(tab, it), wearing = it.id === curId;
+ const look = isChar ? S.look : Object.assign({}, S.look, { [tab]: it.id });
+ const big = isChar ? charSVG(it.id, { look }) : charSVG(S.dino, { look });
+ let foot;
+ if (wearing) foot = `<button class="btn" disabled>${I("check")}Sedang dipakai</button>`;
+ else if (stt === "own") foot = `<button class="btn" data-act="cwear">${isChar ? "Pilih " + esc(it.nick) : "Pakai " + esc(it.n)}</button>`;
+ else if (stt === "lock") foot = `<button class="btn" disabled>${I("lock")}${lockWhy(tab, it)}</button>`;
+ else if (S.coins >= it.p) foot = `<button class="btn sun" data-act="cbuy">${COIN}Beli · ${it.p} koin</button>`;
+ else foot = `<button class="btn" disabled>Koin kurang · butuh ${it.p - S.coins} lagi</button>`;
+ app.innerHTML = `<div class="closet">
+ <div class="cstage card r-${it.r}"><div class="cbig">${big}</div>
+  <div class="ctxt"><p class="eyebrow">Lemari ${esc(DN())} · <span class="rar r-${it.r}">${RARN[it.r]}</span></p><h1>${esc(isChar ? it.nick : it.n)}</h1>
+  <span class="coinpill">${COIN}<b>${S.coins}</b> koin</span>
+  <p class="muted chint">${isChar ? esc(it.n) : stt === "lock" ? "Barang legenda tidak bisa dibeli, hanya bisa dibuka dari prestasi." : "Ketuk barang untuk mencoba dulu."}</p>${foot}</div></div>
+ <div class="cpick">
+  <div class="seg scroll ctabs" role="tablist">${Object.keys(CATN).map(k => `<button role="tab" data-act="ctab" data-v="${k}" aria-selected="${tab === k}">${CATN[k]}</button>`).join("")}</div>
+  <div class="cgrid">${items.map(x => { const s = itemState(tab, x), on = x.id === curId;
+   const th = isChar ? charSVG(x.id, { look: S.look }) : charSVG(S.dino, { look: Object.assign({}, S.look, { [tab]: x.id }) });
+   return `<button class="citem r-${x.r}${x.id === sel ? " sel" : ""}${s === "lock" ? " locked" : ""}" data-act="citem" data-v="${x.id}" aria-pressed="${x.id === sel}"><span class="cth">${th}</span><b>${esc(isChar ? x.nick : x.n)}</b>${on ? '<span class="wchip on">Dipakai</span>' : s === "own" ? '<span class="wchip own">Punya</span>' : s === "lock" ? `<span class="wchip lock">${I("lock")}${RARN[x.r]}</span>` : `<span class="wchip">${COIN}${x.p}</span>`}</button>`; }).join("")}</div>
+ </div></div>`;
+};
 
 load();
 render();

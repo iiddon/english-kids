@@ -4,13 +4,16 @@ Aplikasi belajar bahasa Inggris untuk anak TK dan SD bersama teman dino pilihanm
 Versi anak dari [English Path](https://github.com/iiddon/english-study): struktur dan menunya sama (Belajar · Latihan · Profil).
 
 ## Isi
-- 6 level: Telur Dino (TK A), Bayi Dino (TK B), Triceratops (Kelas 1–2), Stegosaurus (Kelas 3–4), Brachiosaurus (Kelas 5), T-Rex (Kelas 6)
-- 34 pelajaran, 200+ kata bergambar, kalimat contoh untuk SD
-- Kuis bergambar dengan tombol **Kunci Jawaban** (ketukan pertama belum dianggap final)
-- Latihan: tantangan harian, tebak gambar, kartu bergambar, cocokkan pasangan, dengar & pilih, ucapkan kata, nyanyi & tepuk, cerita bergambar, ulang yang salah, ujian bintang
-- Pilih teman dino (8 karakter tampak depan) dan dandani di **Lemari** memakai koin
-- Misi harian, telur dino yang menetas menjadi 32 stiker jenis dinosaurus, fosil untuk peringkat, lencana
-- Sudut Orang Tua & Guru: progres, level awal, buka semua level, pindah progres antar perangkat
+- 6 level (TK A sampai Kelas 6), 34 pelajaran × **3 babak** (102 babak, 1.020 soal), soal **adaptif** Mudah/Sedang/Sulit
+- Hadiah disetel supaya semua barang Lemari bisa terbeli dalam ±3 bulan main rutin
+- Jenis soal: pilih gambar, dengar, eja huruf, dengar kalimat tanpa teks, pengecoh mirip, isi titik, susun kalimat
+- **Peta Petualangan** per level dan **6 Bos Dino** yang membuka level berikutnya
+- 3 hati dan combo di setiap kuis
+- **Kandang Dino**: peliharaan menetas dan tumbuh (Bayi, Remaja, Dewasa), diberi makan dengan nama makanan bahasa Inggris
+- **Arena Mini-Game**: Pecahkan Balon, Eja Huruf, Kartu Memori, Dino Lari, Kejar Waktu, Arena Bos
+- **Lemari**: 24 karakter dan 24 barang per kategori (Biasa, Langka, Legenda)
+- 40 lencana (Perunggu, Perak, Emas, Legenda) dan 32 stiker dinosaurus
+- Suara pujian bahasa Indonesia setiap menjawab
 - Responsif: HP, iPad (tegak & mendatar), laptop. Progres tersimpan otomatis di perangkat.
 
 ## Cara pasang di GitHub Pages
